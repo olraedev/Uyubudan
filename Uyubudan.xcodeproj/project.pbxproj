@@ -13,6 +13,13 @@
 		EC334F182BC90CBC00A97EAB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EC334F172BC90CBC00A97EAB /* Base */; };
 		EC334F202BC90CDB00A97EAB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC334F1F2BC90CDB00A97EAB /* .gitignore */; };
 		EC334F222BC90E2800A97EAB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F212BC90E2800A97EAB /* Environment.swift */; };
+		EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F2C2BCA7E5200A97EAB /* BaseView.swift */; };
+		EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F2F2BCA7E6500A97EAB /* SnapKit */; };
+		EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F312BCA7EC500A97EAB /* BaseViewController.swift */; };
+		EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F342BCA7F0200A97EAB /* RxCocoa */; };
+		EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F362BCA7F0200A97EAB /* RxSwift */; };
+		EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F392BCA7F3C00A97EAB /* HomeView.swift */; };
+		EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,10 @@
 		EC334F192BC90CBC00A97EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC334F1F2BC90CDB00A97EAB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EC334F212BC90E2800A97EAB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		EC334F2C2BCA7E5200A97EAB /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EC334F312BCA7EC500A97EAB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EC334F392BCA7F3C00A97EAB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
+				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
+				EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				EC334F212BC90E2800A97EAB /* Environment.swift */,
+				EC334F2B2BCA7E4900A97EAB /* Base */,
+				EC334F382BCA7F2D00A97EAB /* Home */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -65,6 +81,24 @@
 				EC334F192BC90CBC00A97EAB /* Info.plist */,
 			);
 			path = Uyubudan;
+			sourceTree = "<group>";
+		};
+		EC334F2B2BCA7E4900A97EAB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F2C2BCA7E5200A97EAB /* BaseView.swift */,
+				EC334F312BCA7EC500A97EAB /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		EC334F382BCA7F2D00A97EAB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F392BCA7F3C00A97EAB /* HomeView.swift */,
+				EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +117,11 @@
 			dependencies = (
 			);
 			name = Uyubudan;
+			packageProductDependencies = (
+				EC334F2F2BCA7E6500A97EAB /* SnapKit */,
+				EC334F342BCA7F0200A97EAB /* RxCocoa */,
+				EC334F362BCA7F0200A97EAB /* RxSwift */,
+			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +150,10 @@
 				Base,
 			);
 			mainGroup = EC334EFF2BC90CBB00A97EAB;
+			packageReferences = (
+				EC334F2E2BCA7E6500A97EAB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
+				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
+				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
+				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +410,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC334F2E2BCA7E6500A97EAB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC334F2F2BCA7E6500A97EAB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC334F2E2BCA7E6500A97EAB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EC334F342BCA7F0200A97EAB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EC334F362BCA7F0200A97EAB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC334F002BC90CBB00A97EAB /* Project object */;
 }
