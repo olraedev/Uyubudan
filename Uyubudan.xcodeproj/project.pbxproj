@@ -20,6 +20,10 @@
 		EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F362BCA7F0200A97EAB /* RxSwift */; };
 		EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F392BCA7F3C00A97EAB /* HomeView.swift */; };
 		EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */; };
+		EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F3E2BCBA4B000A97EAB /* Extension+UIView.swift */; };
+		EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */; };
+		EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */; };
+		EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F452BCC009A00A97EAB /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		EC334F312BCA7EC500A97EAB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EC334F392BCA7F3C00A97EAB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC334F3E2BCBA4B000A97EAB /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC334F452BCC009A00A97EAB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				EC334F212BC90E2800A97EAB /* Environment.swift */,
+				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
+				EC334F442BCC008900A97EAB /* Custom */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
@@ -88,6 +98,7 @@
 			children = (
 				EC334F2C2BCA7E5200A97EAB /* BaseView.swift */,
 				EC334F312BCA7EC500A97EAB /* BaseViewController.swift */,
+				EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -97,8 +108,25 @@
 			children = (
 				EC334F392BCA7F3C00A97EAB /* HomeView.swift */,
 				EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */,
+				EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EC334F3D2BCBA4A100A97EAB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F3E2BCBA4B000A97EAB /* Extension+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EC334F442BCC008900A97EAB /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +211,15 @@
 			files = (
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
+				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
+				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
+				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
+				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
