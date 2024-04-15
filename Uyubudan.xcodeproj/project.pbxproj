@@ -33,6 +33,12 @@
 		EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F812BCD69DC00A97EAB /* LoginViewController.swift */; };
 		EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */; };
 		EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F8A2BCD749200A97EAB /* EmailViewController.swift */; };
+		EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F8C2BCD76AD00A97EAB /* EmailView.swift */; };
+		EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F8E2BCD776900A97EAB /* CustomTextField.swift */; };
+		EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F902BCD787F00A97EAB /* PasswordView.swift */; };
+		EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F922BCD788900A97EAB /* PasswordViewController.swift */; };
+		EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F942BCD78B600A97EAB /* NicknameView.swift */; };
+		EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F962BCD7D8400A97EAB /* NicknameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +66,12 @@
 		EC334F7F2BCD688E00A97EAB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EC334F812BCD69DC00A97EAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC334F8A2BCD749200A97EAB /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		EC334F8C2BCD76AD00A97EAB /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		EC334F8E2BCD776900A97EAB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		EC334F902BCD787F00A97EAB /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		EC334F922BCD788900A97EAB /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		EC334F942BCD78B600A97EAB /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		EC334F962BCD7D8400A97EAB /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +109,8 @@
 		EC334F0A2BC90CBB00A97EAB /* Uyubudan */ = {
 			isa = PBXGroup;
 			children = (
-				EC334F7B2BCD3E4900A97EAB /* Protocols */,
 				EC334F212BC90E2800A97EAB /* Environment.swift */,
+				EC334F7B2BCD3E4900A97EAB /* Protocols */,
 				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
@@ -146,6 +158,7 @@
 			children = (
 				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
 				EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */,
+				EC334F8E2BCD776900A97EAB /* CustomTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -162,12 +175,12 @@
 		EC334F722BCD10DD00A97EAB /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				EC334F862BCD6FD400A97EAB /* Email */,
-				EC334F872BCD6FDA00A97EAB /* Password */,
-				EC334F882BCD6FE400A97EAB /* Nickname */,
 				EC334F732BCD10E600A97EAB /* JoinView.swift */,
 				EC334F752BCD110500A97EAB /* JoinViewController.swift */,
 				EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */,
+				EC334F862BCD6FD400A97EAB /* Email */,
+				EC334F872BCD6FDA00A97EAB /* Password */,
+				EC334F882BCD6FE400A97EAB /* Nickname */,
 			);
 			path = Join;
 			sourceTree = "<group>";
@@ -192,6 +205,7 @@
 		EC334F862BCD6FD400A97EAB /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				EC334F8C2BCD76AD00A97EAB /* EmailView.swift */,
 				EC334F8A2BCD749200A97EAB /* EmailViewController.swift */,
 			);
 			path = Email;
@@ -200,6 +214,8 @@
 		EC334F872BCD6FDA00A97EAB /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				EC334F902BCD787F00A97EAB /* PasswordView.swift */,
+				EC334F922BCD788900A97EAB /* PasswordViewController.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -207,6 +223,8 @@
 		EC334F882BCD6FE400A97EAB /* Nickname */ = {
 			isa = PBXGroup;
 			children = (
+				EC334F942BCD78B600A97EAB /* NicknameView.swift */,
+				EC334F962BCD7D8400A97EAB /* NicknameViewController.swift */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -294,20 +312,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */,
+				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
+				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F7A2BCD3E3200A97EAB /* JoinViewModel.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
+				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,
+				EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
+				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
+				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,

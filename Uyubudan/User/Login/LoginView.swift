@@ -32,10 +32,8 @@ final class LoginView: BaseView {
     }()
     
     let emailTextField = {
-        let tf = UITextField()
+        let tf = CustomTextField()
         tf.placeholder = "이메일을 입력해주세요"
-        tf.borderStyle = .roundedRect
-        tf.autocapitalizationType = .none
         return tf
     }()
     
@@ -48,12 +46,10 @@ final class LoginView: BaseView {
     }()
     
     let passwordTextField = {
-        let tf = UITextField()
+        let tf = CustomTextField()
         tf.placeholder = "비밀번호를 입력해주세요"
-        tf.borderStyle = .roundedRect
         tf.isSecureTextEntry = true
         tf.textContentType = .oneTimeCode
-        tf.autocapitalizationType = .none
         return tf
     }()
     
@@ -122,7 +118,6 @@ final class LoginView: BaseView {
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(loginView.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview().inset(24)
-            make.height.equalTo(40)
         }
         
         joinButton.snp.makeConstraints { make in

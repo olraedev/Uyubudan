@@ -32,4 +32,8 @@ final class LoginViewController: BaseViewController {
         }
         .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("LoginViewController Deinit")
+    }
 }

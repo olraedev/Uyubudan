@@ -15,6 +15,7 @@ class BaseView: UIView {
         
         configureHierarchy()
         configureConstraints()
+        configureViews()
     }
     
     required init?(coder: NSCoder) {
@@ -23,4 +24,5 @@ class BaseView: UIView {
     
     func configureHierarchy() { }
     func configureConstraints() { }
+    func configureViews() { }
 }

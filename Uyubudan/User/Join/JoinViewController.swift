@@ -17,6 +17,10 @@ class JoinViewController: BaseViewController {
         
         navigationItem.rightBarButtonItem = dismissButton
     }
+    
+    deinit {
+        print("JoinViewController Deinit")
+    }
 }
 
 extension JoinViewController {
