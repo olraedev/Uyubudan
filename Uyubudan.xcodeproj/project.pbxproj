@@ -24,6 +24,8 @@
 		EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */; };
 		EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */; };
 		EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F452BCC009A00A97EAB /* ProfileImageView.swift */; };
+		EC334F6E2BCD0C4900A97EAB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */; };
+		EC334F702BCD0C6800A97EAB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC334F452BCC009A00A97EAB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
+				EC334F6C2BCD0C2F00A97EAB /* Onboarding */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
@@ -127,6 +132,15 @@
 				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		EC334F6C2BCD0C2F00A97EAB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */,
+				EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC334F702BCD0C6800A97EAB /* OnboardingViewController.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
@@ -220,6 +235,7 @@
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
+				EC334F6E2BCD0C4900A97EAB /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
