@@ -53,5 +53,6 @@ final class NicknameView: JoinView {
     
     override func configureViews() {
         titleLabel.text = "닉네임을\n입력해주세요"
+        completeButton.setTitle("회원가입 완료", for: .normal)
     }
 }

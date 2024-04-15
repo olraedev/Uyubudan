@@ -27,7 +27,6 @@
 		EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F732BCD10E600A97EAB /* JoinView.swift */; };
 		EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F752BCD110500A97EAB /* JoinViewController.swift */; };
 		EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */; };
-		EC334F7A2BCD3E3200A97EAB /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */; };
 		EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F7C2BCD3E5B00A97EAB /* Protocols.swift */; };
 		EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F7F2BCD688E00A97EAB /* LoginView.swift */; };
 		EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F812BCD69DC00A97EAB /* LoginViewController.swift */; };
@@ -39,6 +38,7 @@
 		EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F922BCD788900A97EAB /* PasswordViewController.swift */; };
 		EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F942BCD78B600A97EAB /* NicknameView.swift */; };
 		EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F962BCD7D8400A97EAB /* NicknameViewController.swift */; };
+		EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F982BCD7F6500A97EAB /* Extension+UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,6 @@
 		EC334F732BCD10E600A97EAB /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinView.swift; path = Uyubudan/Onboarding/JoinView.swift; sourceTree = SOURCE_ROOT; };
 		EC334F752BCD110500A97EAB /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryColorButton.swift; sourceTree = "<group>"; };
-		EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		EC334F7C2BCD3E5B00A97EAB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EC334F7F2BCD688E00A97EAB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EC334F812BCD69DC00A97EAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		EC334F922BCD788900A97EAB /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		EC334F942BCD78B600A97EAB /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		EC334F962BCD7D8400A97EAB /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		EC334F982BCD7F6500A97EAB /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				EC334F3E2BCBA4B000A97EAB /* Extension+UIView.swift */,
+				EC334F982BCD7F6500A97EAB /* Extension+UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,7 +178,6 @@
 			children = (
 				EC334F732BCD10E600A97EAB /* JoinView.swift */,
 				EC334F752BCD110500A97EAB /* JoinViewController.swift */,
-				EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */,
 				EC334F862BCD6FD400A97EAB /* Email */,
 				EC334F872BCD6FDA00A97EAB /* Password */,
 				EC334F882BCD6FE400A97EAB /* Nickname */,
@@ -319,7 +319,7 @@
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
-				EC334F7A2BCD3E3200A97EAB /* JoinViewModel.swift in Sources */,
+				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,

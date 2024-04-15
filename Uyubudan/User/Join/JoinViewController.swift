@@ -25,6 +25,8 @@ class JoinViewController: BaseViewController {
 
 extension JoinViewController {
     @objc func dismissButtonClicked() {
-        dismiss(animated: true)
+        showAlert(title: nil, message: "종료하시겠습니까?") { [weak self] () in
+            self?.dismiss(animated: true)
+        }
     }
 }
