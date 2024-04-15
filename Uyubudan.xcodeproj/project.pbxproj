@@ -24,8 +24,15 @@
 		EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */; };
 		EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */; };
 		EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F452BCC009A00A97EAB /* ProfileImageView.swift */; };
-		EC334F6E2BCD0C4900A97EAB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */; };
-		EC334F702BCD0C6800A97EAB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */; };
+		EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F732BCD10E600A97EAB /* JoinView.swift */; };
+		EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F752BCD110500A97EAB /* JoinViewController.swift */; };
+		EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */; };
+		EC334F7A2BCD3E3200A97EAB /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */; };
+		EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F7C2BCD3E5B00A97EAB /* Protocols.swift */; };
+		EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F7F2BCD688E00A97EAB /* LoginView.swift */; };
+		EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F812BCD69DC00A97EAB /* LoginViewController.swift */; };
+		EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */; };
+		EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F8A2BCD749200A97EAB /* EmailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +52,14 @@
 		EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC334F422BCBA5A800A97EAB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC334F452BCC009A00A97EAB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
-		EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		EC334F732BCD10E600A97EAB /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinView.swift; path = Uyubudan/Onboarding/JoinView.swift; sourceTree = SOURCE_ROOT; };
+		EC334F752BCD110500A97EAB /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryColorButton.swift; sourceTree = "<group>"; };
+		EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
+		EC334F7C2BCD3E5B00A97EAB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		EC334F7F2BCD688E00A97EAB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EC334F812BCD69DC00A97EAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC334F8A2BCD749200A97EAB /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
+				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
 				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
 				EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */,
 			);
@@ -83,11 +97,12 @@
 		EC334F0A2BC90CBB00A97EAB /* Uyubudan */ = {
 			isa = PBXGroup;
 			children = (
+				EC334F7B2BCD3E4900A97EAB /* Protocols */,
 				EC334F212BC90E2800A97EAB /* Environment.swift */,
 				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
-				EC334F6C2BCD0C2F00A97EAB /* Onboarding */,
+				EC334F712BCD10AA00A97EAB /* User */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
@@ -130,17 +145,70 @@
 			isa = PBXGroup;
 			children = (
 				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
+				EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		EC334F6C2BCD0C2F00A97EAB /* Onboarding */ = {
+		EC334F712BCD10AA00A97EAB /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EC334F6D2BCD0C4900A97EAB /* OnboardingView.swift */,
-				EC334F6F2BCD0C6800A97EAB /* OnboardingViewController.swift */,
+				EC334F7E2BCD688300A97EAB /* Login */,
+				EC334F722BCD10DD00A97EAB /* Join */,
 			);
-			path = Onboarding;
+			path = User;
+			sourceTree = "<group>";
+		};
+		EC334F722BCD10DD00A97EAB /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F862BCD6FD400A97EAB /* Email */,
+				EC334F872BCD6FDA00A97EAB /* Password */,
+				EC334F882BCD6FE400A97EAB /* Nickname */,
+				EC334F732BCD10E600A97EAB /* JoinView.swift */,
+				EC334F752BCD110500A97EAB /* JoinViewController.swift */,
+				EC334F792BCD3E3200A97EAB /* JoinViewModel.swift */,
+			);
+			path = Join;
+			sourceTree = "<group>";
+		};
+		EC334F7B2BCD3E4900A97EAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F7C2BCD3E5B00A97EAB /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EC334F7E2BCD688300A97EAB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F7F2BCD688E00A97EAB /* LoginView.swift */,
+				EC334F812BCD69DC00A97EAB /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EC334F862BCD6FD400A97EAB /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				EC334F8A2BCD749200A97EAB /* EmailViewController.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		EC334F872BCD6FDA00A97EAB /* Password */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		EC334F882BCD6FE400A97EAB /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nickname;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +231,7 @@
 				EC334F2F2BCA7E6500A97EAB /* SnapKit */,
 				EC334F342BCA7F0200A97EAB /* RxCocoa */,
 				EC334F362BCA7F0200A97EAB /* RxSwift */,
+				EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -195,6 +264,7 @@
 			packageReferences = (
 				EC334F2E2BCA7E6500A97EAB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EC334F832BCD6C5E00A97EAB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -223,19 +293,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC334F702BCD0C6800A97EAB /* OnboardingViewController.swift in Sources */,
+				EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
+				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
+				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
+				EC334F7A2BCD3E3200A97EAB /* JoinViewModel.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
+				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
+				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
+				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
-				EC334F6E2BCD0C4900A97EAB /* OnboardingView.swift in Sources */,
+				EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +552,14 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		EC334F832BCD6C5E00A97EAB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -493,6 +577,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC334F832BCD6C5E00A97EAB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
