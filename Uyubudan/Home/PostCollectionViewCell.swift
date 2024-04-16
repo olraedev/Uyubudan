@@ -86,12 +86,13 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         button.setTitle("왼쪽", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
-        button.backgroundColor = .customLightGray
-        button.layer.shadowRadius = 2
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowOpacity = 0.25
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.masksToBounds = false
+        button.backgroundColor = .customSecondary
+        button.layer.opacity = 0.5
+        // button.layer.shadowRadius = 2
+        // button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        // button.layer.shadowOpacity = 0.25
+        // button.layer.shadowColor = UIColor.black.cgColor
+        // button.layer.masksToBounds = false
         return button
     }()
     
@@ -108,12 +109,13 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         button.setTitle("오른쪽", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
-        button.backgroundColor = .customLightGray
-        button.layer.shadowRadius = 2
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowOpacity = 0.25
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.masksToBounds = false
+        button.backgroundColor = .customTertiary
+        button.layer.opacity = 0.5
+        // button.layer.shadowRadius = 2
+        // button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        // button.layer.shadowOpacity = 0.25
+        // button.layer.shadowColor = UIColor.black.cgColor
+        // button.layer.masksToBounds = false
         return button
     }()
     
@@ -415,15 +417,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureViews() {
-        layer.shadowRadius = 2
-        layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowOpacity = 0.25
-        layer.shadowColor = UIColor.black.cgColor
-        layer.cornerRadius = 10
-        layer.masksToBounds = false
-        
         contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
         contentView.backgroundColor = UIColor.white
         contentView.layer.borderColor = UIColor.customLightGray.cgColor
         contentView.layer.borderWidth = 2

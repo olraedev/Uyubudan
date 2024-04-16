@@ -25,6 +25,6 @@ final class ProfileImageView: UIImageView {
         super.layoutSubviews()
         
         clipsToBounds = true
-        layer.cornerRadius = self.frame.width / 2
+        layer.cornerRadius = frame.width / 2
     }
 }
