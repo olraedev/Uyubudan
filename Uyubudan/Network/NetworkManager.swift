@@ -12,7 +12,7 @@ import RxCocoa
 
 final class NetworkManager {
     
-    static func fetchToServer<Q: Encodable, M: Decodable, T: TargetType>(query: Q, model: M.Type, router: T) -> Single<Result<M, HTTPError>> {
+    static func fetchToServer<M: Decodable, T: TargetType>(model: M.Type, router: T) -> Single<Result<M, HTTPError>> {
         return Single<Result<M, HTTPError>>.create { single in
             do {
                 let urlRequest = try router.asURLRequest()
@@ -23,7 +23,7 @@ final class NetworkManager {
                         switch response.result {
                         case .success(let loginModel):
                             single(.success(.success(loginModel)))
-                        case .failure(let error):
+                        case .failure(_):
                             guard let statusCode = response.response?.statusCode else {
                                 single(.success(.failure(.serverError)))
                                 return

@@ -50,6 +50,10 @@
 		EC334FCB2BCE658C00A97EAB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */; };
 		EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FCF2BCE713E00A97EAB /* JoinModel.swift */; };
 		EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD12BCE8CA900A97EAB /* HTTPError.swift */; };
+		EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD32BCE91B200A97EAB /* LoginViewModel.swift */; };
+		EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD52BCE93F900A97EAB /* LoginModel.swift */; };
+		EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */; };
+		EC334FDC2BCE9A2800A97EAB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EC334FDB2BCE9A2800A97EAB /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +97,9 @@
 		EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EC334FCF2BCE713E00A97EAB /* JoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModel.swift; sourceTree = "<group>"; };
 		EC334FD12BCE8CA900A97EAB /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		EC334FD32BCE91B200A97EAB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EC334FD52BCE93F900A97EAB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC334FDC2BCE9A2800A97EAB /* Toast in Frameworks */,
 				EC334FBB2BCE5AF900A97EAB /* Alamofire in Frameworks */,
 				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
 				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
@@ -135,6 +143,7 @@
 				EC334F7B2BCD3E4900A97EAB /* Protocols */,
 				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334FB62BCE5A2B00A97EAB /* Network */,
+				EC334FD72BCE956500A97EAB /* UserDefaults */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
 				EC334F712BCD10AA00A97EAB /* User */,
@@ -221,6 +230,7 @@
 			children = (
 				EC334F7F2BCD688E00A97EAB /* LoginView.swift */,
 				EC334F812BCD69DC00A97EAB /* LoginViewController.swift */,
+				EC334FD32BCE91B200A97EAB /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -289,8 +299,17 @@
 			isa = PBXGroup;
 			children = (
 				EC334FCF2BCE713E00A97EAB /* JoinModel.swift */,
+				EC334FD52BCE93F900A97EAB /* LoginModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC334FD72BCE956500A97EAB /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +334,7 @@
 				EC334F362BCA7F0200A97EAB /* RxSwift */,
 				EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */,
 				EC334FBA2BCE5AF900A97EAB /* Alamofire */,
+				EC334FDB2BCE9A2800A97EAB /* Toast */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -349,6 +369,7 @@
 				EC334F332BCA7F0200A97EAB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EC334F832BCD6C5E00A97EAB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -385,6 +406,7 @@
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
+				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
@@ -400,6 +422,7 @@
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
+				EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
@@ -408,6 +431,7 @@
 				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
+				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
@@ -668,6 +692,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -695,6 +727,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EC334FDB2BCE9A2800A97EAB /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

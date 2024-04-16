@@ -8,6 +8,7 @@
 import Foundation
 
 enum HTTPError: Int, Error {
+    case checkAccount = 401
     case wrongSesacKey = 420
     case overRequest = 429
     case invalidURL = 444
