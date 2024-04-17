@@ -57,6 +57,7 @@
 		EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */; };
 		EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F5F2BCFC32A00F15199 /* EmailViewModel.swift */; };
 		EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F612BCFC9C500F15199 /* MessageModel.swift */; };
+		EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinManager.swift; sourceTree = "<group>"; };
 		EC7E0F5F2BCFC32A00F15199 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		EC7E0F612BCFC9C500F15199 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			children = (
 				EC334F902BCD787F00A97EAB /* PasswordView.swift */,
 				EC334F922BCD788900A97EAB /* PasswordViewController.swift */,
+				EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */,
+				EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,

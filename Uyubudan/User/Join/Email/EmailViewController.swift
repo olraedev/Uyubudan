@@ -40,14 +40,12 @@ final class EmailViewController: JoinViewController {
         // 이메일 형식이 맞는지? -> Bool
         output.emailRegex
             .drive(with: self) { owner, state in
-                let buttonColor: UIColor = state ? .customPrimary : .lightGray
-                let textColor: UIColor = state ? .customPrimary : .systemRed
                 let text = state ? "중복확인을 해주세요." : "이메일 주소를 정확하게 입력해주세요."
                 
                 owner.emailView.validationButton.isEnabled = state
-                owner.emailView.validationButton.backgroundColor = buttonColor
+                owner.emailView.validationButton.backgroundColor = JoinManager.shared.buttonColor(state)
                 
-                owner.emailView.validationLabel.textColor = textColor
+                owner.emailView.validationLabel.textColor = JoinManager.shared.textColor(state)
                 owner.emailView.validationLabel.text = text
             }
             .disposed(by: disposeBag)
@@ -55,13 +53,10 @@ final class EmailViewController: JoinViewController {
         // 중복 확인 -> Bool
         output.validation
             .drive(with: self) { owner, state in
-                let textColor: UIColor = state ? .customPrimary : .systemRed
-                let buttonColor: UIColor = state ? .customPrimary : .lightGray
-                
                 owner.emailView.completeButton.isEnabled = state
-                owner.emailView.completeButton.backgroundColor = buttonColor
+                owner.emailView.completeButton.backgroundColor = JoinManager.shared.buttonColor(state)
                 
-                owner.emailView.validationLabel.textColor = textColor
+                owner.emailView.validationLabel.textColor = JoinManager.shared.textColor(state)
             }
             .disposed(by: disposeBag)
         

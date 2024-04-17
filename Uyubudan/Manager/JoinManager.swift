@@ -5,7 +5,7 @@
 //  Created by SangRae Kim on 4/17/24.
 //
 
-import Foundation
+import UIKit
 
 class JoinManager {
     
@@ -16,4 +16,12 @@ class JoinManager {
     var email = ""
     var password = ""
     var nickname = ""
+    
+    func textColor(_ state: Bool) -> UIColor {
+        return state ? .customPrimary : .systemRed
+    }
+    
+    func buttonColor(_ state: Bool) -> UIColor {
+        return state ? .customPrimary : .lightGray
+    }
 }
