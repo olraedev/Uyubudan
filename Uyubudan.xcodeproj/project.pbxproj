@@ -54,6 +54,9 @@
 		EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD52BCE93F900A97EAB /* LoginModel.swift */; };
 		EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */; };
 		EC334FDC2BCE9A2800A97EAB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EC334FDB2BCE9A2800A97EAB /* Toast */; };
+		EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */; };
+		EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F5F2BCFC32A00F15199 /* EmailViewModel.swift */; };
+		EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F612BCFC9C500F15199 /* MessageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +103,9 @@
 		EC334FD32BCE91B200A97EAB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC334FD52BCE93F900A97EAB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinManager.swift; sourceTree = "<group>"; };
+		EC7E0F5F2BCFC32A00F15199 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		EC7E0F612BCFC9C500F15199 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +149,7 @@
 				EC334F7B2BCD3E4900A97EAB /* Protocols */,
 				EC334F3D2BCBA4A100A97EAB /* Extensions */,
 				EC334FB62BCE5A2B00A97EAB /* Network */,
-				EC334FD72BCE956500A97EAB /* UserDefaults */,
+				EC7E0F5E2BCFBFCB00F15199 /* Manager */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
 				EC334F712BCD10AA00A97EAB /* User */,
@@ -240,6 +246,7 @@
 			children = (
 				EC334F8C2BCD76AD00A97EAB /* EmailView.swift */,
 				EC334F8A2BCD749200A97EAB /* EmailViewController.swift */,
+				EC7E0F5F2BCFC32A00F15199 /* EmailViewModel.swift */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -268,8 +275,8 @@
 				EC334FB72BCE5AE700A97EAB /* TargetType.swift */,
 				EC334FBF2BCE5F9400A97EAB /* HTTPHeader.swift */,
 				EC334FC42BCE636E00A97EAB /* Version.swift */,
-				EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */,
 				EC334FD12BCE8CA900A97EAB /* HTTPError.swift */,
+				EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */,
 				EC334FBC2BCE5D1C00A97EAB /* User */,
 			);
 			path = Network;
@@ -300,16 +307,18 @@
 			children = (
 				EC334FCF2BCE713E00A97EAB /* JoinModel.swift */,
 				EC334FD52BCE93F900A97EAB /* LoginModel.swift */,
+				EC7E0F612BCFC9C500F15199 /* MessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EC334FD72BCE956500A97EAB /* UserDefaults */ = {
+		EC7E0F5E2BCFBFCB00F15199 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */,
+				EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */,
 			);
-			path = UserDefaults;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +411,7 @@
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
+				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
@@ -409,6 +419,8 @@
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
+				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
+				EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,

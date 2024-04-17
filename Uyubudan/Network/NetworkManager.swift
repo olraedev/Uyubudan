@@ -22,6 +22,7 @@ final class NetworkManager {
                     .responseDecodable(of: M.self) { response in
                         switch response.result {
                         case .success(let loginModel):
+                            dump(loginModel)
                             single(.success(.success(loginModel)))
                         case .failure(_):
                             guard let statusCode = response.response?.statusCode else {
@@ -29,13 +30,14 @@ final class NetworkManager {
                                 return
                             }
                             
+                            print(statusCode)
                             if let code = HTTPError(rawValue: statusCode) {
                                 single(.success(.failure(code)))
                             }
                         }
                     }
             } catch {
-                single(.failure(error))
+                single(.success(.failure(.serverError)))
             }
             
             return Disposables.create()
