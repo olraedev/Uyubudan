@@ -17,7 +17,7 @@ final class NicknameView: JoinView {
         return label
     }()
     
-    private let nickTextField = {
+    let nickTextField = {
         let tf = CustomTextField()
         tf.placeholder = "결정마스터"
         return tf
