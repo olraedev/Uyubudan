@@ -12,7 +12,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let categoryLabel = {
         let label = UILabel()
-        label.text = "작명"
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
         return label
@@ -26,7 +25,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let titleLabel = {
         let label = UILabel()
-        label.text = "프로젝트 이름 정해주세요..!"
         label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .black
         return label
@@ -34,7 +32,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let createdDateLable = {
         let label = UILabel()
-        label.text = "6시간전"
         label.font = .systemFont(ofSize: 13)
         label.textColor = .systemGray4
         return label
@@ -49,7 +46,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let voteCountLabel = {
         let label = UILabel()
-        label.text = "123,456"
         label.font = .systemFont(ofSize: 13)
         label.textColor = .systemGray4
         return label
@@ -76,23 +72,16 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         textView.textAlignment = .justified
         textView.font = .systemFont(ofSize: 14)
         textView.textColor = .black
-        textView.text = "onewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwponewofnowenfewnfpwnefpnwefpnwefnwp"
         textView.isScrollEnabled = false
         return textView
     }()
     
     private let leftButton = {
         let button = UIButton()
-        button.setTitle("왼쪽", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
         button.backgroundColor = .customSecondary
         button.layer.opacity = 0.5
-        // button.layer.shadowRadius = 2
-        // button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        // button.layer.shadowOpacity = 0.25
-        // button.layer.shadowColor = UIColor.black.cgColor
-        // button.layer.masksToBounds = false
         return button
     }()
     
@@ -106,22 +95,15 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let rightButton = {
         let button = UIButton()
-        button.setTitle("오른쪽", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
         button.backgroundColor = .customTertiary
         button.layer.opacity = 0.5
-        // button.layer.shadowRadius = 2
-        // button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        // button.layer.shadowOpacity = 0.25
-        // button.layer.shadowColor = UIColor.black.cgColor
-        // button.layer.masksToBounds = false
         return button
     }()
     
     private let leftVoteCountLabel = {
         let label = UILabel()
-        label.text = "100표"
         label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .black
         label.textAlignment = .center
@@ -139,7 +121,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let diffCountLabel = {
         let label = UILabel()
-        label.text = "15표"
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
         label.textAlignment = .center
@@ -148,37 +129,26 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let rightVoteCountLabel = {
         let label = UILabel()
-        label.text = "100표"
         label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .black
         label.textAlignment = .center
         return label
     }()
     
-    private let leftRateView = {
-        let view = UIView()
-        view.backgroundColor = .customSecondary
-        return view
-    }()
-    
-    private let rightRateView = {
-        let view = UIView()
-        view.backgroundColor = .customTertiary
-        return view
-    }()
-    
     private let leftVoteRateLabel = {
         let label = UILabel()
-        label.text = "62.3%"
         label.font = .systemFont(ofSize: 15)
         label.textColor = .black
         label.textAlignment = .center
+        label.backgroundColor = .customSecondary
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     private lazy var voteRateStackView = {
-        let view = UIStackView(arrangedSubviews: [leftRateView, rightRateView])
+        let view = UIStackView(arrangedSubviews: [leftVoteRateLabel, rightVoteRateLabel])
         view.distribution = .fillProportionally
+        view.spacing = 0
         view.clipsToBounds = true
         view.layer.cornerRadius = 5
         return view
@@ -186,10 +156,11 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let rightVoteRateLabel = {
         let label = UILabel()
-        label.text = "37.7%"
         label.font = .systemFont(ofSize: 15)
         label.textColor = .black
         label.textAlignment = .center
+        label.backgroundColor = .customTertiary
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -199,36 +170,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    private let profileImageView = {
-        let view = ProfileImageView(frame: .zero)
-        view.image = UIImage(systemName: "person.fill")
-        view.contentMode = .scaleAspectFill
-        return view
-    }()
-    
-    private let creatorNickLabel = {
-        let label = UILabel()
-        label.text = "고래밥"
-        label.font = .boldSystemFont(ofSize: 13)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let creatorLabel = {
-        let label = UILabel()
-        label.text = "투표게시자"
-        label.font = .systemFont(ofSize: 11)
-        label.textColor = .systemGray4
-        return label
-    }()
-    
-    private let detailProfileButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        button.tintColor = .darkGray
-        button.backgroundColor = .customLightGray
-        return button
-    }()
+    private let profileView = ProfileView()
     
     func configureCell(_ item: PostData) {
         categoryLabel.text = "기타"
@@ -242,49 +184,32 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         leftVoteCountLabel.text = "\(item.likes.count)표"
         diffCountLabel.text = "\(abs(item.likes.count - item.likes2.count))표"
         rightVoteCountLabel.text = "\(item.likes2.count)표"
-        leftVoteRateLabel.text = "\(Double(item.likes.count) / (Double(item.likes.count + item.likes2.count)) * 100)%"
-        rightVoteRateLabel.text = "\(Double(item.likes2.count) / (Double(item.likes.count + item.likes2.count)) * 100)%"
-        creatorNickLabel.text = item.creator.nick
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
+        leftVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes.count, b: item.likes2.count)))%"
+        rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes2.count, b: item.likes.count)))%"
+        // UIView.animate(withDuration: 0.5) {
+        //     self.contentView.layoutIfNeeded()
+        //   }
+        profileView.creatorNickLabel.text = item.creator.nick
         
-        profileImageView.layer.cornerRadius = 0
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        detailProfileButton.layoutIfNeeded()
-        detailProfileButton.layer.cornerRadius = detailProfileButton.frame.width / 2
+        if percentage(a: item.likes.count, b: item.likes2.count) != 0 {
+            leftVoteRateLabel.snp.remakeConstraints { make in
+                make.verticalEdges.equalTo(voteRateStackView)
+                make.leading.equalTo(voteRateStackView.snp.leading)
+                make.width.equalTo(voteRateStackView.snp.width).multipliedBy(percentage(a: item.likes.count, b: item.likes2.count) / 100)
+            }
+        }
     }
     
     override func configureHierarchy() {
-        contentView.addSubview(categoryLabel)
-        contentView.addSubview(emptyView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(createdDateLable)
-        contentView.addSubview(personImageView)
-        contentView.addSubview(voteCountLabel)
-        contentView.addSubview(commentsImageView)
-        contentView.addSubview(commentsCountLabel)
-        contentView.addSubview(contentTextView)
-        contentView.addSubview(leftButton)
-        contentView.addSubview(vsLabel)
-        contentView.addSubview(rightButton)
-        contentView.addSubview(leftVoteCountLabel)
-        contentView.addSubview(diffVoteLabel)
-        contentView.addSubview(diffCountLabel)
-        contentView.addSubview(rightVoteCountLabel)
-        contentView.addSubview(voteRateStackView)
-        contentView.addSubview(leftVoteRateLabel)
-        contentView.addSubview(rightVoteRateLabel)
-        contentView.addSubview(lineView)
-        contentView.addSubview(profileImageView)
-        contentView.addSubview(creatorNickLabel)
-        contentView.addSubview(creatorLabel)
-        contentView.addSubview(detailProfileButton)
+        contentView.addSubViews(
+            [categoryLabel, emptyView, titleLabel,
+             createdDateLable, personImageView, voteCountLabel, commentsImageView, commentsCountLabel,
+             contentTextView,
+             leftButton, vsLabel, rightButton,
+             leftVoteCountLabel, diffVoteLabel, diffCountLabel, rightVoteCountLabel,
+             voteRateStackView, leftVoteRateLabel, rightVoteRateLabel,
+             lineView, profileView]
+        )
     }
     
     override func configureConstraints() {
@@ -389,22 +314,18 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.height.equalTo(24)
         }
         
-        leftRateView.snp.makeConstraints { make in
-            make.verticalEdges.leading.equalToSuperview()
-        }
-        
-        rightRateView.snp.makeConstraints { make in
-            make.verticalEdges.trailing.equalToSuperview()
-        }
-        
+        leftVoteRateLabel.setContentHuggingPriority(.init(rawValue: 751), for: .horizontal)
         leftVoteRateLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(voteRateStackView)
-            make.leading.equalTo(voteRateStackView.snp.leading).offset(8)
+            make.leading.equalTo(voteRateStackView.snp.leading)
+            make.width.equalTo(voteRateStackView.snp.width).multipliedBy(0.5)
         }
         
+        rightVoteRateLabel.setContentHuggingPriority(.init(rawValue: 750), for: .horizontal)
         rightVoteRateLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(voteRateStackView)
-            make.trailing.equalTo(voteRateStackView.snp.trailing).offset(-8)
+            make.leading.equalTo(leftVoteRateLabel.snp.trailing)
+            make.trailing.equalTo(voteRateStackView.snp.trailing)
         }
         
         lineView.snp.makeConstraints { make in
@@ -413,29 +334,10 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.height.equalTo(1)
         }
         
-        profileImageView.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(24)
-            make.size.equalTo(40)
-            make.bottom.equalToSuperview().offset(-16)
-        }
-        
-        creatorNickLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(profileImageView.snp.centerY)
-            make.leading.equalTo(profileImageView.snp.trailing).offset(16)
-            make.height.equalTo(16)
-        }
-        
-        creatorLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView.snp.centerY)
-            make.leading.equalTo(creatorNickLabel)
-            make.height.equalTo(16)
-        }
-        
-        detailProfileButton.snp.makeConstraints { make in
-            make.centerY.equalTo(profileImageView)
-            make.trailing.equalToSuperview().offset(-24)
-            make.size.equalTo(30)
+        profileView.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     

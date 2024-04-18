@@ -17,4 +17,16 @@ extension UIView {
          
         return window.screen.bounds.width
     }
+    
+    func addSubViews(_ views: [UIView]) {
+        for view in views {
+            self.addSubview(view)
+        }
+    }
+    
+    func percentage(a: Int, b: Int) -> Double {
+        if a + b == 0 { return 0.0 }
+        
+        return (Double(a) / (Double(a + b)) * 100)
+    }
 }

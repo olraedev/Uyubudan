@@ -15,6 +15,7 @@
 		EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CC2BD112180073276A /* ReadAllModel.swift */; };
 		EC0CE6CF2BD1326B0073276A /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */; };
 		EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D02BD139ED0073276A /* Extension+String.swift */; };
+		EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D22BD176AB0073276A /* ProfileView.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		EC0CE6CC2BD112180073276A /* ReadAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAllModel.swift; sourceTree = "<group>"; };
 		EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		EC0CE6D02BD139ED0073276A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		EC0CE6D22BD176AB0073276A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
 				EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */,
 				EC334F8E2BCD776900A97EAB /* CustomTextField.swift */,
+				EC0CE6D22BD176AB0073276A /* ProfileView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
+				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
 				EC0CE6C62BD1075C0073276A /* WriteQuery.swift in Sources */,
 				EC0CE6C42BD106CE0073276A /* UploadImageQuery.swift in Sources */,

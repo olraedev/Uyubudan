@@ -15,6 +15,7 @@ final class ProfileImageView: UIImageView {
         tintColor = .customLightGray
         layer.borderColor = UIColor.systemGray4.cgColor
         layer.borderWidth = 1
+        contentMode = .scaleAspectFit
     }
     
     required init?(coder: NSCoder) {
@@ -24,7 +25,8 @@ final class ProfileImageView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        layer.masksToBounds = true
         clipsToBounds = true
-        layer.cornerRadius = frame.width / 2.2
+        layer.cornerRadius = frame.height / 2
     }
 }
