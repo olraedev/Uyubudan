@@ -45,7 +45,7 @@ final class EmailViewModel: ViewModelType {
                 EmailValidationQuery(email: $0)
             }
             .flatMap {
-                NetworkManager.fetchToServer(model: MessageModel.self, router: UserRouter.emailValidation($0))
+                NetworkManager.fetchToServer(model: MessageModel.self, router: UserRouter.emailValidation(EmailValidationQuery: $0))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

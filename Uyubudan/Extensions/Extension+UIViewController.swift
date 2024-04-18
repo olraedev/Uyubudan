@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 extension UIViewController {
     func showAlert(title: String?, message: String?, completionHandler: @escaping () -> Void) {
@@ -28,5 +30,17 @@ extension UIViewController {
         alert.addAction(confirm)
         
         present(alert, animated: true)
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    var viewDidLoad: ControlEvent<Void> {
+        let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { _ in }
+        return ControlEvent(events: source)
+    }
+    
+    var viewWillAppear: ControlEvent<Bool> {
+        let source = self.methodInvoked(#selector(Base.viewWillAppear)).map { $0.first as? Bool ?? false }
+        return ControlEvent(events: source)
     }
 }

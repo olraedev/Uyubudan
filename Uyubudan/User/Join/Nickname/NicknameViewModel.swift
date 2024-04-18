@@ -42,7 +42,7 @@ class NicknameViewModel: ViewModelType {
                 return JoinQuery(email: manager.email, password: manager.password, nick: $0)
             }
             .flatMap {
-                NetworkManager.fetchToServer(model: JoinModel.self, router: UserRouter.join($0))
+                NetworkManager.fetchToServer(model: JoinModel.self, router: UserRouter.join(JoinQuery: $0))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

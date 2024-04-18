@@ -19,13 +19,13 @@ class UserDefaultsManager {
         static let refreshToken = "refreshToken"
     }
     
-    var accessToken: String? {
-        get { ud.string(forKey: Key.accessToken) }
+    var accessToken: String {
+        get { ud.string(forKey: Key.accessToken) ?? "" }
         set { ud.setValue(newValue, forKey: Key.accessToken) }
     }
     
-    var refreshToken: String? {
-        get { ud.string(forKey: Key.refreshToken) }
+    var refreshToken: String {
+        get { ud.string(forKey: Key.refreshToken) ?? "" }
         set { ud.setValue(newValue, forKey: Key.refreshToken) }
     }
 }

@@ -230,6 +230,29 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return button
     }()
     
+    func configureCell(_ item: PostData) {
+        categoryLabel.text = "기타"
+        titleLabel.text = item.title
+        createdDateLable.text = item.createdAt.timeIntervalSinceNow
+        voteCountLabel.text = "\(item.likes.count + item.likes2.count)"
+        commentsCountLabel.text = "\(item.comments.count)"
+        contentTextView.text = item.content
+        leftButton.setTitle(item.content1, for: .normal)
+        rightButton.setTitle(item.content2, for: .normal)
+        leftVoteCountLabel.text = "\(item.likes.count)표"
+        diffCountLabel.text = "\(abs(item.likes.count - item.likes2.count))표"
+        rightVoteCountLabel.text = "\(item.likes2.count)표"
+        leftVoteRateLabel.text = "\(Double(item.likes.count) / (Double(item.likes.count + item.likes2.count)) * 100)%"
+        rightVoteRateLabel.text = "\(Double(item.likes2.count) / (Double(item.likes.count + item.likes2.count)) * 100)%"
+        creatorNickLabel.text = item.creator.nick
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        profileImageView.layer.cornerRadius = 0
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

@@ -15,15 +15,16 @@ final class NetworkManager {
     static func fetchToServer<M: Decodable, T: TargetType>(model: M.Type, router: T) -> Single<Result<M, HTTPError>> {
         return Single<Result<M, HTTPError>>.create { single in
             do {
-                let urlRequest = try router.asURLRequest()
-                                
+                var urlRequest = try router.asURLRequest()
+                urlRequest.addValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
+                
                 AF.request(urlRequest)
                     .validate(statusCode: 200..<300)
                     .responseDecodable(of: M.self) { response in
                         switch response.result {
-                        case .success(let loginModel):
-                            dump(loginModel)
-                            single(.success(.success(loginModel)))
+                        case .success(let model):
+                            dump(model)
+                            single(.success(.success(model)))
                         case .failure(_):
                             guard let statusCode = response.response?.statusCode else {
                                 single(.success(.failure(.serverError)))

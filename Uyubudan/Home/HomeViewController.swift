@@ -12,6 +12,7 @@ import RxCocoa
 final class HomeViewController: BaseViewController {
     
     private let homeView = HomeView()
+    private let viewModel = HomeViewModel()
     
     override func loadView() {
         super.loadView()
@@ -20,16 +21,25 @@ final class HomeViewController: BaseViewController {
     }
     
     override func bind() {
-        let a = Observable.just([1, 2])
+        let viewWillAppearTrigger = self.rx.viewWillAppear
         
-        a.bind(to: homeView.collectionView.rx.items(cellIdentifier: PostCollectionViewCell.identifier, cellType: PostCollectionViewCell.self)) { row, element, cell in
-            print(row)
+        let input = HomeViewModel.Input(
+            viewWillAppearTrigger: viewWillAppearTrigger
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.allPostList.drive(homeView.collectionView.rx.items(
+            cellIdentifier: PostCollectionViewCell.identifier,
+            cellType: PostCollectionViewCell.self)) { row, element, cell in
+                cell.configureCell(element)
         }
         .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
-        let myPage = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(myPageBarButtonClicked))
+        let myPage = UIBarButtonItem(customView: ProfileImageView(frame: .zero))
+        myPage.target = self
+        myPage.action = #selector(myPageBarButtonClicked)
         myPage.tintColor = .customPrimary
         navigationItem.rightBarButtonItem = myPage
     }

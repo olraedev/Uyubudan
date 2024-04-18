@@ -9,9 +9,9 @@ import Foundation
 import Alamofire
 
 enum UserRouter {
-    case join(JoinQuery)
-    case emailValidation(EmailValidationQuery)
-    case login(LoginQuery)
+    case join(JoinQuery: Encodable)
+    case emailValidation(EmailValidationQuery: Encodable)
+    case login(LoginQuery: Encodable)
     case authRefresh
     case withdraw
 }
@@ -56,17 +56,10 @@ extension UserRouter: TargetType {
     }
     
     var body: Data? {
+        let encoder = JSONEncoder()
+        
         switch self {
-        case .join(let query):
-            let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
-            return try? encoder.encode(query)
-        case .emailValidation(let query):
-            let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
-            return try? encoder.encode(query)
-        case .login(let query):
-            let encoder = JSONEncoder()
+        case .join(let query), .emailValidation(let query), .login(let query):
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         default: return nil
