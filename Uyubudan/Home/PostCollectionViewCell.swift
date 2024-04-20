@@ -197,11 +197,17 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes2.count, b: item.likes.count)))%"
         profileView.creatorNickLabel.text = item.creator.nick
         
-        if percentage(a: item.likes.count, b: item.likes2.count) != 0 {
+        if item.likes.count + item.likes2.count != 0 {
             leftVoteRateLabel.snp.remakeConstraints { make in
                 make.verticalEdges.equalTo(voteRateStackView)
                 make.leading.equalTo(voteRateStackView.snp.leading)
                 make.width.equalTo(voteRateStackView.snp.width).multipliedBy(percentage(a: item.likes.count, b: item.likes2.count) / 100)
+            }
+        } else {
+            leftVoteRateLabel.snp.remakeConstraints { make in
+                make.verticalEdges.equalTo(voteRateStackView)
+                make.leading.equalTo(voteRateStackView.snp.leading)
+                make.width.equalTo(voteRateStackView.snp.width).multipliedBy(0.5)
             }
         }
         
