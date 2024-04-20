@@ -82,6 +82,11 @@
 		ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E92BD425A7006C28F5 /* CategoryViewController.swift */; };
 		ECC824EC2BD428A6006C28F5 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */; };
 		ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824ED2BD42C15006C28F5 /* WriteManager.swift */; };
+		ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824F32BD42FBD006C28F5 /* ContentsView.swift */; };
+		ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824F52BD42FD5006C28F5 /* ContentsViewController.swift */; };
+		ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824F72BD43799006C28F5 /* ContentsViewModel.swift */; };
+		ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FA2BD43C60006C28F5 /* SelectView.swift */; };
+		ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +160,11 @@
 		ECC824E92BD425A7006C28F5 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		ECC824ED2BD42C15006C28F5 /* WriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteManager.swift; sourceTree = "<group>"; };
+		ECC824F32BD42FBD006C28F5 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
+		ECC824F52BD42FD5006C28F5 /* ContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		ECC824F72BD43799006C28F5 /* ContentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsViewModel.swift; sourceTree = "<group>"; };
+		ECC824FA2BD43C60006C28F5 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
+		ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +447,8 @@
 				ECC824E22BD409FE006C28F5 /* WriteView.swift */,
 				ECC824E02BD409F5006C28F5 /* WriteViewController.swift */,
 				ECC824E62BD42570006C28F5 /* Category */,
+				ECC824F22BD42FAA006C28F5 /* Contents */,
+				ECC824F92BD43AF1006C28F5 /* Select */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -449,6 +461,25 @@
 				ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		ECC824F22BD42FAA006C28F5 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824F32BD42FBD006C28F5 /* ContentsView.swift */,
+				ECC824F52BD42FD5006C28F5 /* ContentsViewController.swift */,
+				ECC824F72BD43799006C28F5 /* ContentsViewModel.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		ECC824F92BD43AF1006C28F5 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824FA2BD43C60006C28F5 /* SelectView.swift */,
+				ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */,
+			);
+			path = Select;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +580,7 @@
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
+				ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
@@ -559,6 +591,7 @@
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
+				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
 				EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
@@ -586,7 +619,9 @@
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
+				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
 				ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */,
+				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
 				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
@@ -595,6 +630,7 @@
 				EC0CE6C42BD106CE0073276A /* UploadImageQuery.swift in Sources */,
 				ECC824D32BD3C989006C28F5 /* LaunchViewController.swift in Sources */,
 				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
+				ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,

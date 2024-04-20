@@ -46,7 +46,7 @@ final class CategoryViewController: WriteViewController {
         
         completeButtonTapped
             .bind(with: self) { owner, _ in
-                
+                owner.navigationController?.pushViewController(ContentsViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
