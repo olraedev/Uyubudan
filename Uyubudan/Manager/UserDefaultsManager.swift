@@ -18,6 +18,7 @@ class UserDefaultsManager {
         static let userID = "userID"
         static let accessToken = "accessToken"
         static let refreshToken = "refreshToken"
+        static let profileImage = "profileImage"
     }
     
     var userID: String {
@@ -33,5 +34,10 @@ class UserDefaultsManager {
     var refreshToken: String {
         get { ud.string(forKey: Key.refreshToken) ?? "" }
         set { ud.setValue(newValue, forKey: Key.refreshToken) }
+    }
+    
+    var profileImage: String {
+        get { ud.string(forKey: Key.profileImage) ?? "uploads/posts/person@3x_1713616487566.png"}
+        set { ud.setValue(newValue, forKey: Key.profileImage)}
     }
 }

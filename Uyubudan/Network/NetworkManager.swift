@@ -24,8 +24,8 @@ final class NetworkManager {
                         case .success(let model):
                             print("success")
                             single(.success(.success(model)))
-                        case .failure(let error):
-                            print("failure \(error)")
+                        case .failure(_):
+                            print("failure")
                             guard let statusCode = response.response?.statusCode else {
                                 single(.success(.failure(.serverError)))
                                 return
@@ -45,7 +45,7 @@ final class NetworkManager {
         }
     }
     
-    static func fetchRefreshTokenToServer(completionHandler: @escaping (HTTPError) -> Void) {
+    static func fetchRefreshTokenToServer() {
         do {
             var urlRequest = try UserRouter.authRefresh.asURLRequest()
             
@@ -58,13 +58,7 @@ final class NetworkManager {
                     case .success(let model):
                         UserDefaultsManager.shared.accessToken = model.accessToken
                     case .failure(let error):
-                        guard let statusCode = response.response?.statusCode,
-                        let code = HTTPError(rawValue: statusCode) else {
-                            completionHandler(.serverError)
-                            return
-                        }
-                        
-                        completionHandler(code)
+                        print("refresh Error: \(error)")
                     }
                 }
         } catch {

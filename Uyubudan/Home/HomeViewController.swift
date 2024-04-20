@@ -50,16 +50,16 @@ final class HomeViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        let myPage = UIBarButtonItem(customView: ProfileImageView(frame: .zero))
-        myPage.target = self
-        myPage.action = #selector(myPageBarButtonClicked)
-        myPage.tintColor = .customPrimary
-        navigationItem.rightBarButtonItem = myPage
+        let profileImageView = ProfileImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(myPageBarButtonClicked)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
 }
 
 extension HomeViewController {
     @objc func myPageBarButtonClicked() {
-        
+        print(#function)
     }
 }

@@ -44,6 +44,7 @@ class LoginViewModel: ViewModelType {
                     UserDefaultsManager.shared.userID = model.userID
                     UserDefaultsManager.shared.accessToken = model.accessToken
                     UserDefaultsManager.shared.refreshToken = model.refreshToken
+                    UserDefaultsManager.shared.profileImage = model.profileImage
                     success.accept(model.nickName)
                 case .failure(let error):
                     errorInfo.accept(error)

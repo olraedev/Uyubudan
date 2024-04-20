@@ -74,6 +74,7 @@
 		ECC824D32BD3C989006C28F5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */; };
 		ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */; };
 		ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */; };
+		ECC824DA2BD3EC8E006C28F5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ECC824D92BD3EC8E006C28F5 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,7 @@
 			files = (
 				EC334FDC2BCE9A2800A97EAB /* Toast in Frameworks */,
 				EC334FBB2BCE5AF900A97EAB /* Alamofire in Frameworks */,
+				ECC824DA2BD3EC8E006C28F5 /* Kingfisher in Frameworks */,
 				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
 				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
 				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
@@ -435,6 +437,7 @@
 				EC334F842BCD6C5E00A97EAB /* IQKeyboardManagerSwift */,
 				EC334FBA2BCE5AF900A97EAB /* Alamofire */,
 				EC334FDB2BCE9A2800A97EAB /* Toast */,
+				ECC824D92BD3EC8E006C28F5 /* Kingfisher */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -470,6 +473,7 @@
 				EC334F832BCD6C5E00A97EAB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -820,6 +824,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -852,6 +864,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		ECC824D92BD3EC8E006C28F5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

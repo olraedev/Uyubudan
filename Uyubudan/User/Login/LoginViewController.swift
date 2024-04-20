@@ -23,6 +23,8 @@ final class LoginViewController: BaseViewController {
     
     override func configureNavigationItem() {
         super.configureNavigationItem()
+        
+        navigationItem.leftBarButtonItem?.isHidden = true
     }
     
     override func bind() {

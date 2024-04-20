@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import Kingfisher
 
 final class PostCollectionViewCell: BaseCollectionViewCell {
     
@@ -196,6 +197,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         leftVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes.count, b: item.likes2.count)))%"
         rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes2.count, b: item.likes.count)))%"
         profileView.creatorNickLabel.text = item.creator.nick
+        profileView.profileImageView.setImage(url: item.creator.profileImage)
         
         if item.likes.count + item.likes2.count != 0 {
             leftVoteRateLabel.snp.remakeConstraints { make in

@@ -9,9 +9,8 @@ import UIKit
 
 final class ProfileView: BaseView {
     
-    private let profileImageView = {
+    let profileImageView = {
         let view = ProfileImageView(frame: .zero)
-        view.image = UIImage(systemName: "person.fill")
         view.contentMode = .scaleAspectFill
         return view
     }()
