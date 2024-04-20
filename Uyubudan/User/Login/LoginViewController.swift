@@ -45,7 +45,7 @@ final class LoginViewController: BaseViewController {
                 owner.view.makeToast("\(nickName)님 환영합니다", duration: 1)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                let nav = UINavigationController(rootViewController: HomeViewController())
+                let nav = TabViewController()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     sceneDelegate?.window?.rootViewController = nav

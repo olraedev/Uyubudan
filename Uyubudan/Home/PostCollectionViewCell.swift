@@ -239,7 +239,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     override func configureConstraints() {
         categoryLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(16)
+            make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(24)
             make.height.equalTo(16)
         }
@@ -254,7 +254,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         titleLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(emptyView)
             make.leading.equalTo(emptyView.snp.trailing).offset(8)
-            make.trailing.equalToSuperview().offset(-24)        }
+            make.trailing.equalToSuperview().offset(-24)
+        }
         
         createdDateLable.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)

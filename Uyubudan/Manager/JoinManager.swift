@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JoinManager {
+final class JoinManager {
     
     static let shared = JoinManager()
     

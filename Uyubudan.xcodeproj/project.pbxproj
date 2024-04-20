@@ -75,6 +75,13 @@
 		ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */; };
 		ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */; };
 		ECC824DA2BD3EC8E006C28F5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ECC824D92BD3EC8E006C28F5 /* Kingfisher */; };
+		ECC824E12BD409F5006C28F5 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E02BD409F5006C28F5 /* WriteViewController.swift */; };
+		ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E22BD409FE006C28F5 /* WriteView.swift */; };
+		ECC824E52BD41EB0006C28F5 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E42BD41EB0006C28F5 /* TabViewController.swift */; };
+		ECC824E82BD4258A006C28F5 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E72BD4258A006C28F5 /* CategoryView.swift */; };
+		ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824E92BD425A7006C28F5 /* CategoryViewController.swift */; };
+		ECC824EC2BD428A6006C28F5 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */; };
+		ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824ED2BD42C15006C28F5 /* WriteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +148,13 @@
 		ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptor.swift; sourceTree = "<group>"; };
 		ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRefreshModel.swift; sourceTree = "<group>"; };
+		ECC824E02BD409F5006C28F5 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		ECC824E22BD409FE006C28F5 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		ECC824E42BD41EB0006C28F5 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		ECC824E72BD4258A006C28F5 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		ECC824E92BD425A7006C28F5 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		ECC824ED2BD42C15006C28F5 /* WriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +233,7 @@
 				ECC824D12BD3C974006C28F5 /* Launch */,
 				EC334F712BCD10AA00A97EAB /* User */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
+				ECC824DF2BD409E5006C28F5 /* Write */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -392,6 +407,7 @@
 			children = (
 				EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */,
 				EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */,
+				ECC824ED2BD42C15006C28F5 /* WriteManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -410,8 +426,29 @@
 			isa = PBXGroup;
 			children = (
 				ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */,
+				ECC824E42BD41EB0006C28F5 /* TabViewController.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		ECC824DF2BD409E5006C28F5 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824E22BD409FE006C28F5 /* WriteView.swift */,
+				ECC824E02BD409F5006C28F5 /* WriteViewController.swift */,
+				ECC824E62BD42570006C28F5 /* Category */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		ECC824E62BD42570006C28F5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824E72BD4258A006C28F5 /* CategoryView.swift */,
+				ECC824E92BD425A7006C28F5 /* CategoryViewController.swift */,
+				ECC824EB2BD428A6006C28F5 /* CategoryViewModel.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,8 +552,10 @@
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
+				ECC824E52BD41EB0006C28F5 /* TabViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
+				ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
@@ -525,6 +564,7 @@
 				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
 				EC0CE6CA2BD111540073276A /* HomeViewModel.swift in Sources */,
 				EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */,
+				ECC824E82BD4258A006C28F5 /* CategoryView.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334FC02BCE5F9400A97EAB /* HTTPHeader.swift in Sources */,
@@ -534,9 +574,11 @@
 				EC334FC22BCE628C00A97EAB /* JoinQuery.swift in Sources */,
 				EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */,
 				EC334FC52BCE636E00A97EAB /* Version.swift in Sources */,
+				ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC0CE6C82BD108280073276A /* UpdateQuery.swift in Sources */,
 				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
+				ECC824E12BD409F5006C28F5 /* WriteViewController.swift in Sources */,
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
 				EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
@@ -544,6 +586,7 @@
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
+				ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
 				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
@@ -557,6 +600,7 @@
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */,
+				ECC824EC2BD428A6006C28F5 /* CategoryViewModel.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
 				EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */,

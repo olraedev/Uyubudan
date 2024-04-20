@@ -1,13 +1,13 @@
 //
-//  JoinViewController.swift
+//  WriteViewController.swift
 //  Uyubudan
 //
-//  Created by SangRae Kim on 4/15/24.
+//  Created by SangRae Kim on 4/20/24.
 //
 
 import UIKit
 
-class JoinViewController: BaseViewController {
+class WriteViewController: BaseViewController {
     
     override func configureNavigationItem() {
         super.configureNavigationItem()
@@ -26,7 +26,7 @@ class JoinViewController: BaseViewController {
     }
 }
 
-extension JoinViewController {
+extension WriteViewController {
     @objc func popButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
@@ -35,5 +35,9 @@ extension JoinViewController {
         showAlert(title: nil, message: "종료하시겠습니까?") { [weak self] () in
             self?.dismiss(animated: true)
         }
+    }
+    
+    func buttonColor(_ state: Bool) -> UIColor {
+        return state ? .customPrimary : .lightGray
     }
 }

@@ -50,10 +50,13 @@ final class HomeViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        let profileImageView = ProfileImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let profileImageView = ProfileImageView(frame: .zero)
         profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(myPageBarButtonClicked)))
+        profileImageView.snp.makeConstraints { make in
+            make.size.equalTo(30)
+        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
 }

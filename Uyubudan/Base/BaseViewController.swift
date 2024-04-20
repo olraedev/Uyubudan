@@ -21,16 +21,5 @@ class BaseViewController: UIViewController {
     }
     
     func bind() { }
-    func configureNavigationItem() { 
-        let popButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(popButtonClicked))
-        popButton.tintColor = .black
-        
-        navigationItem.leftBarButtonItem = popButton
-    }
-}
-
-extension BaseViewController {
-    @objc func popButtonClicked() {
-        navigationController?.popViewController(animated: true)
-    }
+    func configureNavigationItem() { }
 }

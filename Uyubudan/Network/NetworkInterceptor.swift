@@ -25,7 +25,7 @@ class NetworkInterceptor: RequestInterceptor {
                   DispatchQueue.main.async {
                       let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                       let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                      let nav = UINavigationController(rootViewController: LoginViewController())
+                      let nav = LoginViewController()
                       sceneDelegate?.window?.rootViewController = nav
                       sceneDelegate?.window?.makeKeyAndVisible()
                   }

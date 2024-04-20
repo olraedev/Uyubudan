@@ -14,15 +14,15 @@ final class LaunchViewController: BaseViewController {
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        var nav: UINavigationController
+        var nav: UIViewController
         
         // 현재 저장된 accessToken이 없는 경우 -> 로그인
         if UserDefaultsManager.shared.accessToken == "" {
-            nav = UINavigationController(rootViewController: LoginViewController())
+            nav = LoginViewController()
         }
         // 아니면 홈 화면으로
         else {
-            nav = UINavigationController(rootViewController: HomeViewController())
+            nav = TabViewController()
         }
         
         sceneDelegate?.window?.rootViewController = nav
