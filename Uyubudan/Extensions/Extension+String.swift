@@ -20,7 +20,8 @@ extension String {
         
         // 오늘 날짜와 다르면
         if !Calendar.current.isDateInToday(targetDate) {
-            return "\(diff.year!)년\(diff.month!)월\(diff.day!)일"
+            let date = Calendar.current.dateComponents(components, from: targetDate)
+            return "\(date.year!)-\(date.month!)-\(date.day!)"
         }
 
         if let hour = diff.hour, hour > 0 {
@@ -29,6 +30,6 @@ extension String {
         if let minute = diff.minute, minute > 0 {
             return "\(minute)분 전"
         }
-        return "방금"
+        return "방금 전"
     }
 }

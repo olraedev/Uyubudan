@@ -15,8 +15,14 @@ class UserDefaultsManager {
     private init() { }
     
     private enum Key {
+        static let userID = "userID"
         static let accessToken = "accessToken"
         static let refreshToken = "refreshToken"
+    }
+    
+    var userID: String {
+        get { ud.string(forKey: Key.userID) ?? "" }
+        set { ud.setValue(newValue, forKey: Key.userID) }
     }
     
     var accessToken: String {

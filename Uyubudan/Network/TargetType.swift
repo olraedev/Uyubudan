@@ -14,7 +14,6 @@ protocol TargetType: URLRequestConvertible {
     var method: HTTPMethod { get }
     var path: String { get }
     var header: [String: String] { get }
-    var parameters: String? { get }
     var queryItems: [URLQueryItem]? { get }
     var body: Data? { get }
 }
@@ -31,10 +30,9 @@ extension TargetType {
         }
         
         urlRequest.allHTTPHeaderFields = header
-        urlRequest.httpBody = parameters?.data(using: .utf8)
         urlRequest.httpBody = body
         
-        print(#function, urlRequest)
+        print(urlRequest)
         return urlRequest
     }
 }

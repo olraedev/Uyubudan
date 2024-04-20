@@ -68,6 +68,10 @@
 		EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F612BCFC9C500F15199 /* MessageModel.swift */; };
 		EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */; };
 		EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F652BCFFD8800F15199 /* NicknameViewModel.swift */; };
+		ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824C82BD39DD4006C28F5 /* LikeState.swift */; };
+		ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */; };
+		ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */; };
+		ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CF2BD3A305006C28F5 /* LikeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +132,10 @@
 		EC7E0F612BCFC9C500F15199 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		EC7E0F652BCFFD8800F15199 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		ECC824C82BD39DD4006C28F5 /* LikeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeState.swift; sourceTree = "<group>"; };
+		ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRouter.swift; sourceTree = "<group>"; };
+		ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuery.swift; sourceTree = "<group>"; };
+		ECC824CF2BD3A305006C28F5 /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,7 @@
 		EC334F382BCA7F2D00A97EAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				ECC824C82BD39DD4006C28F5 /* LikeState.swift */,
 				EC334F392BCA7F3C00A97EAB /* HomeView.swift */,
 				EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */,
 				EC0CE6C92BD111540073276A /* HomeViewModel.swift */,
@@ -334,6 +343,7 @@
 				EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */,
 				EC334FBC2BCE5D1C00A97EAB /* User */,
 				EC0CE6BF2BD0FD570073276A /* Post */,
+				ECC824CA2BD3A01C006C28F5 /* Like */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -376,6 +386,16 @@
 				EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		ECC824CA2BD3A01C006C28F5 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */,
+				ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */,
+				ECC824CF2BD3A305006C28F5 /* LikeModel.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +489,7 @@
 				EC0CE6C12BD0FD760073276A /* PostRouter.swift in Sources */,
 				EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
+				ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
@@ -501,10 +522,13 @@
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
 				EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
+				ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */,
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
+				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
+				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
 				EC0CE6C62BD1075C0073276A /* WriteQuery.swift in Sources */,
 				EC0CE6C42BD106CE0073276A /* UploadImageQuery.swift in Sources */,

@@ -17,15 +17,15 @@ final class NetworkManager {
             do {
                 var urlRequest = try router.asURLRequest()
                 urlRequest.addValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
-                
                 AF.request(urlRequest)
-                    .validate(statusCode: 200..<300)
+                    // .validate(statusCode: 200..<300)
                     .responseDecodable(of: M.self) { response in
                         switch response.result {
                         case .success(let model):
-                            dump(model)
+                            print("success")
                             single(.success(.success(model)))
-                        case .failure(_):
+                        case .failure(let error):
+                            print("failure \(error)")
                             guard let statusCode = response.response?.statusCode else {
                                 single(.success(.failure(.serverError)))
                                 return

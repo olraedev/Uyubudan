@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class PostCollectionViewCell: BaseCollectionViewCell {
+    
+    var disposeBag = DisposeBag()
     
     private let categoryLabel = {
         let label = UILabel()
@@ -76,7 +79,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return textView
     }()
     
-    private let leftButton = {
+    let leftButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
@@ -93,7 +96,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    private let rightButton = {
+    let rightButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
@@ -172,6 +175,12 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     private let profileView = ProfileView()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
+    }
+    
     func configureCell(_ item: PostData) {
         categoryLabel.text = "기타"
         titleLabel.text = item.title
@@ -186,9 +195,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         rightVoteCountLabel.text = "\(item.likes2.count)표"
         leftVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes.count, b: item.likes2.count)))%"
         rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes2.count, b: item.likes.count)))%"
-        // UIView.animate(withDuration: 0.5) {
-        //     self.contentView.layoutIfNeeded()
-        //   }
         profileView.creatorNickLabel.text = item.creator.nick
         
         if percentage(a: item.likes.count, b: item.likes2.count) != 0 {
@@ -197,6 +203,17 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
                 make.leading.equalTo(voteRateStackView.snp.leading)
                 make.width.equalTo(voteRateStackView.snp.width).multipliedBy(percentage(a: item.likes.count, b: item.likes2.count) / 100)
             }
+        }
+        
+        if item.likes.contains(UserDefaultsManager.shared.userID) {
+            leftButton.layer.opacity = 1.0
+            rightButton.layer.opacity = 0.5
+        } else if item.likes2.contains(UserDefaultsManager.shared.userID) {
+            leftButton.layer.opacity = 0.5
+            rightButton.layer.opacity = 1.0
+        } else {
+            leftButton.layer.opacity = 0.5
+            rightButton.layer.opacity = 0.5
         }
     }
     
@@ -214,7 +231,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     override func configureConstraints() {
         categoryLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalTo(contentView.snp.top).offset(16)
             make.leading.equalToSuperview().offset(24)
             make.height.equalTo(16)
         }
@@ -227,11 +244,9 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(emptyView)
+            make.verticalEdges.equalTo(emptyView)
             make.leading.equalTo(emptyView.snp.trailing).offset(8)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(24)
-        }
+            make.trailing.equalToSuperview().offset(-24)        }
         
         createdDateLable.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
@@ -314,14 +329,12 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.height.equalTo(24)
         }
         
-        leftVoteRateLabel.setContentHuggingPriority(.init(rawValue: 751), for: .horizontal)
         leftVoteRateLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(voteRateStackView)
             make.leading.equalTo(voteRateStackView.snp.leading)
             make.width.equalTo(voteRateStackView.snp.width).multipliedBy(0.5)
         }
         
-        rightVoteRateLabel.setContentHuggingPriority(.init(rawValue: 750), for: .horizontal)
         rightVoteRateLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(voteRateStackView)
             make.leading.equalTo(leftVoteRateLabel.snp.trailing)
@@ -336,6 +349,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         
         profileView.snp.makeConstraints { make in
             make.top.equalTo(lineView.snp.bottom)
+            make.height.equalTo(80)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }

@@ -47,24 +47,20 @@ final class ProfileView: BaseView {
     }
     
     override func configureConstraints() {
-        self.snp.makeConstraints { make in
-            make.height.equalTo(64)
-        }
-        
         profileImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(24)
-            make.size.equalTo(40)
+            make.size.equalTo(45)
         }
         
         creatorNickLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(snp.centerY)
+            make.bottom.equalTo(profileImageView.snp.centerY)
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
             make.height.equalTo(16)
         }
         
         creatorLabel.snp.makeConstraints { make in
-            make.top.equalTo(snp.centerY)
+            make.top.equalTo(profileImageView.snp.centerY)
             make.leading.equalTo(creatorNickLabel)
             make.height.equalTo(16)
         }

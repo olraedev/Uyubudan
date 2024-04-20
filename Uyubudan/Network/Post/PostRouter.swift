@@ -57,10 +57,6 @@ extension PostRouter: TargetType {
         }
     }
     
-    var parameters: String? {
-        return nil
-    }
-    
     var queryItems: [URLQueryItem]? {
         switch self {
         case .readAll: return [URLQueryItem(name: "product_id", value: "uyubudan")]

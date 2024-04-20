@@ -47,10 +47,6 @@ extension UserRouter: TargetType {
                 HTTPHeader.sesacKey.rawValue: Environment.secretKey]
     }
     
-    var parameters: String? {
-        return nil
-    }
-    
     var queryItems: [URLQueryItem]? {
         return nil
     }

@@ -41,6 +41,7 @@ class LoginViewModel: ViewModelType {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
+                    UserDefaultsManager.shared.userID = model.userID
                     UserDefaultsManager.shared.accessToken = model.accessToken
                     UserDefaultsManager.shared.refreshToken = model.refreshToken
                     success.accept(model.nickName)
