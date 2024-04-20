@@ -13,7 +13,6 @@
 		EC0CE6C82BD108280073276A /* UpdateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6C72BD108280073276A /* UpdateQuery.swift */; };
 		EC0CE6CA2BD111540073276A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6C92BD111540073276A /* HomeViewModel.swift */; };
 		EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CC2BD112180073276A /* ReadAllModel.swift */; };
-		EC0CE6CF2BD1326B0073276A /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */; };
 		EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D02BD139ED0073276A /* Extension+String.swift */; };
 		EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D22BD176AB0073276A /* ProfileView.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
@@ -72,6 +71,9 @@
 		ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */; };
 		ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */; };
 		ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CF2BD3A305006C28F5 /* LikeModel.swift */; };
+		ECC824D32BD3C989006C28F5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */; };
+		ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */; };
+		ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +83,6 @@
 		EC0CE6C72BD108280073276A /* UpdateQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateQuery.swift; sourceTree = "<group>"; };
 		EC0CE6C92BD111540073276A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC0CE6CC2BD112180073276A /* ReadAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAllModel.swift; sourceTree = "<group>"; };
-		EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		EC0CE6D02BD139ED0073276A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		EC0CE6D22BD176AB0073276A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +137,9 @@
 		ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRouter.swift; sourceTree = "<group>"; };
 		ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuery.swift; sourceTree = "<group>"; };
 		ECC824CF2BD3A305006C28F5 /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
+		ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptor.swift; sourceTree = "<group>"; };
+		ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRefreshModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 				EC7E0F5E2BCFBFCB00F15199 /* Manager */,
 				EC334F2B2BCA7E4900A97EAB /* Base */,
 				EC334F442BCC008900A97EAB /* Custom */,
+				ECC824D12BD3C974006C28F5 /* Launch */,
 				EC334F712BCD10AA00A97EAB /* User */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
@@ -340,6 +345,7 @@
 				EC334FBF2BCE5F9400A97EAB /* HTTPHeader.swift */,
 				EC334FC42BCE636E00A97EAB /* Version.swift */,
 				EC334FD12BCE8CA900A97EAB /* HTTPError.swift */,
+				ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */,
 				EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */,
 				EC334FBC2BCE5D1C00A97EAB /* User */,
 				EC0CE6BF2BD0FD570073276A /* Post */,
@@ -374,6 +380,7 @@
 				EC334FCF2BCE713E00A97EAB /* JoinModel.swift */,
 				EC334FD52BCE93F900A97EAB /* LoginModel.swift */,
 				EC7E0F612BCFC9C500F15199 /* MessageModel.swift */,
+				ECC824D62BD3E358006C28F5 /* AuthRefreshModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,7 +390,6 @@
 			children = (
 				EC334FD82BCE957900A97EAB /* UserDefaultsManager.swift */,
 				EC7E0F5A2BCFBFB200F15199 /* JoinManager.swift */,
-				EC0CE6CE2BD1326B0073276A /* DateFormatterManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -396,6 +402,14 @@
 				ECC824CF2BD3A305006C28F5 /* LikeModel.swift */,
 			);
 			path = Like;
+			sourceTree = "<group>";
+		};
+		ECC824D12BD3C974006C28F5 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +509,7 @@
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
+				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
@@ -512,7 +527,6 @@
 				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,
 				EC334FCB2BCE658C00A97EAB /* NetworkManager.swift in Sources */,
 				EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */,
-				EC0CE6CF2BD1326B0073276A /* DateFormatterManager.swift in Sources */,
 				EC334FC22BCE628C00A97EAB /* JoinQuery.swift in Sources */,
 				EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */,
 				EC334FC52BCE636E00A97EAB /* Version.swift in Sources */,
@@ -532,11 +546,13 @@
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
 				EC0CE6C62BD1075C0073276A /* WriteQuery.swift in Sources */,
 				EC0CE6C42BD106CE0073276A /* UploadImageQuery.swift in Sources */,
+				ECC824D32BD3C989006C28F5 /* LaunchViewController.swift in Sources */,
 				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
+				ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
 				EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */,

@@ -51,9 +51,9 @@ final class HomeViewModel {
             }
             .subscribe(with: self, onNext: { owner, result in
                 switch result {
-                case .success(let model):
+                case .success(_):
                     owner.viewWillAppearTrigger.accept(())
-                case .failure(let error): break
+                case .failure(_): break
                 }
             })
             .disposed(by: disposeBag)
@@ -76,9 +76,9 @@ final class HomeViewModel {
             }
             .subscribe(with: self, onNext: { owner, result in
                 switch result {
-                case .success(let model):
+                case .success(_):
                     owner.viewWillAppearTrigger.accept(())
-                case .failure(let error):
+                case .failure(_):
                     break
                 }
             })

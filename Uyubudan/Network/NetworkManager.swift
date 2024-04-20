@@ -15,9 +15,9 @@ final class NetworkManager {
     static func fetchToServer<M: Decodable, T: TargetType>(model: M.Type, router: T) -> Single<Result<M, HTTPError>> {
         return Single<Result<M, HTTPError>>.create { single in
             do {
-                var urlRequest = try router.asURLRequest()
-                urlRequest.addValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
-                AF.request(urlRequest)
+                let urlRequest = try router.asURLRequest()
+                
+                AF.request(urlRequest, interceptor: NetworkInterceptor())
                     // .validate(statusCode: 200..<300)
                     .responseDecodable(of: M.self) { response in
                         switch response.result {
@@ -42,6 +42,33 @@ final class NetworkManager {
             }
             
             return Disposables.create()
+        }
+    }
+    
+    static func fetchRefreshTokenToServer(completionHandler: @escaping (HTTPError) -> Void) {
+        do {
+            var urlRequest = try UserRouter.authRefresh.asURLRequest()
+            
+            urlRequest.addValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
+            urlRequest.addValue(UserDefaultsManager.shared.refreshToken, forHTTPHeaderField: HTTPHeader.refresh.rawValue)
+            
+            AF.request(urlRequest)
+                .responseDecodable(of: AuthRefreshModel.self) { response in
+                    switch response.result {
+                    case .success(let model):
+                        UserDefaultsManager.shared.accessToken = model.accessToken
+                    case .failure(let error):
+                        guard let statusCode = response.response?.statusCode,
+                        let code = HTTPError(rawValue: statusCode) else {
+                            completionHandler(.serverError)
+                            return
+                        }
+                        
+                        completionHandler(code)
+                    }
+                }
+        } catch {
+            
         }
     }
 }

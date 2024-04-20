@@ -12,6 +12,7 @@ enum HTTPError: Int, Error {
     case checkAccount = 401
     case forbidden = 403
     case cantUseEmail = 409
+    case expiredRefreshToken = 418
     case expiredAccessToken = 419
     case wrongSesacKey = 420
     case overRequest = 429
