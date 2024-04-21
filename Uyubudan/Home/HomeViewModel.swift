@@ -12,12 +12,15 @@ import RxCocoa
 final class HomeViewModel {
     
     private let disposeBag = DisposeBag()
+    let categories = BehaviorRelay(value: ["전체", "작명", "메뉴", "쇼핑", "여행", "기타"])
     
     let viewWillAppearTrigger = PublishRelay<Void>()
     let leftButtonClicked = PublishRelay<PostData>()
     let rightButtonClicked = PublishRelay<PostData>()
+    let categoryClicked = BehaviorRelay(value: "전체")
     
     let allPostList = PublishRelay<[PostData]>()
+    let categoryPostList = PublishRelay<[PostData]>()
     
     init() {
         viewWillAppearTrigger
@@ -27,9 +30,27 @@ final class HomeViewModel {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
+                    print("전체 데이터 가져오기 성공!")
                     owner.allPostList.accept(model.data)
+                    owner.categoryClicked.accept(owner.categoryClicked.value)
                 case .failure(_): break
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        categoryClicked
+            .withLatestFrom(allPostList)
+            .bind(with: self) { owner, lists in
+                print("change category: \(owner.categoryClicked.value)")
+                if owner.categoryClicked.value == "전체" {
+                    owner.categoryPostList.accept(lists)
+                } else {
+                    owner.categoryPostList
+                        .accept(lists.filter {
+                            $0.content3 == owner.categoryClicked.value
+                        })
+                }
+                owner.categories.accept(owner.categories.value)
             }
             .disposed(by: disposeBag)
         

@@ -88,6 +88,7 @@
 		ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FA2BD43C60006C28F5 /* SelectView.swift */; };
 		ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */; };
 		ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */; };
+		ECC825032BD4F827006C28F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,7 @@
 		ECC824FA2BD43C60006C28F5 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
 		ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewModel.swift; sourceTree = "<group>"; };
+		ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				EC334F3B2BCA7F4400A97EAB /* HomeViewController.swift */,
 				EC0CE6C92BD111540073276A /* HomeViewModel.swift */,
 				EC334F402BCBA59400A97EAB /* PostCollectionViewCell.swift */,
+				ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC0CE6C82BD108280073276A /* UpdateQuery.swift in Sources */,
+				ECC825032BD4F827006C28F5 /* CategoryCollectionViewCell.swift in Sources */,
 				EC334F432BCBA5A800A97EAB /* BaseCollectionViewCell.swift in Sources */,
 				ECC824E12BD409F5006C28F5 /* WriteViewController.swift in Sources */,
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,

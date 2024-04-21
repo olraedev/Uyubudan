@@ -27,12 +27,23 @@ final class HomeViewController: BaseViewController {
     }
     
     override func bind() {
-        viewModel.allPostList
+        viewModel.categories
+            .bind(to: homeView.categoryCollectionView.rx.items(cellIdentifier: CategoryCollectionViewCell.identifier, cellType: CategoryCollectionViewCell.self)) { [weak self] row, element, cell in
+                guard let self else { return }
+                
+                cell.configureCell(title: element, nowCategory: self.viewModel.categoryClicked.value)
+                cell.button.rx.tap
+                    .map { return element }
+                    .bind(to: self.viewModel.categoryClicked)
+                    .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.categoryPostList
             .bind(to: homeView.collectionView.rx.items(
             cellIdentifier: PostCollectionViewCell.identifier,
             cellType: PostCollectionViewCell.self)) { [weak self] row, element, cell in
                 guard let self else { return }
-                
                 cell.configureCell(element)
                 
                 cell.leftButton.rx.tap
@@ -51,6 +62,12 @@ final class HomeViewController: BaseViewController {
                     .disposed(by: cell.disposeBag)
         }
         .disposed(by: disposeBag)
+        
+        Observable.zip(homeView.collectionView.rx.itemSelected, homeView.collectionView.rx.modelSelected(PostData.self))
+            .subscribe(with: self) { owner, _ in
+                print("adfafsf")
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
@@ -62,6 +79,9 @@ final class HomeViewController: BaseViewController {
             make.size.equalTo(30)
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileImageView)
+        navigationItem.title = "우유부단"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 

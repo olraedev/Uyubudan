@@ -45,7 +45,7 @@ final class NetworkManager {
         }
     }
     
-    static func fetchRefreshTokenToServer() {
+    static func fetchRefreshTokenToServer(completionHandler: @escaping (Result<AuthRefreshModel, HTTPError>) -> Void) {
         do {
             var urlRequest = try UserRouter.authRefresh.asURLRequest()
             
@@ -56,9 +56,15 @@ final class NetworkManager {
                 .responseDecodable(of: AuthRefreshModel.self) { response in
                     switch response.result {
                     case .success(let model):
-                        UserDefaultsManager.shared.accessToken = model.accessToken
-                    case .failure(let error):
-                        print("refresh Error: \(error)")
+                        completionHandler(.success(model))
+                    case .failure(_):
+                        guard let statusCode = response.response?.statusCode else {
+                            completionHandler(.failure(.serverError))
+                            return
+                        }
+                        if let code = HTTPError(rawValue: statusCode) {
+                            completionHandler(.failure(code))
+                        }
                     }
                 }
         } catch {

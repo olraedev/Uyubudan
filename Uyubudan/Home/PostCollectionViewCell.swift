@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import SnapKit
-import RxSwift
 import Kingfisher
+import RxSwift
 
 final class PostCollectionViewCell: BaseCollectionViewCell {
-    
-    var disposeBag = DisposeBag()
     
     private let categoryLabel = {
         let label = UILabel()
