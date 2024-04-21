@@ -103,6 +103,23 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return button
     }()
     
+    let buttonsView = UIView()
+    
+    let voteInfoView = {
+        let view = UIView()
+        view.isHidden = true
+        return view
+    }()
+    
+    lazy var verticalStackView = {
+        let view = UIStackView(arrangedSubviews: [buttonsView, voteInfoView, lineView, profileView])
+        view.axis = .vertical
+        view.spacing = 8
+        view.backgroundColor = .white
+        view.distribution = .fill
+        return view
+    }()
+    
     private let leftVoteCountLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
@@ -177,6 +194,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         super.prepareForReuse()
         
         disposeBag = DisposeBag()
+        voteInfoView.isHidden = true
     }
     
     func configureCell(_ item: PostData) {
@@ -213,12 +231,28 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         if item.likes.contains(UserDefaultsManager.shared.userID) {
             leftButton.layer.opacity = 1.0
             rightButton.layer.opacity = 0.5
+            
+            voteInfoView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 1
+            }, completion:  nil)
         } else if item.likes2.contains(UserDefaultsManager.shared.userID) {
             leftButton.layer.opacity = 0.5
             rightButton.layer.opacity = 1.0
+            
+            voteInfoView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 1
+            }, completion:  nil)
         } else {
             leftButton.layer.opacity = 0.5
             rightButton.layer.opacity = 0.5
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 0
+            }, completion: { (value: Bool) in
+                self.voteInfoView.isHidden = true
+            })
         }
     }
     
@@ -227,10 +261,14 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             [categoryLabel, emptyView, titleLabel,
              createdDateLable, personImageView, voteCountLabel, commentsImageView, commentsCountLabel,
              contentTextView,
-             leftButton, vsLabel, rightButton,
-             leftVoteCountLabel, diffVoteLabel, diffCountLabel, rightVoteCountLabel,
-             voteRateStackView, leftVoteRateLabel, rightVoteRateLabel,
-             lineView, profileView]
+             verticalStackView]
+            // lineView, profileView]
+        )
+        
+        buttonsView.addSubViews([leftButton, vsLabel, rightButton])
+        
+        voteInfoView.addSubViews(
+            [leftVoteCountLabel, diffVoteLabel, diffCountLabel, rightVoteCountLabel, voteRateStackView, leftVoteRateLabel, rightVoteRateLabel]
         )
     }
     
@@ -289,10 +327,26 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         
-        leftButton.snp.makeConstraints { make in
+        verticalStackView.snp.makeConstraints { make in
             make.top.equalTo(contentTextView.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        buttonsView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+        }
+        
+        voteInfoView.snp.makeConstraints { make in
+            // make.top.equalTo(buttonsView.snp.bottom)
+            // make.bottom.equalTo(lineView.snp.top)
+            make.height.equalTo(100)
+        }
+        
+        leftButton.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview()
             make.leading.equalToSuperview().offset(40)
-            make.size.equalTo(100)
+            make.width.equalTo(100)
         }
         
         vsLabel.snp.makeConstraints { make in
@@ -301,19 +355,19 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         rightButton.snp.makeConstraints { make in
-            make.top.equalTo(contentTextView.snp.bottom).offset(16)
+            make.verticalEdges.equalToSuperview()
             make.trailing.equalToSuperview().offset(-40)
-            make.size.equalTo(100)
+            make.width.equalTo(100)
         }
         
         leftVoteCountLabel.snp.makeConstraints { make in
-            make.top.equalTo(leftButton.snp.bottom).offset(16)
+            make.top.equalToSuperview().offset(8)
             make.horizontalEdges.equalTo(leftButton)
             make.bottom.equalTo(voteRateStackView.snp.top).offset(-16)
         }
         
         diffVoteLabel.snp.makeConstraints { make in
-            make.top.equalTo(leftButton.snp.bottom).offset(16)
+            make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
         }
         
@@ -324,7 +378,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         rightVoteCountLabel.snp.makeConstraints { make in
-            make.top.equalTo(rightButton.snp.bottom).offset(16)
+            make.top.equalToSuperview().offset(8)
             make.horizontalEdges.equalTo(rightButton)
             make.bottom.equalTo(voteRateStackView.snp.top).offset(-16)
         }
@@ -333,6 +387,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.top.equalTo(diffCountLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(24)
+            make.bottom.equalToSuperview().offset(-8)
         }
         
         leftVoteRateLabel.snp.makeConstraints { make in
@@ -348,16 +403,11 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(voteRateStackView.snp.bottom).offset(16)
-            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(1)
         }
         
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom)
             make.height.equalTo(80)
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview()
         }
     }
     
