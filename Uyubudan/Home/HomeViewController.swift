@@ -23,12 +23,10 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(#function)
+        viewModel.viewWillAppearTrigger.accept(())
     }
     
     override func bind() {
-        viewModel.viewWillAppearTrigger.accept(())
-        
         viewModel.allPostList
             .bind(to: homeView.collectionView.rx.items(
             cellIdentifier: PostCollectionViewCell.identifier,
