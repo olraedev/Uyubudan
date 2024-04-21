@@ -89,6 +89,11 @@
 		ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */; };
 		ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */; };
 		ECC825032BD4F827006C28F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */; };
+		ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825052BD534E7006C28F5 /* CommentsView.swift */; };
+		ECC825082BD534F0006C28F5 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825072BD534F0006C28F5 /* CommentsViewController.swift */; };
+		ECC8250B2BD539FB006C28F5 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = ECC8250A2BD539FB006C28F5 /* PanModal */; };
+		ECC8250D2BD53B85006C28F5 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */; };
+		ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +174,10 @@
 		ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewModel.swift; sourceTree = "<group>"; };
 		ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC825052BD534E7006C28F5 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		ECC825072BD534F0006C28F5 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +189,7 @@
 				EC334FBB2BCE5AF900A97EAB /* Alamofire in Frameworks */,
 				ECC824DA2BD3EC8E006C28F5 /* Kingfisher in Frameworks */,
 				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
+				ECC8250B2BD539FB006C28F5 /* PanModal in Frameworks */,
 				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
 				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
 				EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */,
@@ -248,6 +258,7 @@
 				EC334F712BCD10AA00A97EAB /* User */,
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				ECC824DF2BD409E5006C28F5 /* Write */,
+				ECC825042BD534AC006C28F5 /* Comments */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -488,6 +499,17 @@
 			path = Select;
 			sourceTree = "<group>";
 		};
+		ECC825042BD534AC006C28F5 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				ECC825052BD534E7006C28F5 /* CommentsView.swift */,
+				ECC825072BD534F0006C28F5 /* CommentsViewController.swift */,
+				ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */,
+				ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,6 +534,7 @@
 				EC334FBA2BCE5AF900A97EAB /* Alamofire */,
 				EC334FDB2BCE9A2800A97EAB /* Toast */,
 				ECC824D92BD3EC8E006C28F5 /* Kingfisher */,
+				ECC8250A2BD539FB006C28F5 /* PanModal */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -548,6 +571,7 @@
 				EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -592,19 +616,23 @@
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				ECC824E52BD41EB0006C28F5 /* TabViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
+				ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */,
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
 				ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
+				ECC8250D2BD53B85006C28F5 /* CommentsTableViewCell.swift in Sources */,
 				EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */,
+				ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
 				EC0CE6CA2BD111540073276A /* HomeViewModel.swift in Sources */,
 				EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */,
 				ECC824E82BD4258A006C28F5 /* CategoryView.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
+				ECC825082BD534F0006C28F5 /* CommentsViewController.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334FC02BCE5F9400A97EAB /* HTTPHeader.swift in Sources */,
 				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,
@@ -920,6 +948,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -957,6 +993,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		ECC8250A2BD539FB006C28F5 /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

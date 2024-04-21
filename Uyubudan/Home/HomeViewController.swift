@@ -64,8 +64,11 @@ final class HomeViewController: BaseViewController {
         .disposed(by: disposeBag)
         
         Observable.zip(homeView.collectionView.rx.itemSelected, homeView.collectionView.rx.modelSelected(PostData.self))
-            .subscribe(with: self) { owner, _ in
-                print("adfafsf")
+            .bind(with: self) { owner, value in
+                let vc = CommentsViewController()
+                vc.modalPresentationStyle = .fullScreen
+                vc.viewModel.postInfo = value.1
+                owner.presentPanModal(vc)
             }
             .disposed(by: disposeBag)
     }
