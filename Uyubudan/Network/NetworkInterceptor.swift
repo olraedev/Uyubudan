@@ -20,21 +20,26 @@ class NetworkInterceptor: RequestInterceptor {
     func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping (RetryResult) -> Void) {
         guard request.retryCount < 1,
               let response = request.task?.response as? HTTPURLResponse,
-              response.statusCode == 419, response.statusCode == 401 else {
+              response.statusCode == 419 else {
                   print("Retry 못함요")
-                  DispatchQueue.main.async {
-                      let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                      let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                      let nav = LoginViewController()
-                      sceneDelegate?.window?.rootViewController = nav
-                      sceneDelegate?.window?.makeKeyAndVisible()
-                  }
-                  completion(.doNotRetryWithError(error))
+                  completion(.doNotRetry)
                   return
               }
         
         // status 419 받는 경우
-        NetworkManager.fetchRefreshTokenToServer()
-        completion(.retry)
+        if response.statusCode == 419 {
+            NetworkManager.fetchRefreshTokenToServer()
+            completion(.retry)
+        }
+        else {
+            DispatchQueue.main.async {
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                let nav = LoginViewController()
+                sceneDelegate?.window?.rootViewController = nav
+                sceneDelegate?.window?.makeKeyAndVisible()
+            }
+            completion(.doNotRetry)
+        }
     }
 }

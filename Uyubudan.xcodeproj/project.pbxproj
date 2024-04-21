@@ -87,6 +87,7 @@
 		ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824F72BD43799006C28F5 /* ContentsViewModel.swift */; };
 		ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FA2BD43C60006C28F5 /* SelectView.swift */; };
 		ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */; };
+		ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		ECC824F72BD43799006C28F5 /* ContentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsViewModel.swift; sourceTree = "<group>"; };
 		ECC824FA2BD43C60006C28F5 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
 		ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +480,7 @@
 			children = (
 				ECC824FA2BD43C60006C28F5 /* SelectView.swift */,
 				ECC824FC2BD43C69006C28F5 /* SelectViewController.swift */,
+				ECC824FE2BD4DFB1006C28F5 /* SelectViewModel.swift */,
 			);
 			path = Select;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
 				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
+				ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */,
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
 				EC0CE6C62BD1075C0073276A /* WriteQuery.swift in Sources */,
 				EC0CE6C42BD106CE0073276A /* UploadImageQuery.swift in Sources */,

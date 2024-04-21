@@ -24,8 +24,8 @@ final class NetworkManager {
                         case .success(let model):
                             print("success")
                             single(.success(.success(model)))
-                        case .failure(_):
-                            print("failure")
+                        case .failure(let error):
+                            print("failure: \(error)")
                             guard let statusCode = response.response?.statusCode else {
                                 single(.success(.failure(.serverError)))
                                 return

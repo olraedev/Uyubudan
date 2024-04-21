@@ -15,8 +15,8 @@ final class WriteManager {
     
     var title = ""
     var content = ""
-    var category = ""
-    var left = ""
-    var right = ""
+    var content1 = ""
+    var content2 = ""
+    var content3 = ""
     var productID = "uyubudan"
 }

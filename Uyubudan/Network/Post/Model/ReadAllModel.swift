@@ -16,11 +16,11 @@ struct PostData: Decodable {
     let productID: String
     let title: String
     let content: String
-    let content1: String?
-    let content2: String?
+    let content1: String
+    let content2: String
+    let content3: String
     let createdAt: String
     let creator: Creator
-    let files: [String]
     let likes: [String]
     let likes2: [String]
     let hashTags: [String]
@@ -33,9 +33,9 @@ struct PostData: Decodable {
         case content
         case content1
         case content2
+        case content3
         case createdAt
         case creator
-        case files
         case likes
         case likes2
         case hashTags

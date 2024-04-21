@@ -183,7 +183,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(_ item: PostData) {
-        categoryLabel.text = "기타"
+        categoryLabel.text = item.content3
         titleLabel.text = item.title
         createdDateLable.text = item.createdAt.timeIntervalSinceNow
         voteCountLabel.text = "\(item.likes.count + item.likes2.count)"

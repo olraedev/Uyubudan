@@ -20,6 +20,12 @@ final class HomeViewController: BaseViewController {
         view = homeView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(#function)
+    }
+    
     override func bind() {
         viewModel.viewWillAppearTrigger.accept(())
         
