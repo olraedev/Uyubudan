@@ -39,6 +39,7 @@ final class HomeViewModel {
             .disposed(by: disposeBag)
         
         categoryClicked
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .withLatestFrom(allPostList)
             .bind(with: self) { owner, lists in
                 print("change category: \(owner.categoryClicked.value)")

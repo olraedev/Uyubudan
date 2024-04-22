@@ -55,6 +55,7 @@ final class CreatorTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         disposeBag = DisposeBag()
+        deleteButton.isHidden = true
     }
     
     func configureCell(_ item: Comment) {

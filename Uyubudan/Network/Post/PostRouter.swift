@@ -68,10 +68,7 @@ extension PostRouter: TargetType {
         let encoder = JSONEncoder()
         
         switch self {
-        case .uploadImage(let query), .write(let query):
-            encoder.keyEncodingStrategy = .convertToSnakeCase
-            return try? encoder.encode(query)
-        case .update(_, let query):
+        case .uploadImage(let query), .write(let query), .update(_, let query):
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         default: return nil

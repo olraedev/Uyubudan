@@ -15,6 +15,13 @@
 		EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CC2BD112180073276A /* ReadAllModel.swift */; };
 		EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D02BD139ED0073276A /* Extension+String.swift */; };
 		EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D22BD176AB0073276A /* ProfileView.swift */; };
+		EC0F3F852BD6824E00D864EC /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F842BD6824E00D864EC /* MypageView.swift */; };
+		EC0F3F872BD6825700D864EC /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F862BD6825700D864EC /* MypageViewController.swift */; };
+		EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */; };
+		EC0F3F8C2BD6855600D864EC /* ProfileUpdateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */; };
+		EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */; };
+		EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */; };
+		EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -106,6 +113,13 @@
 		EC0CE6CC2BD112180073276A /* ReadAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAllModel.swift; sourceTree = "<group>"; };
 		EC0CE6D02BD139ED0073276A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		EC0CE6D22BD176AB0073276A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EC0F3F842BD6824E00D864EC /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		EC0F3F862BD6825700D864EC /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateQuery.swift; sourceTree = "<group>"; };
+		EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +243,27 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EC0F3F832BD6823C00D864EC /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3F842BD6824E00D864EC /* MypageView.swift */,
+				EC0F3F862BD6825700D864EC /* MypageViewController.swift */,
+				EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */,
+				EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		EC0F3F882BD6831800D864EC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */,
+				EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */,
+				EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EC334EFF2BC90CBB00A97EAB = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +296,7 @@
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				ECC825042BD534AC006C28F5 /* Comments */,
 				ECC824DF2BD409E5006C28F5 /* Write */,
+				EC0F3F832BD6823C00D864EC /* Mypage */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -396,6 +432,7 @@
 				EC0CE6BF2BD0FD570073276A /* Post */,
 				ECC824CA2BD3A01C006C28F5 /* Like */,
 				ECC825102BD57960006C28F5 /* Comments */,
+				EC0F3F882BD6831800D864EC /* Profile */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -613,14 +650,17 @@
 				EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */,
 				EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */,
 				EC0CE6C12BD0FD760073276A /* PostRouter.swift in Sources */,
+				EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */,
 				EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
 				ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
+				EC0F3F8C2BD6855600D864EC /* ProfileUpdateQuery.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */,
+				EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
@@ -631,6 +671,7 @@
 				ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
+				EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
 				ECC8250D2BD53B85006C28F5 /* CreatorTableViewCell.swift in Sources */,
@@ -665,6 +706,8 @@
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
+				EC0F3F872BD6825700D864EC /* MypageViewController.swift in Sources */,
+				EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */,
 				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
 				ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */,
 				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
@@ -679,6 +722,7 @@
 				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
 				ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
+				EC0F3F852BD6824E00D864EC /* MypageView.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
 				ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
