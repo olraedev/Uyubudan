@@ -43,6 +43,7 @@ final class PasswordView: JoinView {
         
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(passwordLabel.snp.bottom).offset(8)
+            make.height.equalTo(50)
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         

@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import PanModal
 
 final class CommentsViewController: BaseViewController {
     
@@ -21,57 +20,35 @@ final class CommentsViewController: BaseViewController {
         view = commentsView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.viewWillAppearTrigger.accept(())
+    }
+    
     override func bind() {
-        let viewDidLoadTrigger = rx.viewWillAppear
+        let comment = commentsView.writeTextField.rx.text
+        let completeButton = commentsView.completeButton.rx.tap
         
         let input = CommentsViewModel.Input(
-            viewDidLoadTrigger: viewDidLoadTrigger
+            comment: comment,
+            completeButton: completeButton
         )
         let output = viewModel.transform(input: input)
         
         output.comments
-            .drive(commentsView.tableView.rx.items(cellIdentifier: CommentsTableViewCell.identifier, cellType: CommentsTableViewCell.self)) { row, element, cell in
-                print(element)
+            .drive(commentsView.tableView.rx.items(cellIdentifier: CreatorTableViewCell.identifier, cellType: CreatorTableViewCell.self)) { row, element, cell in
                 cell.configureCell(element)
+                
+                cell.deleteButton.rx.tap
+                    .map { return element }
+                    .bind(with: self, onNext: { owner, comment in
+                        owner.showAlert(title: nil, message: "정말 삭제하시겠습니까?") {
+                            owner.viewModel.deleteButtonTapped.accept(comment)
+                        }
+                    })
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
-    }
-}
-
-extension CommentsViewController: PanModalPresentable {
-    var panScrollable: UIScrollView? {
-        commentsView.tableView
-    }
-    
-    var shortFormHeight: PanModalHeight {
-        .contentHeight(UIScreen.main.bounds.height * 0.4)
-    }
-    
-    var transitionAnimationOptions: UIView.AnimationOptions {
-        return [.allowUserInteraction, .beginFromCurrentState]
-    }
-
-    var shouldRoundTopCorners: Bool {
-        return true
-    }
-
-    var showDragIndicator: Bool {
-        return true
-    }
-    
-    var allowsDragToDismiss: Bool {
-        return true
-    }
-    
-    var allowsTapToDismiss: Bool {
-        return true
-    }
-    
-    var anchorModalToLongForm: Bool {
-        return true
-    }
-    
-    var longFormHeight: PanModalHeight {
-        return .maxHeightWithTopInset(80)
     }
 }

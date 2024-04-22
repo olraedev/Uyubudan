@@ -18,7 +18,7 @@ final class NetworkManager {
                 let urlRequest = try router.asURLRequest()
                 
                 AF.request(urlRequest, interceptor: NetworkInterceptor())
-                    // .validate(statusCode: 200..<300)
+                    .validate(statusCode: 200..<300)
                     .responseDecodable(of: M.self) { response in
                         switch response.result {
                         case .success(let model):
@@ -37,6 +37,35 @@ final class NetworkManager {
                             }
                         }
                     }
+            } catch {
+                single(.success(.failure(.serverError)))
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func fetchToServerNoModel<T: TargetType>(router: T) -> Single<Result<Int, HTTPError>> {
+        return Single<Result<Int, HTTPError>>.create { single in
+            do {
+                let urlRequest = try router.asURLRequest()
+                
+                AF.request(urlRequest, interceptor: NetworkInterceptor())
+                    .validate(statusCode: 200..<300)
+                    .responseString(completionHandler: { response in
+                        guard let statusCode = response.response?.statusCode else {
+                            single(.success(.failure(.serverError)))
+                            return
+                        }
+                        
+                        if statusCode == 200 {
+                            single(.success(.success(statusCode)))
+                        }
+                        
+                        if let code = HTTPError(rawValue: statusCode) {
+                            single(.success(.failure(code)))
+                        }
+                    })
             } catch {
                 single(.success(.failure(.serverError)))
             }

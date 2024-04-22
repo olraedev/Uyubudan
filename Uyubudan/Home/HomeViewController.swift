@@ -23,6 +23,7 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("HomeViewController \(#function)")
         viewModel.viewWillAppearTrigger.accept(())
     }
     
@@ -56,21 +57,26 @@ final class HomeViewController: BaseViewController {
                 cell.rightButton.rx.tap
                     .map { return element }
                     .bind(with: self) { owner, data in
-                        owner.viewModel.rightButtonClicked
-                            .accept(data)
+                        owner.viewModel.rightButtonClicked.accept(data)
                     }
                     .disposed(by: cell.disposeBag)
+                
+                cell.commentsCountButton.rx.tap
+                    .map { return element }
+                    .bind(with: self) { owner, data in
+                        let vc = CommentsViewController()
+                        vc.viewModel.postID = data.postID
+                        if let sheet = vc.sheetPresentationController {
+                            sheet.detents = [.medium(), .large()]
+                            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                            sheet.prefersGrabberVisible = true
+                            sheet.preferredCornerRadius = 30
+                        }
+                        owner.present(vc, animated: true)
+                    }
+                    .disposed(by: disposeBag)
         }
         .disposed(by: disposeBag)
-        
-        Observable.zip(homeView.collectionView.rx.itemSelected, homeView.collectionView.rx.modelSelected(PostData.self))
-            .bind(with: self) { owner, value in
-                let vc = CommentsViewController()
-                vc.modalPresentationStyle = .fullScreen
-                vc.viewModel.postInfo = value.1
-                owner.presentPanModal(vc)
-            }
-            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

@@ -50,6 +50,7 @@ final class EmailView: JoinView {
         
         emailTextField.snp.makeConstraints { make in
             make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.height.equalTo(50)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalTo(validationButton.snp.leading).offset(-8)
         }
@@ -57,6 +58,7 @@ final class EmailView: JoinView {
         validationButton.snp.makeConstraints { make in
             make.verticalEdges.equalTo(emailTextField)
             make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(50)
             make.width.equalTo(80)
         }
         

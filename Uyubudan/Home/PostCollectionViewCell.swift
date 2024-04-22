@@ -38,33 +38,28 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    private let personImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "person.3.fill")
-        view.tintColor = .systemGray4
-        return view
+    let voteCountButton = {
+        var configuration = UIButton.Configuration.borderless()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .light)
+        configuration.image = UIImage(systemName: "person.3.fill", withConfiguration: imageConfig)
+        configuration.imagePadding = 3
+        configuration.imagePlacement = .leading
+        configuration.baseForegroundColor = .systemGray4
+        configuration.buttonSize = .mini
+        let button = UIButton(configuration: configuration)
+        return button
     }()
     
-    private let voteCountLabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13)
-        label.textColor = .systemGray4
-        return label
-    }()
-    
-    private let commentsImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "message.fill")
-        view.tintColor = .systemGray4
-        return view
-    }()
-    
-    private let commentsCountLabel = {
-        let label = UILabel()
-        label.text = "12,345"
-        label.font = .systemFont(ofSize: 13)
-        label.textColor = .systemGray4
-        return label
+    let commentsCountButton = {
+        var configuration = UIButton.Configuration.borderless()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .light)
+        configuration.image = UIImage(systemName: "message.fill", withConfiguration: imageConfig)
+        configuration.imagePadding = 3
+        configuration.imagePlacement = .leading
+        configuration.baseForegroundColor = .systemGray4
+        configuration.buttonSize = .mini
+        let button = UIButton(configuration: configuration)
+        return button
     }()
     
     private let contentTextView = {
@@ -201,8 +196,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         categoryLabel.text = item.content3
         titleLabel.text = item.title
         createdDateLable.text = item.createdAt.timeIntervalSinceNow
-        voteCountLabel.text = "\(item.likes.count + item.likes2.count)"
-        commentsCountLabel.text = "\(item.comments.count)"
+        voteCountButton.setTitle("\(item.likes.count + item.likes2.count)", for: .normal)
+        commentsCountButton.setTitle("\(item.comments.count)", for: .normal)
         contentTextView.text = item.content
         leftButton.setTitle(item.content1, for: .normal)
         rightButton.setTitle(item.content2, for: .normal)
@@ -259,7 +254,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         contentView.addSubViews(
             [categoryLabel, emptyView, titleLabel,
-             createdDateLable, personImageView, voteCountLabel, commentsImageView, commentsCountLabel,
+             createdDateLable, voteCountButton, commentsCountButton,
              contentTextView,
              verticalStackView]
             // lineView, profileView]
@@ -298,27 +293,15 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.height.equalTo(16)
         }
         
-        personImageView.snp.makeConstraints { make in
+        voteCountButton.snp.makeConstraints { make in
             make.centerY.equalTo(createdDateLable)
-            make.leading.equalTo(createdDateLable.snp.trailing).offset(16)
-            make.size.equalTo(20)
-        }
-        
-        voteCountLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(personImageView)
-            make.leading.equalTo(personImageView.snp.trailing).offset(3)
+            make.leading.equalTo(createdDateLable.snp.trailing).offset(8)
             make.height.equalTo(16)
         }
         
-        commentsImageView.snp.makeConstraints { make in
+        commentsCountButton.snp.makeConstraints { make in
             make.centerY.equalTo(createdDateLable)
-            make.trailing.equalTo(commentsCountLabel.snp.leading).offset(-3)
-            make.size.equalTo(20)
-        }
-        
-        commentsCountLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(createdDateLable)
-            make.trailing.equalToSuperview().offset(-24)
+            make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(16)
         }
         
@@ -330,7 +313,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         verticalStackView.snp.makeConstraints { make in
             make.top.equalTo(contentTextView.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
         }
         
         buttonsView.snp.makeConstraints { make in
@@ -338,9 +321,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         voteInfoView.snp.makeConstraints { make in
-            // make.top.equalTo(buttonsView.snp.bottom)
-            // make.bottom.equalTo(lineView.snp.top)
-            make.height.equalTo(100)
+            make.height.equalTo(90)
         }
         
         leftButton.snp.makeConstraints { make in
@@ -407,7 +388,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         profileView.snp.makeConstraints { make in
-            make.height.equalTo(80)
+            make.height.equalTo(50)
         }
     }
     

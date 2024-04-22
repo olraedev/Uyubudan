@@ -117,6 +117,7 @@ final class LoginView: BaseView {
         
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(loginView.snp.bottom).offset(16)
+            make.height.equalTo(50)
             make.horizontalEdges.equalToSuperview().inset(24)
         }
         

@@ -67,6 +67,7 @@ final class ContentsView: WriteView {
         titleTextField.snp.makeConstraints { make in
             make.top.equalTo(titlesLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(50)
         }
         
         contentLabel.snp.makeConstraints { make in

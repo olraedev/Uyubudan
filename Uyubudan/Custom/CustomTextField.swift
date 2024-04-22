@@ -14,9 +14,6 @@ final class CustomTextField: UITextField {
         
         borderStyle = .roundedRect
         autocapitalizationType = .none
-        self.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
     }
     
     required init?(coder: NSCoder) {

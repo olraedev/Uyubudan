@@ -91,9 +91,10 @@
 		ECC825032BD4F827006C28F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */; };
 		ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825052BD534E7006C28F5 /* CommentsView.swift */; };
 		ECC825082BD534F0006C28F5 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825072BD534F0006C28F5 /* CommentsViewController.swift */; };
-		ECC8250B2BD539FB006C28F5 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = ECC8250A2BD539FB006C28F5 /* PanModal */; };
-		ECC8250D2BD53B85006C28F5 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */; };
+		ECC8250D2BD53B85006C28F5 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */; };
 		ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */; };
+		ECC825122BD5797A006C28F5 /* CommentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825112BD5797A006C28F5 /* CommentsRouter.swift */; };
+		ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,8 +177,10 @@
 		ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC825052BD534E7006C28F5 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		ECC825072BD534F0006C28F5 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
-		ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
 		ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
+		ECC825112BD5797A006C28F5 /* CommentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRouter.swift; sourceTree = "<group>"; };
+		ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWriteQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +192,6 @@
 				EC334FBB2BCE5AF900A97EAB /* Alamofire in Frameworks */,
 				ECC824DA2BD3EC8E006C28F5 /* Kingfisher in Frameworks */,
 				EC334F372BCA7F0200A97EAB /* RxSwift in Frameworks */,
-				ECC8250B2BD539FB006C28F5 /* PanModal in Frameworks */,
 				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
 				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
 				EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */,
@@ -393,6 +395,7 @@
 				EC334FBC2BCE5D1C00A97EAB /* User */,
 				EC0CE6BF2BD0FD570073276A /* Post */,
 				ECC824CA2BD3A01C006C28F5 /* Like */,
+				ECC825102BD57960006C28F5 /* Comments */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -505,7 +508,16 @@
 				ECC825052BD534E7006C28F5 /* CommentsView.swift */,
 				ECC825072BD534F0006C28F5 /* CommentsViewController.swift */,
 				ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */,
-				ECC8250C2BD53B85006C28F5 /* CommentsTableViewCell.swift */,
+				ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		ECC825102BD57960006C28F5 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				ECC825112BD5797A006C28F5 /* CommentsRouter.swift */,
+				ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -534,7 +546,6 @@
 				EC334FBA2BCE5AF900A97EAB /* Alamofire */,
 				EC334FDB2BCE9A2800A97EAB /* Toast */,
 				ECC824D92BD3EC8E006C28F5 /* Kingfisher */,
-				ECC8250A2BD539FB006C28F5 /* PanModal */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -571,7 +582,6 @@
 				EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -623,7 +633,7 @@
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
-				ECC8250D2BD53B85006C28F5 /* CommentsTableViewCell.swift in Sources */,
+				ECC8250D2BD53B85006C28F5 /* CreatorTableViewCell.swift in Sources */,
 				EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */,
 				ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
@@ -640,6 +650,7 @@
 				EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */,
 				EC334FC22BCE628C00A97EAB /* JoinQuery.swift in Sources */,
 				EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */,
+				ECC825122BD5797A006C28F5 /* CommentsRouter.swift in Sources */,
 				EC334FC52BCE636E00A97EAB /* Version.swift in Sources */,
 				ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
@@ -669,6 +680,7 @@
 				ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
+				ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */,
@@ -948,14 +960,6 @@
 				minimumVersion = 7.11.0;
 			};
 		};
-		ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/slackhq/PanModal.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.7;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -993,11 +997,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		ECC8250A2BD539FB006C28F5 /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ECC825092BD539FB006C28F5 /* XCRemoteSwiftPackageReference "PanModal" */;
-			productName = PanModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

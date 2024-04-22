@@ -55,6 +55,7 @@ final class SelectView: WriteView {
         leftTextField.snp.makeConstraints { make in
             make.top.equalTo(leftTitle.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(50)
         }
         
         rightTitle.snp.makeConstraints { make in
@@ -66,6 +67,7 @@ final class SelectView: WriteView {
         rightTextField.snp.makeConstraints { make in
             make.top.equalTo(rightTitle.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(50)
         }
     }
     

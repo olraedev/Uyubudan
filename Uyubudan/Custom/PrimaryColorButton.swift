@@ -16,9 +16,6 @@ final class PrimaryColorButton: UIButton {
         backgroundColor = .customPrimary
         layer.cornerRadius = 10
         titleLabel?.font = .systemFont(ofSize: 15)
-        self.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
     }
     
     required init?(coder: NSCoder) {

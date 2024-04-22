@@ -42,6 +42,7 @@ final class NicknameView: JoinView {
         nickTextField.snp.makeConstraints { make in
             make.top.equalTo(nickLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(50)
         }
         
         validationLabel.snp.makeConstraints { make in
