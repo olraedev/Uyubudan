@@ -42,41 +42,41 @@ final class HomeViewController: BaseViewController {
         
         viewModel.categoryPostList
             .bind(to: homeView.collectionView.rx.items(
-            cellIdentifier: PostCollectionViewCell.identifier,
-            cellType: PostCollectionViewCell.self)) { [weak self] row, element, cell in
-                guard let self else { return }
-                cell.configureCell(element)
-                
-                cell.leftButton.rx.tap
-                    .map { return element }
-                    .bind(with: self, onNext: { owner, data in
-                        owner.viewModel.leftButtonClicked.accept(data)
-                    })
-                    .disposed(by: cell.disposeBag)
-                
-                cell.rightButton.rx.tap
-                    .map { return element }
-                    .bind(with: self) { owner, data in
-                        owner.viewModel.rightButtonClicked.accept(data)
-                    }
-                    .disposed(by: cell.disposeBag)
-                
-                cell.commentsCountButton.rx.tap
-                    .map { return element }
-                    .bind(with: self) { owner, data in
-                        let vc = CommentsViewController()
-                        vc.viewModel.postID = data.postID
-                        if let sheet = vc.sheetPresentationController {
-                            sheet.detents = [.medium(), .large()]
-                            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                            sheet.prefersGrabberVisible = true
-                            sheet.preferredCornerRadius = 30
+                cellIdentifier: PostCollectionViewCell.identifier,
+                cellType: PostCollectionViewCell.self)) { [weak self] row, element, cell in
+                    guard let self else { return }
+                    cell.configureCell(element)
+                    
+                    cell.leftButton.rx.tap
+                        .map { return element }
+                        .bind(with: self, onNext: { owner, data in
+                            owner.viewModel.leftButtonClicked.accept(data)
+                        })
+                        .disposed(by: cell.disposeBag)
+                    
+                    cell.rightButton.rx.tap
+                        .map { return element }
+                        .bind(with: self) { owner, data in
+                            owner.viewModel.rightButtonClicked.accept(data)
                         }
-                        owner.present(vc, animated: true)
-                    }
-                    .disposed(by: disposeBag)
-        }
-        .disposed(by: disposeBag)
+                        .disposed(by: cell.disposeBag)
+                    
+                    cell.commentsCountButton.rx.tap
+                        .map { return element }
+                        .bind(with: self) { owner, data in
+                            let vc = CommentsViewController()
+                            vc.viewModel.postID = data.postID
+                            if let sheet = vc.sheetPresentationController {
+                                sheet.detents = [.medium(), .large()]
+                                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                                sheet.prefersGrabberVisible = true
+                                sheet.preferredCornerRadius = 30
+                            }
+                            owner.present(vc, animated: true)
+                        }
+                        .disposed(by: cell.disposeBag)
+                }
+                .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

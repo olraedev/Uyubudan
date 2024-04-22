@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HomeView: BaseView {
+    
+    let disposeBag = DisposeBag()
     
     lazy var categoryCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: categoryCreateLayout())
@@ -40,6 +43,31 @@ final class HomeView: BaseView {
             make.bottom.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(24)
         }
+    }
+    
+    override func configureViews() {
+        collectionView.rx.contentOffset
+            .observe(on: MainScheduler.asyncInstance)
+            .subscribe(with: self) { owner, offset in
+                let actualPosition = offset.y
+                if actualPosition > 0 {
+                    owner.categoryCollectionView.snp.remakeConstraints { make in
+                        make.top.equalTo(owner.safeAreaLayoutGuide).offset(16)
+                        make.horizontalEdges.equalTo(owner.safeAreaLayoutGuide).inset(24)
+                        make.height.equalTo(0)
+                    }
+                } else {
+                    owner.categoryCollectionView.snp.remakeConstraints { make in
+                        make.top.equalTo(owner.safeAreaLayoutGuide).offset(16)
+                        make.horizontalEdges.equalTo(owner.safeAreaLayoutGuide).inset(24)
+                        make.height.equalTo(48)
+                    }
+                }
+                UIView.animate(withDuration: 0.2) {
+                    self.layoutIfNeeded()
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     private func categoryCreateLayout() -> UICollectionViewLayout {
