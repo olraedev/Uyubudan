@@ -66,6 +66,9 @@ final class HomeViewController: BaseViewController {
                         .bind(with: self) { owner, data in
                             let vc = CommentsViewController()
                             vc.viewModel.postID = data.postID
+                            vc.viewModel.dismiss = {
+                                self.viewModel.viewWillAppearTrigger.accept(())
+                            }
                             if let sheet = vc.sheetPresentationController {
                                 sheet.detents = [.medium(), .large()]
                                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false

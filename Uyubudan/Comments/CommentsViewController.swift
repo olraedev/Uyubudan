@@ -26,6 +26,12 @@ final class CommentsViewController: BaseViewController {
         viewModel.viewWillAppearTrigger.accept(())
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        viewModel.dismiss?()
+    }
+    
     override func bind() {
         let comment = commentsView.writeTextField.rx.text
         let completeButton = commentsView.completeButton.rx.tap

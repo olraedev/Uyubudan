@@ -17,6 +17,7 @@ final class CommentsViewModel: ViewModelType {
     
     let viewWillAppearTrigger = PublishRelay<Void>()
     let deleteButtonTapped = PublishRelay<Comment>()
+    var dismiss: (() -> Void)?
     
     struct Input {
         let comment: ControlProperty<String?>
