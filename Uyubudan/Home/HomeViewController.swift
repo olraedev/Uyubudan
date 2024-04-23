@@ -77,6 +77,15 @@ final class HomeViewController: BaseViewController {
                         .disposed(by: cell.disposeBag)
                 }
                 .disposed(by: disposeBag)
+        
+        homeView.refreshControl.rx.controlEvent(.valueChanged)
+            .bind(with: self) { owner, _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    owner.viewModel.viewWillAppearTrigger.accept(())
+                    owner.homeView.refreshControl.endRefreshing()
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

@@ -23,7 +23,14 @@ final class HomeView: BaseView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.register(PostCollectionViewCell.self, forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
         view.showsVerticalScrollIndicator = false
+        view.refreshControl = refreshControl
         return view
+    }()
+    
+    lazy var refreshControl = {
+        let control = UIRefreshControl()
+        control.endRefreshing()
+        return control
     }()
     
     override func configureHierarchy() {
