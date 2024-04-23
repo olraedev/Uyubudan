@@ -78,8 +78,8 @@ final class NetworkManager {
         do {
             var urlRequest = try UserRouter.authRefresh.asURLRequest()
             
-            urlRequest.addValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
-            urlRequest.addValue(UserDefaultsManager.shared.refreshToken, forHTTPHeaderField: HTTPHeader.refresh.rawValue)
+            urlRequest.setValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
+            urlRequest.setValue(UserDefaultsManager.shared.refreshToken, forHTTPHeaderField: HTTPHeader.refresh.rawValue)
             
             AF.request(urlRequest)
                 .responseDecodable(of: AuthRefreshModel.self) { response in

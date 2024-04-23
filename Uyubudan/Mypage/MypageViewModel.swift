@@ -14,18 +14,17 @@ final class MypageViewModel: ViewModelType {
     var disposeBag: DisposeBag = DisposeBag()
     
     let viewWillAppearTrigger = PublishRelay<Void>()
+    var profileInfo = PublishRelay<ProfileModel>()
     
     struct Input {
         let segmentChanged: ControlProperty<Int>
     }
     
     struct Output {
-        let profileInfo: PublishRelay<ProfileModel>
         let posts: Driver<[PostData]>
     }
     
     func transform(input: Input) -> Output {
-        let profileInfo = PublishRelay<ProfileModel>()
         let posts = PublishRelay<[PostData]>()
         let myPosts = PublishRelay<Bool>()
         let likePosts = PublishRelay<Bool>()
@@ -35,7 +34,7 @@ final class MypageViewModel: ViewModelType {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
-                    profileInfo.accept(model)
+                    owner.profileInfo.accept(model)
                     myPosts.accept(true)
                 case .failure(let error):
                     print(error)
@@ -93,7 +92,6 @@ final class MypageViewModel: ViewModelType {
         
         
         return Output(
-            profileInfo: profileInfo,
             posts: posts.asDriver(onErrorJustReturn: [])
         )
     }

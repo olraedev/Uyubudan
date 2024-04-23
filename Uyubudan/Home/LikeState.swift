@@ -10,4 +10,8 @@ import Foundation
 enum LikeState {
     case left
     case right
+    case leftVote
+    case rightVote
+    case leftVoteCanceled
+    case rightVoteCanceled
 }

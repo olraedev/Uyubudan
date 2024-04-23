@@ -251,6 +251,57 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    func configureVoteInfo(left: Int, right: Int, result: LikeState) {
+        leftVoteCountLabel.text = "\(left)표"
+        diffCountLabel.text = "\(abs(left - right))표"
+        rightVoteCountLabel.text = "\(right)표"
+        leftVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: left, b: right)))%"
+        rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: right, b: left)))%"
+        
+        if left + right != 0 {
+            leftVoteRateLabel.snp.remakeConstraints { make in
+                make.verticalEdges.equalTo(voteRateStackView)
+                make.leading.equalTo(voteRateStackView.snp.leading)
+                make.width.equalTo(voteRateStackView.snp.width).multipliedBy(percentage(a: left, b: right) / 100)
+            }
+        } else {
+            leftVoteRateLabel.snp.remakeConstraints { make in
+                make.verticalEdges.equalTo(voteRateStackView)
+                make.leading.equalTo(voteRateStackView.snp.leading)
+                make.width.equalTo(voteRateStackView.snp.width).multipliedBy(0.5)
+            }
+        }
+        
+        if result == .leftVote {
+            leftButton.layer.opacity = 1.0
+            rightButton.layer.opacity = 0.5
+            
+            voteInfoView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 1
+            }, completion:  nil)
+        } 
+        if result == .rightVote {
+            leftButton.layer.opacity = 0.5
+            rightButton.layer.opacity = 1.0
+            
+            voteInfoView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 1
+            }, completion:  nil)
+        } 
+        if result == .leftVoteCanceled || result == .rightVoteCanceled {
+            leftButton.layer.opacity = 0.5
+            rightButton.layer.opacity = 0.5
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.voteInfoView.alpha = 0
+            }, completion: { (value: Bool) in
+                self.voteInfoView.isHidden = true
+            })
+        }
+    }
+    
     override func configureHierarchy() {
         contentView.addSubViews(
             [categoryLabel, emptyView, titleLabel,

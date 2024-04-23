@@ -33,7 +33,7 @@ final class MypageViewController: BaseViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.profileInfo
+        viewModel.profileInfo
             .bind(with: self) { owner, result in
                 owner.mypageView.configureViews(result)
             }
@@ -51,18 +51,21 @@ final class MypageViewController: BaseViewController {
                 owner.mypageView.changeUnderLineView()
             }
             .disposed(by: disposeBag)
+        
+        mypageView.editBarButtonItem.rx.tap
+            .withLatestFrom(viewModel.profileInfo)
+            .bind(with: self) { owner, model in
+                let vc = ProfileEditViewController()
+                vc.viewModel.profileInfo.accept(model)
+                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
-        let setting = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButtonClicked))
-        setting.tintColor = .black
+        mypageView.settingBarButtonItem.tintColor = .black
+        mypageView.editBarButtonItem.tintColor = .black
         
-        navigationItem.rightBarButtonItem = setting
-    }
-}
-
-extension MypageViewController {
-    @objc func settingButtonClicked() {
-        
+        navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
     }
 }

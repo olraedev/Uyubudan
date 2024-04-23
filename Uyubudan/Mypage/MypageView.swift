@@ -9,9 +9,9 @@ import UIKit
 
 final class MypageView: BaseView {
     
-    let profileImageView = ProfileImageView(frame: .zero)
+    private let profileImageView = ProfileImageView(frame: .zero)
     
-    let nicknamelabel = {
+    private let nicknamelabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.textAlignment = .center
@@ -49,6 +49,10 @@ final class MypageView: BaseView {
         view.showsVerticalScrollIndicator = false
         return view
     }()
+    
+    let settingBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"))
+    
+    let editBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"))
     
     override func configureHierarchy() {
         addSubViews(

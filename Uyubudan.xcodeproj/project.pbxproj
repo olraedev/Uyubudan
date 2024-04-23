@@ -22,6 +22,9 @@
 		EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */; };
 		EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */; };
 		EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */; };
+		EC0F3FA82BD7D6A700D864EC /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */; };
+		EC0F3FAA2BD7D6B100D864EC /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */; };
+		EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -120,6 +123,9 @@
 		EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +270,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		EC0F3FA62BD7D69200D864EC /* ProfileEdit */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */,
+				EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */,
+				EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */,
+			);
+			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
 		EC334EFF2BC90CBB00A97EAB = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +313,7 @@
 				ECC825042BD534AC006C28F5 /* Comments */,
 				ECC824DF2BD409E5006C28F5 /* Write */,
 				EC0F3F832BD6823C00D864EC /* Mypage */,
+				EC0F3FA62BD7D69200D864EC /* ProfileEdit */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -663,6 +680,7 @@
 				EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
+				EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				ECC824E52BD41EB0006C28F5 /* TabViewController.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
@@ -729,6 +747,8 @@
 				EC334F3C2BCA7F4400A97EAB /* HomeViewController.swift in Sources */,
 				ECC824D52BD3E197006C28F5 /* NetworkInterceptor.swift in Sources */,
 				ECC824EC2BD428A6006C28F5 /* CategoryViewModel.swift in Sources */,
+				EC0F3FAA2BD7D6B100D864EC /* ProfileEditViewController.swift in Sources */,
+				EC0F3FA82BD7D6A700D864EC /* ProfileEditView.swift in Sources */,
 				EC334F2D2BCA7E5200A97EAB /* BaseView.swift in Sources */,
 				EC334F412BCBA59400A97EAB /* PostCollectionViewCell.swift in Sources */,
 				EC334F762BCD110500A97EAB /* JoinViewController.swift in Sources */,
