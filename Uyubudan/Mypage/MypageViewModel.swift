@@ -16,17 +16,19 @@ final class MypageViewModel: ViewModelType {
     let viewWillAppearTrigger = PublishRelay<Void>()
     
     struct Input {
-        
+        let segmentChanged: ControlProperty<Int>
     }
     
     struct Output {
         let profileInfo: PublishRelay<ProfileModel>
-        let posts: Driver<[String]>
+        let posts: Driver<[PostData]>
     }
     
     func transform(input: Input) -> Output {
         let profileInfo = PublishRelay<ProfileModel>()
-        let posts = PublishRelay<[String]>()
+        let posts = PublishRelay<[PostData]>()
+        let myPosts = PublishRelay<Bool>()
+        let likePosts = PublishRelay<Bool>()
         
         viewWillAppearTrigger
             .flatMap { NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.read) }
@@ -34,12 +36,61 @@ final class MypageViewModel: ViewModelType {
                 switch result {
                 case .success(let model):
                     profileInfo.accept(model)
-                    posts.accept(model.posts)
+                    myPosts.accept(true)
                 case .failure(let error):
                     print(error)
                 }
             }
             .disposed(by: disposeBag)
+        
+        input.segmentChanged.bind(with: self) { owner, index in
+            if index == 0 { myPosts.accept(true)
+                    print("0번 선택!")
+            }
+            else { likePosts.accept(true) }
+        }
+        .disposed(by: disposeBag)
+        
+        myPosts
+            .withLatestFrom(profileInfo)
+            .flatMap {
+                NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readSpecificUser(userID:$0.userID ))
+            }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model):
+                    posts.accept(model.data)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        likePosts
+            .flatMap { _ in
+                Single.zip(NetworkManager.fetchToServer(model: ReadAllModel.self, router: LikeRouter.likeMe), NetworkManager.fetchToServer(model: ReadAllModel.self, router: LikeRouter.like2Me))
+            }
+            .subscribe(with: self) { owner, result in
+                var results: [PostData] = []
+                
+                switch result.0 {
+                case .success(let model):
+                    results.append(contentsOf: model.data)
+                case .failure(let error):
+                    print(error)
+                }
+                
+                switch result.1 {
+                case .success(let model):
+                    results.append(contentsOf: model.data)
+                case .failure(let error):
+                    print(error)
+                }
+                
+                posts.accept(results)
+            }
+            .disposed(by: disposeBag)
+        
         
         return Output(
             profileInfo: profileInfo,

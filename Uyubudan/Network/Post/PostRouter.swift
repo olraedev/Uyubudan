@@ -15,6 +15,7 @@ enum PostRouter {
     case readSpecific(id: String)
     case update(id: String, UpdateQuery: Encodable)
     case delete(id: String)
+    case readSpecificUser(userID: String)
 }
 
 extension PostRouter: TargetType {
@@ -29,7 +30,7 @@ extension PostRouter: TargetType {
     var method: HTTPMethod {
         switch self {
         case .uploadImage, .write: .post
-        case .readAll, .readSpecific: .get
+        case .readAll, .readSpecific, .readSpecificUser: .get
         case .update: .put
         case .delete: .delete
         }
@@ -43,6 +44,8 @@ extension PostRouter: TargetType {
             "/posts/\(id)"
         case .readSpecific(let id), .delete(let id):
             "/posts/\(id)"
+        case .readSpecificUser(let userID):
+            "/posts/users/\(userID)"
         }
     }
     
@@ -59,7 +62,8 @@ extension PostRouter: TargetType {
     
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .readAll: return [URLQueryItem(name: "product_id", value: "uyubudan")]
+        case .readAll, .readSpecificUser:
+            return [URLQueryItem(name: "product_id", value: "uyubudan")]
         default: return nil
         }
     }

@@ -27,7 +27,10 @@ final class MypageViewController: BaseViewController {
     }
     
     override func bind() {
-        let input = MypageViewModel.Input()
+        let segmentChanged = mypageView.segment.rx.selectedSegmentIndex
+        let input = MypageViewModel.Input(
+            segmentChanged: segmentChanged
+        )
         let output = viewModel.transform(input: input)
         
         output.profileInfo
@@ -39,8 +42,7 @@ final class MypageViewController: BaseViewController {
         output.posts
             .drive(mypageView.collectionView.rx
                 .items(cellIdentifier: CardCollectionViewCell.identifier, cellType: CardCollectionViewCell.self)) { row, element, cell in
-                    cell.title.text = element
-                    cell.backgroundColor = .customQuaternary
+                    cell.configureCell(element)
                 }
                 .disposed(by: disposeBag)
         
