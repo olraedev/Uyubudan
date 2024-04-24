@@ -60,9 +60,38 @@ final class MypageViewController: BaseViewController {
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        output.successWithdraw
+            .drive(with: self) { owner, state in
+                if state {
+                    owner.showAlert(title: nil, message: "정말 탈퇴를 하시겠습니까?") {
+                        owner.logoutButtonClicked()
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
+        let logout = UIAction(title: "로그아웃") { [weak self] _ in
+            self?.logoutButtonClicked()
+        }
+        let withdraw = UIAction(title: "회원탈퇴", attributes: .destructive) { [weak self] _ in
+            self?.withdrawButtonClicked()
+        }
+        mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
         navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
+    }
+}
+
+extension MypageViewController {
+    @objc func logoutButtonClicked() {
+        UserDefaultsManager.shared.removeAll()
+        
+        navigationController?.pushViewController(LaunchViewController(), animated: true)
+    }
+    
+    @objc func withdrawButtonClicked() {
+        viewModel.withdrawButtonTapped.accept(())
     }
 }

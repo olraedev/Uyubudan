@@ -40,4 +40,11 @@ final class UserDefaultsManager {
         get { ud.string(forKey: Key.profileImage) ?? Environment.defaultImage}
         set { ud.setValue(newValue, forKey: Key.profileImage)}
     }
+    
+    func removeAll() {
+        ud.removeObject(forKey: Key.userID)
+        ud.removeObject(forKey: Key.accessToken)
+        ud.removeObject(forKey: Key.refreshToken)
+        ud.removeObject(forKey: Key.profileImage)
+    }
 }

@@ -14,7 +14,8 @@ final class MypageViewModel: ViewModelType {
     var disposeBag: DisposeBag = DisposeBag()
     
     let viewWillAppearTrigger = PublishRelay<Void>()
-    var profileInfo = PublishRelay<ProfileModel>()
+    let profileInfo = PublishRelay<ProfileModel>()
+    let withdrawButtonTapped = PublishRelay<Void>()
     
     struct Input {
         let segmentChanged: ControlProperty<Int>
@@ -22,12 +23,14 @@ final class MypageViewModel: ViewModelType {
     
     struct Output {
         let posts: Driver<[PostData]>
+        let successWithdraw: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
         let posts = PublishRelay<[PostData]>()
         let myPosts = PublishRelay<Bool>()
         let likePosts = PublishRelay<Bool>()
+        let successWithdraw = PublishRelay<Bool>()
         
         viewWillAppearTrigger
             .flatMap { NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.read) }
@@ -88,9 +91,21 @@ final class MypageViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        withdrawButtonTapped
+            .flatMap { NetworkManager.fetchToServer(model: JoinModel.self, router: UserRouter.withdraw)}
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(_):
+                    successWithdraw.accept(true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
         
         return Output(
-            posts: posts.asDriver(onErrorJustReturn: [])
+            posts: posts.asDriver(onErrorJustReturn: []), 
+            successWithdraw: successWithdraw.asDriver(onErrorJustReturn: false)
         )
     }
 }

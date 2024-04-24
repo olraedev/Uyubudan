@@ -51,7 +51,7 @@ final class MypageView: BaseView {
     }()
     
     let settingBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"))
+        let item = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"))
         item.tintColor = .black
         return item
     }()
