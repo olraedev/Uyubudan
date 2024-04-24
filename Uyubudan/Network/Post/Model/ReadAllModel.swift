@@ -72,6 +72,6 @@ struct Creator: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.userID = try container.decode(String.self, forKey: .userID)
         self.nick = try container.decode(String.self, forKey: .nick)
-        self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage) ?? "uploads/posts/person@3x_1713616487566.png"
+        self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage) ?? Environment.defaultImage
     }
 }

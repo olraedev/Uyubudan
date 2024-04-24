@@ -27,7 +27,7 @@ struct LoginModel: Decodable {
         
         self.userID = try container.decode(String.self, forKey: .userID)
         self.nickName = try container.decode(String.self, forKey: .nickName)
-        self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage) ?? "uploads/posts/person@3x_1713616487566.png"
+        self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage) ?? Environment.defaultImage
         self.accessToken = try container.decode(String.self, forKey: .accessToken)
         self.refreshToken = try container.decode(String.self, forKey: .refreshToken)
     }

@@ -20,13 +20,6 @@ class NetworkInterceptor: RequestInterceptor {
     func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping (RetryResult) -> Void) {
         guard let response = request.task?.response as? HTTPURLResponse,
               response.statusCode == 419 else {
-            DispatchQueue.main.async {
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                let nav = LoginViewController()
-                sceneDelegate?.window?.rootViewController = nav
-                sceneDelegate?.window?.makeKeyAndVisible()
-            }
             completion(.doNotRetry)
             return
         }

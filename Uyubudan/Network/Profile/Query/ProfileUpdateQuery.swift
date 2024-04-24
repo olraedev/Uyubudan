@@ -9,5 +9,4 @@ import Foundation
 
 struct ProfileUpdateQuery: Encodable {
     let nick: String
-    let profile: Data
 }

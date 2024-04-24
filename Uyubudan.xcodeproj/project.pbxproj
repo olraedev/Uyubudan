@@ -25,6 +25,8 @@
 		EC0F3FA82BD7D6A700D864EC /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */; };
 		EC0F3FAA2BD7D6B100D864EC /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */; };
 		EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */; };
+		EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */; };
+		EC0F3FB22BD819D500D864EC /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -126,6 +128,8 @@
 		EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
+		EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Bool.swift"; sourceTree = "<group>"; };
+		EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0CE6CC2BD112180073276A /* ReadAllModel.swift */,
+				EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,8 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */,
-				EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */,
-				EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */,
+				EC0F3FB32BD8DD1100D864EC /* Query */,
+				EC0F3FB42BD8DD1800D864EC /* Model */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -278,6 +283,22 @@
 				EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */,
 			);
 			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
+		EC0F3FB32BD8DD1100D864EC /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		EC0F3FB42BD8DD1800D864EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EC334EFF2BC90CBB00A97EAB = {
@@ -352,6 +373,7 @@
 				EC334F3E2BCBA4B000A97EAB /* Extension+UIView.swift */,
 				EC334F982BCD7F6500A97EAB /* Extension+UIViewController.swift */,
 				EC0CE6D02BD139ED0073276A /* Extension+String.swift */,
+				EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -722,12 +744,14 @@
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
 				ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */,
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
+				EC0F3FB22BD819D500D864EC /* UploadImageModel.swift in Sources */,
 				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
 				EC0F3F872BD6825700D864EC /* MypageViewController.swift in Sources */,
 				EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */,
 				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
 				ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */,
+				EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */,
 				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,

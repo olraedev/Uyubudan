@@ -36,10 +36,10 @@ final class NicknameViewController: JoinViewController {
                 let text = state ? "사용 가능한 닉네임입니다." : "2글자 이상 10글자 미만으로 입력해주세요."
                 
                 owner.nicknameView.validationLabel.text = text
-                owner.nicknameView.validationLabel.textColor = JoinManager.shared.textColor(state)
+                owner.nicknameView.validationLabel.textColor = state.textColor
                 
                 owner.nicknameView.completeButton.isEnabled = state
-                owner.nicknameView.completeButton.backgroundColor = JoinManager.shared.buttonColor(state)
+                owner.nicknameView.completeButton.backgroundColor = state.buttonColor
             }
             .disposed(by: disposeBag)
         

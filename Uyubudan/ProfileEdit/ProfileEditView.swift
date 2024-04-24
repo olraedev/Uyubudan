@@ -39,6 +39,12 @@ final class ProfileEditView: BaseView {
         return tf
     }()
     
+    let validationLabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        return label
+    }()
+    
     let completeButton = {
         let button = PrimaryColorButton()
         button.setTitle("완료", for: .normal)
@@ -50,10 +56,16 @@ final class ProfileEditView: BaseView {
         nickTextField.text = item.nickname
     }
     
+    let popButtonItem = {
+        let item = UIBarButtonItem(image: UIImage(systemName: "chevron.left"))
+        item.tintColor = .black
+        return item
+    }()
+    
     override func configureHierarchy() {
         addSubViews([
             profileImageView, imageEditButton, nickLabel, nickTextField,
-            completeButton
+            validationLabel, completeButton
         ])
     }
     
@@ -82,9 +94,15 @@ final class ProfileEditView: BaseView {
             make.height.equalTo(50)
         }
         
+        validationLabel.snp.makeConstraints { make in
+            make.top.equalTo(nickTextField.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(24)
+            make.height.equalTo(24)
+        }
+        
         completeButton.snp.makeConstraints { make in
-            make.top.equalTo(nickTextField.snp.bottom).offset(16)
-            make.horizontalEdges.equalTo(nickTextField)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-24)
+            make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(50)
         }
     }

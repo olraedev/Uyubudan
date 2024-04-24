@@ -114,6 +114,56 @@ final class HomeViewModel {
         if mine.contains(userID) {
             return (data.postID, LikeQuery(status: false))
         }
-        else { return (data.postID, LikeQuery(status: true)) }
+        else {
+            return (data.postID, LikeQuery(status: true))
+        }
+    }
+    
+    func configureOptimisticUI(state: LikeState, item: PostData) -> (Int, Int, LikeState) {
+        let userID = UserDefaultsManager.shared.userID
+        var left = item.likes.count
+        var right = item.likes2.count
+        var result: LikeState = .left
+           
+        if state == .left {
+            // 왼쪽 눌렀는데 오른쪽 투표되어 있는 상황에서 한 경우
+            if item.likes2.contains(userID) {
+                left += 1
+                right -= 1
+                result = .leftVote
+            }
+            // 왼쪽 눌렀는데 왼쪽에 이미 투표되어 있는 상황 (취소)
+            else if item.likes.contains(userID) {
+                left -= 1
+                result = .leftVoteCanceled
+            }
+            // 투표를 안한 상황에서 투표한 경우
+            else {
+                left += 1
+                result = .leftVote
+            }
+        }
+        
+        if state == .right {
+            // 오른쪽 눌렀는데 왼쪽 투표되어 있는 상황에서 한 경우
+            if item.likes.contains(userID) {
+                left -= 1
+                right += 1
+                result = .rightVote
+            }
+            // 오른쪽 눌렀는데 오른쪽에 이미 투표되어 있는 상황(취소)
+            else if item.likes2.contains(userID) {
+                right -= 1
+                result = .rightVoteCanceled
+            }
+            // 투표를 안한 상황에서 투표한 경우
+            else {
+                right += 1
+                result = .rightVote
+            }
+        }
+        
+        print(left, right, result)
+        return (left, right, result)
     }
 }

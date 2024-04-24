@@ -34,10 +34,10 @@ final class PasswordViewController: JoinViewController {
                 let validationText = state ? "사용 가능한 비밀번호입니다." : "4글자 이상 15글자 미만으로 입력해주세요."
                 
                 owner.passwordView.validationLabel.text = validationText
-                owner.passwordView.validationLabel.textColor = JoinManager.shared.textColor(state)
+                owner.passwordView.validationLabel.textColor = state.textColor
                 
                 owner.passwordView.completeButton.isEnabled = state
-                owner.passwordView.completeButton.backgroundColor = JoinManager.shared.buttonColor(state)
+                owner.passwordView.completeButton.backgroundColor = state.buttonColor
             }
             .disposed(by: disposeBag)
         

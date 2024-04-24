@@ -43,9 +43,7 @@ final class MypageViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         input.segmentChanged.bind(with: self) { owner, index in
-            if index == 0 { myPosts.accept(true)
-                    print("0번 선택!")
-            }
+            if index == 0 { myPosts.accept(true) }
             else { likePosts.accept(true) }
         }
         .disposed(by: disposeBag)

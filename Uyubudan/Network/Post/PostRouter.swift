@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum PostRouter {
-    case uploadImage(UploadImageQuery: Encodable)
+    case uploadImage
     case write(WriteQuery: Encodable)
     case readAll
     case readSpecific(id: String)
@@ -72,7 +72,7 @@ extension PostRouter: TargetType {
         let encoder = JSONEncoder()
         
         switch self {
-        case .uploadImage(let query), .write(let query), .update(_, let query):
+        case .write(let query), .update(_, let query):
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         default: return nil

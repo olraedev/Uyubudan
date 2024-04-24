@@ -37,7 +37,7 @@ final class UserDefaultsManager {
     }
     
     var profileImage: String {
-        get { ud.string(forKey: Key.profileImage) ?? "uploads/posts/person@3x_1713616487566.png"}
+        get { ud.string(forKey: Key.profileImage) ?? Environment.defaultImage}
         set { ud.setValue(newValue, forKey: Key.profileImage)}
     }
 }

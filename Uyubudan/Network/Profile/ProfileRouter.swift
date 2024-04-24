@@ -10,7 +10,7 @@ import Alamofire
 
 enum ProfileRouter {
     case read
-    case update(ProfileRouter: Encodable)
+    case update
     case readSpecific(userID: String)
 }
 
@@ -53,13 +53,6 @@ extension ProfileRouter: TargetType {
     }
     
     var body: Data? {
-        let encoder = JSONEncoder()
-        
-        switch self {
-        case .update(let query):
-            encoder.keyEncodingStrategy = .convertToSnakeCase
-            return try? encoder.encode(query)
-        default: return nil
-        }
+        return nil
     }
 }

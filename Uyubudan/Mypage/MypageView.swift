@@ -50,9 +50,17 @@ final class MypageView: BaseView {
         return view
     }()
     
-    let settingBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"))
+    let settingBarButtonItem = {
+        let item = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"))
+        item.tintColor = .black
+        return item
+    }()
     
-    let editBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"))
+    let editBarButtonItem = {
+        let item = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"))
+        item.tintColor = .black
+        return item
+    }()
     
     override func configureHierarchy() {
         addSubViews(

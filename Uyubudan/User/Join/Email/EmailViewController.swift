@@ -43,9 +43,9 @@ final class EmailViewController: JoinViewController {
                 let text = state ? "중복확인을 해주세요." : "이메일 주소를 정확하게 입력해주세요."
                 
                 owner.emailView.validationButton.isEnabled = state
-                owner.emailView.validationButton.backgroundColor = JoinManager.shared.buttonColor(state)
+                owner.emailView.validationButton.backgroundColor = state.buttonColor
                 
-                owner.emailView.validationLabel.textColor = JoinManager.shared.textColor(state)
+                owner.emailView.validationLabel.textColor = state.textColor
                 owner.emailView.validationLabel.text = text
             }
             .disposed(by: disposeBag)
@@ -54,9 +54,9 @@ final class EmailViewController: JoinViewController {
         output.validation
             .drive(with: self) { owner, state in
                 owner.emailView.completeButton.isEnabled = state
-                owner.emailView.completeButton.backgroundColor = JoinManager.shared.buttonColor(state)
+                owner.emailView.completeButton.backgroundColor = state.buttonColor
                 
-                owner.emailView.validationLabel.textColor = JoinManager.shared.textColor(state)
+                owner.emailView.validationLabel.textColor = state.textColor
             }
             .disposed(by: disposeBag)
         

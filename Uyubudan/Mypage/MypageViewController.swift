@@ -63,9 +63,6 @@ final class MypageViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        mypageView.settingBarButtonItem.tintColor = .black
-        mypageView.editBarButtonItem.tintColor = .black
-        
         navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
     }
 }

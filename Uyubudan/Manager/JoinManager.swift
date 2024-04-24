@@ -16,12 +16,4 @@ final class JoinManager {
     var email = ""
     var password = ""
     var nickname = ""
-    
-    func textColor(_ state: Bool) -> UIColor {
-        return state ? .customPrimary : .systemRed
-    }
-    
-    func buttonColor(_ state: Bool) -> UIColor {
-        return state ? .customPrimary : .lightGray
-    }
 }

@@ -16,7 +16,7 @@ final class ProfileImageView: UIImageView {
         tintColor = .customLightGray
         layer.borderColor = UIColor.systemGray4.cgColor
         layer.borderWidth = 1
-        contentMode = .scaleAspectFit
+        contentMode = .scaleToFill
     }
     
     required init?(coder: NSCoder) {
