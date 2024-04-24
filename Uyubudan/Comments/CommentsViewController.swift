@@ -43,7 +43,7 @@ final class CommentsViewController: BaseViewController {
         let output = viewModel.transform(input: input)
         
         output.comments
-            .drive(commentsView.tableView.rx.items(cellIdentifier: CreatorTableViewCell.identifier, cellType: CreatorTableViewCell.self)) { row, element, cell in
+            .drive(commentsView.collectionView.rx.items(cellIdentifier: CreatorCollectionViewCell.identifier, cellType: CreatorCollectionViewCell.self)) { row, element, cell in
                 cell.configureCell(element)
                 
                 cell.deleteButton.rx.tap

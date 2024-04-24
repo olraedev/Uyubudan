@@ -8,9 +8,7 @@
 import UIKit
 import RxSwift
 
-final class CreatorTableViewCell: UITableViewCell {
-    
-    var disposeBag = DisposeBag()
+final class CreatorCollectionViewCell: BaseCollectionViewCell {
     
     private let profileImageView = ProfileImageView(frame: .zero)
     
@@ -39,18 +37,6 @@ final class CreatorTableViewCell: UITableViewCell {
         return button
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        selectionStyle = .none
-        configureHierarchy()
-        configureConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -67,11 +53,11 @@ final class CreatorTableViewCell: UITableViewCell {
         }
     }
     
-    private func configureHierarchy() {
+    override func configureHierarchy() {
         contentView.addSubViews([profileImageView, nicknameLabel, contentLabel, deleteButton])
     }
     
-    private func configureConstraints() {
+    override func configureConstraints() {
         profileImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(16)

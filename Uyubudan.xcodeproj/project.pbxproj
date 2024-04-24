@@ -103,7 +103,7 @@
 		ECC825032BD4F827006C28F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */; };
 		ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825052BD534E7006C28F5 /* CommentsView.swift */; };
 		ECC825082BD534F0006C28F5 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825072BD534F0006C28F5 /* CommentsViewController.swift */; };
-		ECC8250D2BD53B85006C28F5 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */; };
+		ECC8250D2BD53B85006C28F5 /* CreatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250C2BD53B85006C28F5 /* CreatorCollectionViewCell.swift */; };
 		ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */; };
 		ECC825122BD5797A006C28F5 /* CommentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825112BD5797A006C28F5 /* CommentsRouter.swift */; };
 		ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */; };
@@ -201,7 +201,7 @@
 		ECC825022BD4F827006C28F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC825052BD534E7006C28F5 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		ECC825072BD534F0006C28F5 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
-		ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
+		ECC8250C2BD53B85006C28F5 /* CreatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		ECC825112BD5797A006C28F5 /* CommentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRouter.swift; sourceTree = "<group>"; };
 		ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWriteQuery.swift; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 				ECC825052BD534E7006C28F5 /* CommentsView.swift */,
 				ECC825072BD534F0006C28F5 /* CommentsViewController.swift */,
 				ECC8250E2BD54B1A006C28F5 /* CommentsViewModel.swift */,
-				ECC8250C2BD53B85006C28F5 /* CreatorTableViewCell.swift */,
+				ECC8250C2BD53B85006C28F5 /* CreatorCollectionViewCell.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -714,7 +714,7 @@
 				EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
-				ECC8250D2BD53B85006C28F5 /* CreatorTableViewCell.swift in Sources */,
+				ECC8250D2BD53B85006C28F5 /* CreatorCollectionViewCell.swift in Sources */,
 				EC7E0F5B2BCFBFB200F15199 /* JoinManager.swift in Sources */,
 				ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,

@@ -12,6 +12,15 @@ final class HomeView: BaseView {
     
     let disposeBag = DisposeBag()
     
+    lazy var profileImageView = {
+        let view = ProfileImageView(frame: .zero)
+        view.isUserInteractionEnabled = true
+        view.snp.makeConstraints { make in
+            make.size.equalTo(30)
+        }
+        return view
+    }()
+    
     lazy var categoryCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: categoryCreateLayout())
         view.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)

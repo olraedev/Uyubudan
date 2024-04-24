@@ -9,11 +9,10 @@ import UIKit
 
 final class CommentsView: BaseView {
     
-    lazy var tableView = {
-        let view = UITableView()
-        view.register(CreatorTableViewCell.self, forCellReuseIdentifier: CreatorTableViewCell.identifier)
+    lazy var collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        view.register(CreatorCollectionViewCell.self, forCellWithReuseIdentifier: CreatorCollectionViewCell.identifier)
         view.backgroundColor = .clear
-        view.rowHeight = UITableView.automaticDimension
         return view
     }()
     
@@ -38,12 +37,12 @@ final class CommentsView: BaseView {
     }()
     
     override func configureHierarchy() {
-        addSubViews([tableView, writeView])
+        addSubViews([collectionView, writeView])
         writeView.addSubViews([profileImageView, writeTextField, completeButton])
     }
     
     override func configureConstraints() {
-        tableView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(writeTextField.snp.top)
@@ -77,5 +76,24 @@ final class CommentsView: BaseView {
     
     override func configureViews() {
         profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            var config = UICollectionLayoutListConfiguration(appearance: .plain)
+            config.showsSeparators = false
+            
+            let section = NSCollectionLayoutSection.list(
+                using: config,
+                layoutEnvironment: layoutEnvironment
+            )
+            section.interGroupSpacing = 8
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+            
+            return section
+        }
+        
+        return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 }

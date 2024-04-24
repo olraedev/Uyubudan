@@ -18,6 +18,16 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
+    let deleteButton = {
+        let button = UIButton()
+        button.setTitle("삭제", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
+        button.backgroundColor = .clear
+        button.isHidden = true
+        return button
+    }()
+    
     private let emptyView = {
         let view = UIView()
         view.backgroundColor = .customPrimary
@@ -193,7 +203,10 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(_ item: PostData) {
+        let userID = UserDefaultsManager.shared.userID
+        
         categoryLabel.text = item.content3
+        deleteButton.isHidden = userID == item.creator.userID ? false : true
         titleLabel.text = item.title
         createdDateLable.text = item.createdAt.timeIntervalSinceNow
         voteCountButton.setTitle("\(item.likes.count + item.likes2.count)", for: .normal)
@@ -304,7 +317,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         contentView.addSubViews(
-            [categoryLabel, emptyView, titleLabel,
+            [categoryLabel, deleteButton, emptyView, titleLabel,
              createdDateLable, voteCountButton, commentsCountButton,
              contentTextView,
              verticalStackView]
@@ -323,6 +336,11 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(24)
             make.height.equalTo(16)
+        }
+        
+        deleteButton.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.top)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
         emptyView.snp.makeConstraints { make in

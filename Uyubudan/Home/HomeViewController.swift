@@ -23,8 +23,8 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("HomeViewController \(#function)")
         viewModel.viewWillAppearTrigger.accept(())
+        homeView.profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
     }
     
     override func bind() {
@@ -47,25 +47,34 @@ final class HomeViewController: BaseViewController {
                     guard let self else { return }
                     cell.configureCell(element)
                     
+                    cell.deleteButton.rx.tap
+                        .bind(with: self) { owner, _ in
+                            owner.showAlert(title: nil, message: "정말 삭제하시겠습니까?") {
+                                owner.viewModel.deleteButtonClicked.accept(element)
+                            }
+                        }
+                        .disposed(by: disposeBag)
+                    
                     cell.leftButton.rx.tap
-                        .map { return element }
-                        .bind(with: self, onNext: { owner, data in
-                            owner.viewModel.leftButtonClicked.accept(data)
+                        .bind(with: self, onNext: { owner, _ in
+                            // let (left, right, result) = owner.viewModel.configureOptimisticUI(state: .left, item: data)
+                            // cell.configureVoteInfo(left: left, right: right, result: result)
+                            owner.viewModel.leftButtonClicked.accept(element)
                         })
                         .disposed(by: cell.disposeBag)
                     
                     cell.rightButton.rx.tap
-                        .map { return element }
-                        .bind(with: self) { owner, data in
-                            owner.viewModel.rightButtonClicked.accept(data)
+                        .bind(with: self) { owner, _ in
+                            // let (left, right, result) = owner.viewModel.configureOptimisticUI(state: .right, item: data)
+                            // cell.configureVoteInfo(left: left, right: right, result: result)
+                            owner.viewModel.rightButtonClicked.accept(element)
                         }
                         .disposed(by: cell.disposeBag)
                     
                     cell.commentsCountButton.rx.tap
-                        .map { return element }
-                        .bind(with: self) { owner, data in
+                        .bind(with: self) { owner, _ in
                             let vc = CommentsViewController()
-                            vc.viewModel.postID = data.postID
+                            vc.viewModel.postID = element.postID
                             vc.viewModel.dismiss = {
                                 self.viewModel.viewWillAppearTrigger.accept(())
                             }
@@ -92,15 +101,8 @@ final class HomeViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        let profileImageView = ProfileImageView(frame: .zero)
-        profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(myPageBarButtonClicked)))
-        profileImageView.snp.makeConstraints { make in
-            make.size.equalTo(30)
-        }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileImageView)
-        navigationItem.title = "우유부단"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: homeView.profileImageView)
+        navigationItem.title = "우유부단🐮"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }

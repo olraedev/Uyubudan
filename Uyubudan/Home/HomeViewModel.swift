@@ -18,6 +18,7 @@ final class HomeViewModel {
     let leftButtonClicked = PublishRelay<PostData>()
     let rightButtonClicked = PublishRelay<PostData>()
     let categoryClicked = BehaviorRelay(value: "전체")
+    let deleteButtonClicked = PublishRelay<PostData>()
     
     let allPostList = PublishRelay<[PostData]>()
     let categoryPostList = PublishRelay<[PostData]>()
@@ -105,6 +106,19 @@ final class HomeViewModel {
                 }
             })
             .disposed(by: disposeBag)
+        
+        deleteButtonClicked
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .flatMap { NetworkManager.fetchToServerNoModel(router: PostRouter.delete(id: $0.postID)) }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(_):
+                    owner.viewWillAppearTrigger.accept(())
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     private func checkVote(state: LikeState, data: PostData) -> (String, LikeQuery) {
@@ -124,7 +138,7 @@ final class HomeViewModel {
         var left = item.likes.count
         var right = item.likes2.count
         var result: LikeState = .left
-           
+        
         if state == .left {
             // 왼쪽 눌렀는데 오른쪽 투표되어 있는 상황에서 한 경우
             if item.likes2.contains(userID) {
