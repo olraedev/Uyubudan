@@ -30,11 +30,10 @@ final class ProfileView: BaseView {
         return label
     }()
     
-    let detailProfileButton = {
+    let followButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        button.tintColor = .darkGray
-        button.backgroundColor = .customLightGray
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = .systemFont(ofSize: 13)
         return button
     }()
     
@@ -42,7 +41,7 @@ final class ProfileView: BaseView {
         addSubview(profileImageView)
         addSubview(creatorNickLabel)
         addSubview(creatorLabel)
-        addSubview(detailProfileButton)
+        addSubview(followButton)
     }
     
     override func configureConstraints() {
@@ -64,17 +63,11 @@ final class ProfileView: BaseView {
             make.height.equalTo(16)
         }
         
-        detailProfileButton.snp.makeConstraints { make in
+        followButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-24)
-            make.size.equalTo(30)
+            make.width.equalTo(50)
+            make.height.equalTo(30)
         }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        detailProfileButton.layoutIfNeeded()
-        detailProfileButton.layer.cornerRadius = detailProfileButton.frame.width / 2
     }
 }

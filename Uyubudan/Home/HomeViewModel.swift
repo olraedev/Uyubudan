@@ -19,9 +19,11 @@ final class HomeViewModel {
     let rightButtonClicked = PublishRelay<Int>()
     let categoryClicked = BehaviorRelay(value: "전체")
     let deleteButtonClicked = PublishRelay<PostData>()
+    let followButtonClicked = PublishRelay<PostData>()
     
     let allPostList = BehaviorRelay<[PostData]>(value: [])
     let categoryPostList = BehaviorRelay<[PostData]>(value: [])
+    let myFollowingList = BehaviorRelay<[String]>(value: [])
     
     init() {
         viewWillAppearTrigger
@@ -35,6 +37,18 @@ final class HomeViewModel {
                     owner.allPostList.accept(model.data)
                     owner.categoryClicked.accept(owner.categoryClicked.value)
                 case .failure(_): break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewWillAppearTrigger
+            .flatMap { NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.read) }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model):
+                    owner.myFollowingList.accept(model.following.map { $0.userID })
+                case .failure(let error):
+                    print(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -143,6 +157,26 @@ final class HomeViewModel {
                 }
             }
             .disposed(by: disposeBag)
+        
+        followButtonClicked
+            .map { self.checkFollow(post: $0) }
+            .flatMap { NetworkManager.fetchToServer(model: FollowModel.self, router: $0) }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(_):
+                    owner.viewWillAppearTrigger.accept(())
+                case .failure(_): break
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func checkFollow(post: PostData) -> FollowRouter {
+        if myFollowingList.value.contains(post.creator.userID) {
+            return FollowRouter.cancel(userID: post.creator.userID)
+        } else {
+            return FollowRouter.follow(userID: post.creator.userID)
+        }
     }
     
     private func checkVote(state: LikeState, data: PostData) -> (String, LikeQuery) {

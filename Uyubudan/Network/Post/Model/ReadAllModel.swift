@@ -21,8 +21,8 @@ struct PostData: Decodable {
     let content3: String
     let createdAt: String
     let creator: Creator
-    let likes: [String]
-    let likes2: [String]
+    var likes: [String]
+    var likes2: [String]
     let hashTags: [String]
     let comments: [Comment]
     

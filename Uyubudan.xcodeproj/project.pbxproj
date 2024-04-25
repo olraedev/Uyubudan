@@ -27,6 +27,8 @@
 		EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */; };
 		EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */; };
 		EC0F3FB22BD819D500D864EC /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */; };
+		EC0F3FC22BDA0B2800D864EC /* FollowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */; };
+		EC0F3FC42BDA0C2200D864EC /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -130,6 +132,8 @@
 		EC0F3FAB2BD7DA9600D864EC /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Bool.swift"; sourceTree = "<group>"; };
 		EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
+		EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowRouter.swift; sourceTree = "<group>"; };
+		EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +303,15 @@
 				EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC0F3FC02BDA0B1500D864EC /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */,
+				EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */,
+			);
+			path = Follow;
 			sourceTree = "<group>";
 		};
 		EC334EFF2BC90CBB00A97EAB = {
@@ -472,6 +485,7 @@
 				ECC824CA2BD3A01C006C28F5 /* Like */,
 				ECC825102BD57960006C28F5 /* Comments */,
 				EC0F3F882BD6831800D864EC /* Profile */,
+				EC0F3FC02BDA0B1500D864EC /* Follow */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -689,6 +703,7 @@
 				EC334F822BCD69DC00A97EAB /* LoginViewController.swift in Sources */,
 				EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */,
 				EC0CE6C12BD0FD760073276A /* PostRouter.swift in Sources */,
+				EC0F3FC22BDA0B2800D864EC /* FollowRouter.swift in Sources */,
 				EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */,
 				EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
@@ -705,6 +720,7 @@
 				EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				ECC824E52BD41EB0006C28F5 /* TabViewController.swift in Sources */,
+				EC0F3FC42BDA0C2200D864EC /* FollowModel.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */,
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,

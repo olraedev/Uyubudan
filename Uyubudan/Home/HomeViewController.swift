@@ -45,7 +45,7 @@ final class HomeViewController: BaseViewController {
                 cellIdentifier: PostCollectionViewCell.identifier,
                 cellType: PostCollectionViewCell.self)) { [weak self] row, element, cell in
                     guard let self else { return }
-                    cell.configureCell(element)
+                    cell.configureCell(element, myFollowingList: self.viewModel.myFollowingList.value)
                     
                     cell.deleteButton.rx.tap
                         .bind(with: self) { owner, _ in
@@ -81,6 +81,12 @@ final class HomeViewController: BaseViewController {
                                 sheet.preferredCornerRadius = 30
                             }
                             owner.present(vc, animated: true)
+                        }
+                        .disposed(by: cell.disposeBag)
+                    
+                    cell.profileView.followButton.rx.tap
+                        .bind(with: self) { owner, _ in
+                            owner.viewModel.followButtonClicked.accept(element)
                         }
                         .disposed(by: cell.disposeBag)
                 }

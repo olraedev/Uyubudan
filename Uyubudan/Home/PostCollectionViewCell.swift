@@ -192,7 +192,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    private let profileView = ProfileView()
+    let profileView = ProfileView()
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -201,7 +201,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         voteInfoView.isHidden = true
     }
     
-    func configureCell(_ item: PostData) {
+    func configureCell(_ item: PostData, myFollowingList: [String]) {
         let userID = UserDefaultsManager.shared.userID
         
         categoryLabel.text = item.content3
@@ -220,6 +220,23 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         rightVoteRateLabel.text = "\(String(format: "%.1f", percentage(a: item.likes2.count, b: item.likes.count)))%"
         profileView.creatorNickLabel.text = item.creator.nick
         profileView.profileImageView.setImage(url: item.creator.profileImage)
+        
+        if userID == item.creator.userID {
+            profileView.followButton.isHidden = true
+        }
+        else {
+            if myFollowingList.contains(item.creator.userID) {
+                profileView.followButton.setTitle("팔로잉", for: .normal)
+                profileView.followButton.setTitleColor(.darkGray, for: .normal)
+                profileView.followButton.backgroundColor = .customLightGray
+            } else {
+                profileView.followButton.setTitle("팔로우", for: .normal)
+                profileView.followButton.setTitleColor(.darkGray, for: .normal)
+                profileView.followButton.backgroundColor = .customTertiary
+            }
+        }
+        
+        
         
         if item.likes.count + item.likes2.count != 0 {
             leftVoteRateLabel.snp.remakeConstraints { make in
