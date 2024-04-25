@@ -15,13 +15,13 @@ final class HomeViewModel {
     let categories = BehaviorRelay(value: ["전체", "작명", "메뉴", "쇼핑", "여행", "기타"])
     
     let viewWillAppearTrigger = PublishRelay<Void>()
-    let leftButtonClicked = PublishRelay<PostData>()
-    let rightButtonClicked = PublishRelay<PostData>()
+    let leftButtonClicked = PublishRelay<Int>()
+    let rightButtonClicked = PublishRelay<Int>()
     let categoryClicked = BehaviorRelay(value: "전체")
     let deleteButtonClicked = PublishRelay<PostData>()
     
-    let allPostList = PublishRelay<[PostData]>()
-    let categoryPostList = PublishRelay<[PostData]>()
+    let allPostList = BehaviorRelay<[PostData]>(value: [])
+    let categoryPostList = BehaviorRelay<[PostData]>(value: [])
     
     init() {
         viewWillAppearTrigger
@@ -57,9 +57,16 @@ final class HomeViewModel {
             .disposed(by: disposeBag)
         
         leftButtonClicked
+            .bind(with: self) { owner, row in
+                let list = self.configureOptimisticUI(state: .left, row: row)
+                owner.categoryPostList.accept(list)
+            }
+            .disposed(by: disposeBag)
+        
+        leftButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .flatMap {
-                return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like2(postID: $0.postID, LikeQuery: LikeQuery(status: false)))
+                return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like2(postID: self.categoryPostList.value[$0].postID, LikeQuery: LikeQuery(status: false)))
             }
             .subscribe(with: self) { owner, result in }
             .disposed(by: disposeBag)
@@ -67,24 +74,38 @@ final class HomeViewModel {
         leftButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .map {
-                self.checkVote(state: .left, data: $0)
+                self.checkVote(state: .left, data: self.categoryPostList.value[$0])
             }
             .flatMap {
-                return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like(postID: $0.0, LikeQuery: $0.1))
+                print($0.1)
+                return NetworkManager.fetchToServer(
+                    model: LikeModel.self,
+                    router: LikeRouter.like(postID: $0.0, LikeQuery: $0.1)
+                )
             }
             .subscribe(with: self, onNext: { owner, result in
                 switch result {
                 case .success(_):
-                    owner.viewWillAppearTrigger.accept(())
+                    break
                 case .failure(_): break
                 }
             })
             .disposed(by: disposeBag)
         
         rightButtonClicked
+            .bind(with: self) { owner, row in
+                let list = self.configureOptimisticUI(state: .right, row: row)
+                owner.categoryPostList.accept(list)
+            }
+            .disposed(by: disposeBag)
+        
+        rightButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .flatMap {
-                return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like(postID: $0.postID, LikeQuery: LikeQuery(status: false)))
+                return NetworkManager.fetchToServer(
+                    model: LikeModel.self,
+                    router: LikeRouter.like(postID: self.categoryPostList.value[$0].postID, LikeQuery: LikeQuery(status: false))
+                )
             }
             .subscribe(with: self) { owner, result in }
             .disposed(by: disposeBag)
@@ -92,15 +113,18 @@ final class HomeViewModel {
         rightButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .map {
-                self.checkVote(state: .right, data: $0)
+                self.checkVote(state: .right, data: self.categoryPostList.value[$0])
             }
             .flatMap {
-                return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like2(postID: $0.0, LikeQuery: $0.1))
+                return NetworkManager.fetchToServer(
+                    model: LikeModel.self,
+                    router: LikeRouter.like2(postID: $0.0, LikeQuery: $0.1)
+                )
             }
             .subscribe(with: self, onNext: { owner, result in
                 switch result {
                 case .success(_):
-                    owner.viewWillAppearTrigger.accept(())
+                    break
                 case .failure(_):
                     break
                 }
@@ -126,58 +150,53 @@ final class HomeViewModel {
         let mine = state == .left ? data.likes : data.likes2
         
         if mine.contains(userID) {
-            return (data.postID, LikeQuery(status: false))
+            return (data.postID, LikeQuery(status: true))
         }
         else {
-            return (data.postID, LikeQuery(status: true))
+            return (data.postID, LikeQuery(status: false))
         }
     }
     
-    func configureOptimisticUI(state: LikeState, item: PostData) -> (Int, Int, LikeState) {
+    private func configureOptimisticUI(state: LikeState, row: Int) -> [PostData] {
         let userID = UserDefaultsManager.shared.userID
-        var left = item.likes.count
-        var right = item.likes2.count
-        var result: LikeState = .left
+        var post = categoryPostList.value[row]
+        let left = post.likes
+        let right = post.likes2
         
+        // 왼쪽을 눌렀는데
         if state == .left {
-            // 왼쪽 눌렀는데 오른쪽 투표되어 있는 상황에서 한 경우
-            if item.likes2.contains(userID) {
-                left += 1
-                right -= 1
-                result = .leftVote
+            // 이미 왼쪽이 눌려져 있는 경우 (삭제)
+            if left.contains(userID) {
+                post.likes.remove(at: post.likes.firstIndex(of: userID)!)
             }
-            // 왼쪽 눌렀는데 왼쪽에 이미 투표되어 있는 상황 (취소)
-            else if item.likes.contains(userID) {
-                left -= 1
-                result = .leftVoteCanceled
-            }
-            // 투표를 안한 상황에서 투표한 경우
             else {
-                left += 1
-                result = .leftVote
+                post.likes.append(userID)
+            }
+            
+            // 오른쪽이 눌려져 있는 경우 (삭제)
+            if right.contains(userID) {
+                post.likes2.remove(at: post.likes2.firstIndex(of: userID)!)
             }
         }
-        
+        // 오른쪽을 눌렀는데
         if state == .right {
-            // 오른쪽 눌렀는데 왼쪽 투표되어 있는 상황에서 한 경우
-            if item.likes.contains(userID) {
-                left -= 1
-                right += 1
-                result = .rightVote
+            // 이미 오른쪽이 눌려져 있는 경우 (삭제)
+            if right.contains(userID) {
+                post.likes2.remove(at: post.likes2.firstIndex(of: userID)!)
             }
-            // 오른쪽 눌렀는데 오른쪽에 이미 투표되어 있는 상황(취소)
-            else if item.likes2.contains(userID) {
-                right -= 1
-                result = .rightVoteCanceled
-            }
-            // 투표를 안한 상황에서 투표한 경우
             else {
-                right += 1
-                result = .rightVote
+                post.likes2.append(userID)
+            }
+            
+            // 왼쪽이 눌려져 있는 경우 (삭제)
+            if left.contains(userID) {
+                post.likes.remove(at: post.likes.firstIndex(of: userID)!)
             }
         }
         
-        print(left, right, result)
-        return (left, right, result)
+        var allPost = categoryPostList.value
+        allPost[row] = post
+        
+        return allPost
     }
 }

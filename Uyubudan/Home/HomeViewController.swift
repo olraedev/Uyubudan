@@ -53,21 +53,17 @@ final class HomeViewController: BaseViewController {
                                 owner.viewModel.deleteButtonClicked.accept(element)
                             }
                         }
-                        .disposed(by: disposeBag)
+                        .disposed(by: cell.disposeBag)
                     
                     cell.leftButton.rx.tap
                         .bind(with: self, onNext: { owner, _ in
-                            // let (left, right, result) = owner.viewModel.configureOptimisticUI(state: .left, item: data)
-                            // cell.configureVoteInfo(left: left, right: right, result: result)
-                            owner.viewModel.leftButtonClicked.accept(element)
+                            owner.viewModel.leftButtonClicked.accept(row)
                         })
                         .disposed(by: cell.disposeBag)
                     
                     cell.rightButton.rx.tap
                         .bind(with: self) { owner, _ in
-                            // let (left, right, result) = owner.viewModel.configureOptimisticUI(state: .right, item: data)
-                            // cell.configureVoteInfo(left: left, right: right, result: result)
-                            owner.viewModel.rightButtonClicked.accept(element)
+                            owner.viewModel.rightButtonClicked.accept(row)
                         }
                         .disposed(by: cell.disposeBag)
                     
