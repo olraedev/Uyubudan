@@ -82,7 +82,7 @@ final class CommentsView: BaseView {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             var config = UICollectionLayoutListConfiguration(appearance: .plain)
-            config.showsSeparators = false
+            config.showsSeparators = true
             
             let section = NSCollectionLayoutSection.list(
                 using: config,

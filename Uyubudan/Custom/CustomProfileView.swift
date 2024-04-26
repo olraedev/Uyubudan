@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileView: BaseView {
+final class CustomProfileView: BaseView {
     
     let profileImageView = {
         let view = ProfileImageView(frame: .zero)

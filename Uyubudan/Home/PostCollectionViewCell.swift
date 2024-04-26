@@ -192,13 +192,14 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    let profileView = ProfileView()
+    let profileView = CustomProfileView()
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         disposeBag = DisposeBag()
         voteInfoView.isHidden = true
+        profileView.followButton.isHidden = false
     }
     
     func configureCell(_ item: PostData, myFollowingList: [String]) {

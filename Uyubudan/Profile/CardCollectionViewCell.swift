@@ -13,7 +13,6 @@ final class CardCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
-        label.text = "작명"
         return label
     }()
     
@@ -27,7 +26,6 @@ final class CardCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .black
-        label.text = "타이틀라베에에에ㅔㅇㄹ"
         return label
     }()
     
@@ -38,7 +36,6 @@ final class CardCollectionViewCell: BaseCollectionViewCell {
         label.textAlignment = .center
         label.backgroundColor = .customSecondary
         label.adjustsFontSizeToFitWidth = true
-        label.text = "짜장"
         return label
     }()
     
@@ -49,7 +46,6 @@ final class CardCollectionViewCell: BaseCollectionViewCell {
         label.textAlignment = .center
         label.backgroundColor = .customTertiary
         label.adjustsFontSizeToFitWidth = true
-        label.text = "짬뽕"
         return label
     }()
     

@@ -9,10 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class MypageViewController: BaseViewController {
+final class ProfileViewController: BaseViewController {
     
-    private let mypageView = MypageView()
-    private let viewModel = MypageViewModel()
+    private let mypageView = ProfileView()
+    private let viewModel = ProfileViewModel()
     
     override func loadView() {
         super.loadView()
@@ -28,7 +28,7 @@ final class MypageViewController: BaseViewController {
     
     override func bind() {
         let segmentChanged = mypageView.segment.rx.selectedSegmentIndex
-        let input = MypageViewModel.Input(
+        let input = ProfileViewModel.Input(
             segmentChanged: segmentChanged
         )
         let output = viewModel.transform(input: input)
@@ -70,6 +70,46 @@ final class MypageViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        mypageView.followersButton.rx.tap
+            .withLatestFrom(self.viewModel.profileInfo)
+            .bind(with: self) { owner, profile in
+                let vc = FollowViewController()
+                vc.viewModel.people = profile.followers
+                vc.viewModel.myFollwings = profile.following
+                vc.viewModel.followState = .follower
+                vc.viewModel.dismiss = {
+                    self.viewModel.viewWillAppearTrigger.accept(())
+                }
+                if let sheet = vc.sheetPresentationController {
+                    sheet.detents = [.medium(), .large()]
+                    sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+                    sheet.prefersGrabberVisible = true
+                    sheet.preferredCornerRadius = 30
+                }
+                owner.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        mypageView.followingButton.rx.tap
+            .withLatestFrom(self.viewModel.profileInfo)
+            .bind(with: self) { owner, profile in
+                let vc = FollowViewController()
+                vc.viewModel.people = profile.following
+                vc.viewModel.myFollwings = profile.following
+                vc.viewModel.followState = .following
+                vc.viewModel.dismiss = {
+                    self.viewModel.viewWillAppearTrigger.accept(())
+                }
+                if let sheet = vc.sheetPresentationController {
+                    sheet.detents = [.medium(), .large()]
+                    sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+                    sheet.prefersGrabberVisible = true
+                    sheet.preferredCornerRadius = 30
+                }
+                owner.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
@@ -84,7 +124,7 @@ final class MypageViewController: BaseViewController {
     }
 }
 
-extension MypageViewController {
+extension ProfileViewController {
     @objc func logoutButtonClicked() {
         UserDefaultsManager.shared.removeAll()
         

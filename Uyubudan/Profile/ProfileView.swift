@@ -7,17 +7,44 @@
 
 import UIKit
 
-final class MypageView: BaseView {
+final class ProfileView: BaseView {
     
     private let profileImageView = ProfileImageView(frame: .zero)
     
     private let nicknamelabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 24)
         label.textAlignment = .center
         label.text = "adfasdf"
         label.textColor = .black
         return label
+    }()
+    
+    let postNumber = {
+        let button = UIButton()
+        button.setTitleColor(.darkGray, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        return button
+    }()
+    
+    let followersButton = {
+        let button = UIButton()
+        button.setTitleColor(.darkGray, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        return button
+    }()
+    
+    let followingButton = {
+        let button = UIButton()
+        button.setTitleColor(.darkGray, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        return button
     }()
     
     let segment = {
@@ -64,26 +91,46 @@ final class MypageView: BaseView {
     
     override func configureHierarchy() {
         addSubViews(
-            [profileImageView, nicknamelabel, segment,
-             underLineView, collectionView]
+            [profileImageView, nicknamelabel, 
+             postNumber, followersButton, followingButton,
+             segment, underLineView, collectionView]
         )
     }
     
     override func configureConstraints() {
         profileImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide).offset(8)
+            make.leading.equalToSuperview().offset(32)
             make.size.equalTo(100)
-            make.top.equalTo(safeAreaLayoutGuide).offset(24)
         }
         
         nicknamelabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView.snp.bottom).offset(8)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(32)
+            make.top.equalTo(profileImageView.snp.top).offset(8)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(24)
+            make.height.equalTo(30)
+        }
+        
+        postNumber.snp.makeConstraints { make in
+            make.top.equalTo(nicknamelabel.snp.bottom).offset(8)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(16)
+            make.bottom.equalTo(profileImageView.snp.bottom)
+            make.width.equalTo(50)
+        }
+        
+        followersButton.snp.makeConstraints { make in
+            make.verticalEdges.equalTo(postNumber)
+            make.leading.equalTo(postNumber.snp.trailing).offset(16)
+            make.width.equalTo(50)
+        }
+        
+        followingButton.snp.makeConstraints { make in
+            make.verticalEdges.equalTo(postNumber)
+            make.leading.equalTo(followersButton.snp.trailing).offset(16)
+            make.width.equalTo(50)
         }
         
         segment.snp.makeConstraints { make in
-            make.top.equalTo(nicknamelabel.snp.bottom).offset(24)
+            make.top.equalTo(profileImageView.snp.bottom).offset(40)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(40)
         }
@@ -105,6 +152,9 @@ final class MypageView: BaseView {
     func configureViews(_ item: ProfileModel) {
         profileImageView.setImage(url: item.profileImage)
         nicknamelabel.text = item.nickname
+        postNumber.setTitle("\(item.posts.count)\n게시물", for: .normal)
+        followersButton.setTitle("\(item.followers.count)\n팔로워", for: .normal)
+        followingButton.setTitle("\(item.following.count)\n팔로잉", for: .normal)
     }
     
     func changeUnderLineView() {

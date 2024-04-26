@@ -76,7 +76,7 @@ final class HomeViewController: BaseViewController {
                             }
                             if let sheet = vc.sheetPresentationController {
                                 sheet.detents = [.medium(), .large()]
-                                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                                sheet.prefersScrollingExpandsWhenScrolledToEdge = true
                                 sheet.prefersGrabberVisible = true
                                 sheet.preferredCornerRadius = 30
                             }

@@ -16,7 +16,7 @@ class TabViewController: UITabBarController {
         
         let home = UINavigationController(rootViewController: HomeViewController())
         let write = CategoryViewController()
-        let mypage = UINavigationController(rootViewController: MypageViewController())
+        let myProfile = UINavigationController(rootViewController: ProfileViewController())
         
         self.tabBar.backgroundColor = .white
         self.tabBar.tintColor = .customPrimary
@@ -24,9 +24,9 @@ class TabViewController: UITabBarController {
         
         home.tabBarItem = UITabBarItem(title: "피드", image: UIImage(systemName: "doc.append"), tag: 0)
         write.tabBarItem = UITabBarItem(title: "작성", image: UIImage(systemName: "plus.app"), tag: 1)
-        mypage.tabBarItem = UITabBarItem(title: "마이", image: UIImage(systemName: "person.fill"), tag: 2)
+        myProfile.tabBarItem = UITabBarItem(title: "마이", image: UIImage(systemName: "person.fill"), tag: 2)
         
-        self.setViewControllers([home, write, mypage], animated: true)
+        self.setViewControllers([home, write, myProfile], animated: true)
     }
 }
 

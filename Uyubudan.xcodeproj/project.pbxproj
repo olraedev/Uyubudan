@@ -14,13 +14,13 @@
 		EC0CE6CA2BD111540073276A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6C92BD111540073276A /* HomeViewModel.swift */; };
 		EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6CC2BD112180073276A /* ReadAllModel.swift */; };
 		EC0CE6D12BD139ED0073276A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D02BD139ED0073276A /* Extension+String.swift */; };
-		EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D22BD176AB0073276A /* ProfileView.swift */; };
-		EC0F3F852BD6824E00D864EC /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F842BD6824E00D864EC /* MypageView.swift */; };
-		EC0F3F872BD6825700D864EC /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F862BD6825700D864EC /* MypageViewController.swift */; };
+		EC0CE6D32BD176AB0073276A /* CustomProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE6D22BD176AB0073276A /* CustomProfileView.swift */; };
+		EC0F3F852BD6824E00D864EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F842BD6824E00D864EC /* ProfileView.swift */; };
+		EC0F3F872BD6825700D864EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F862BD6825700D864EC /* ProfileViewController.swift */; };
 		EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */; };
 		EC0F3F8C2BD6855600D864EC /* ProfileUpdateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */; };
 		EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */; };
-		EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */; };
+		EC0F3F902BD6B0F500D864EC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F8F2BD6B0F500D864EC /* ProfileViewModel.swift */; };
 		EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */; };
 		EC0F3FA82BD7D6A700D864EC /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */; };
 		EC0F3FAA2BD7D6B100D864EC /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */; };
@@ -29,6 +29,11 @@
 		EC0F3FB22BD819D500D864EC /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */; };
 		EC0F3FC22BDA0B2800D864EC /* FollowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */; };
 		EC0F3FC42BDA0C2200D864EC /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */; };
+		EC0F3FC72BDA6E0500D864EC /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC62BDA6E0500D864EC /* FollowView.swift */; };
+		EC0F3FC92BDA6E0D00D864EC /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FC82BDA6E0D00D864EC /* FollowViewController.swift */; };
+		EC0F3FCB2BDA6EBA00D864EC /* FollowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCA2BDA6EBA00D864EC /* FollowCollectionViewCell.swift */; };
+		EC0F3FCD2BDA70CE00D864EC /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */; };
+		EC0F3FCF2BDA758200D864EC /* FollowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCE2BDA758200D864EC /* FollowState.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -119,13 +124,13 @@
 		EC0CE6C92BD111540073276A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC0CE6CC2BD112180073276A /* ReadAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAllModel.swift; sourceTree = "<group>"; };
 		EC0CE6D02BD139ED0073276A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
-		EC0CE6D22BD176AB0073276A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		EC0F3F842BD6824E00D864EC /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
-		EC0F3F862BD6825700D864EC /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		EC0CE6D22BD176AB0073276A /* CustomProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProfileView.swift; sourceTree = "<group>"; };
+		EC0F3F842BD6824E00D864EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EC0F3F862BD6825700D864EC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EC0F3F892BD6832E00D864EC /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		EC0F3F8B2BD6855600D864EC /* ProfileUpdateQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateQuery.swift; sourceTree = "<group>"; };
 		EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
-		EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		EC0F3F8F2BD6B0F500D864EC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EC0F3F912BD6B27B00D864EC /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		EC0F3FA72BD7D6A700D864EC /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		EC0F3FA92BD7D6B100D864EC /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +139,11 @@
 		EC0F3FB12BD819D500D864EC /* UploadImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowRouter.swift; sourceTree = "<group>"; };
 		EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
+		EC0F3FC62BDA6E0500D864EC /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
+		EC0F3FC82BDA6E0D00D864EC /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		EC0F3FCA2BDA6EBA00D864EC /* FollowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
+		EC0F3FCE2BDA758200D864EC /* FollowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowState.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,15 +268,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EC0F3F832BD6823C00D864EC /* Mypage */ = {
+		EC0F3F832BD6823C00D864EC /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EC0F3F842BD6824E00D864EC /* MypageView.swift */,
-				EC0F3F862BD6825700D864EC /* MypageViewController.swift */,
-				EC0F3F8F2BD6B0F500D864EC /* MypageViewModel.swift */,
+				EC0F3F842BD6824E00D864EC /* ProfileView.swift */,
+				EC0F3F862BD6825700D864EC /* ProfileViewController.swift */,
+				EC0F3F8F2BD6B0F500D864EC /* ProfileViewModel.swift */,
 				EC0F3F8D2BD6AFB600D864EC /* CardCollectionViewCell.swift */,
 			);
-			path = Mypage;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EC0F3F882BD6831800D864EC /* Profile */ = {
@@ -314,6 +324,18 @@
 			path = Follow;
 			sourceTree = "<group>";
 		};
+		EC0F3FC52BDA6DF300D864EC /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3FCE2BDA758200D864EC /* FollowState.swift */,
+				EC0F3FC62BDA6E0500D864EC /* FollowView.swift */,
+				EC0F3FC82BDA6E0D00D864EC /* FollowViewController.swift */,
+				EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */,
+				EC0F3FCA2BDA6EBA00D864EC /* FollowCollectionViewCell.swift */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
 		EC334EFF2BC90CBB00A97EAB = {
 			isa = PBXGroup;
 			children = (
@@ -346,8 +368,9 @@
 				EC334F382BCA7F2D00A97EAB /* Home */,
 				ECC825042BD534AC006C28F5 /* Comments */,
 				ECC824DF2BD409E5006C28F5 /* Write */,
-				EC0F3F832BD6823C00D864EC /* Mypage */,
+				EC0F3F832BD6823C00D864EC /* Profile */,
 				EC0F3FA62BD7D69200D864EC /* ProfileEdit */,
+				EC0F3FC52BDA6DF300D864EC /* Follow */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -397,7 +420,7 @@
 				EC334F452BCC009A00A97EAB /* ProfileImageView.swift */,
 				EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */,
 				EC334F8E2BCD776900A97EAB /* CustomTextField.swift */,
-				EC0CE6D22BD176AB0073276A /* ProfileView.swift */,
+				EC0CE6D22BD176AB0073276A /* CustomProfileView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -704,7 +727,7 @@
 				EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */,
 				EC0CE6C12BD0FD760073276A /* PostRouter.swift in Sources */,
 				EC0F3FC22BDA0B2800D864EC /* FollowRouter.swift in Sources */,
-				EC0F3F902BD6B0F500D864EC /* MypageViewModel.swift in Sources */,
+				EC0F3F902BD6B0F500D864EC /* ProfileViewModel.swift in Sources */,
 				EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
 				ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */,
@@ -723,8 +746,10 @@
 				EC0F3FC42BDA0C2200D864EC /* FollowModel.swift in Sources */,
 				EC334F222BC90E2800A97EAB /* Environment.swift in Sources */,
 				ECC8250F2BD54B1A006C28F5 /* CommentsViewModel.swift in Sources */,
+				EC0F3FC92BDA6E0D00D864EC /* FollowViewController.swift in Sources */,
 				EC334FD42BCE91B200A97EAB /* LoginViewModel.swift in Sources */,
 				ECC824EA2BD425A7006C28F5 /* CategoryViewController.swift in Sources */,
+				EC0F3FCB2BDA6EBA00D864EC /* FollowCollectionViewCell.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */,
@@ -745,10 +770,12 @@
 				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,
 				EC334FCB2BCE658C00A97EAB /* NetworkManager.swift in Sources */,
 				EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */,
+				EC0F3FCD2BDA70CE00D864EC /* FollowViewModel.swift in Sources */,
 				EC334FC22BCE628C00A97EAB /* JoinQuery.swift in Sources */,
 				EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */,
 				ECC825122BD5797A006C28F5 /* CommentsRouter.swift in Sources */,
 				EC334FC52BCE636E00A97EAB /* Version.swift in Sources */,
+				EC0F3FCF2BDA758200D864EC /* FollowState.swift in Sources */,
 				ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
 				EC0CE6C82BD108280073276A /* UpdateQuery.swift in Sources */,
@@ -758,19 +785,20 @@
 				EC334F802BCD688E00A97EAB /* LoginView.swift in Sources */,
 				EC334FD92BCE957900A97EAB /* UserDefaultsManager.swift in Sources */,
 				EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */,
+				EC0F3FC72BDA6E0500D864EC /* FollowView.swift in Sources */,
 				ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */,
 				EC334F8F2BCD776900A97EAB /* CustomTextField.swift in Sources */,
 				EC0F3FB22BD819D500D864EC /* UploadImageModel.swift in Sources */,
 				ECC824D02BD3A305006C28F5 /* LikeModel.swift in Sources */,
 				EC334F8B2BCD749200A97EAB /* EmailViewController.swift in Sources */,
-				EC0F3F872BD6825700D864EC /* MypageViewController.swift in Sources */,
+				EC0F3F872BD6825700D864EC /* ProfileViewController.swift in Sources */,
 				EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */,
 				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
 				ECC824EE2BD42C15006C28F5 /* WriteManager.swift in Sources */,
 				EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */,
 				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
-				EC0CE6D32BD176AB0073276A /* ProfileView.swift in Sources */,
+				EC0CE6D32BD176AB0073276A /* CustomProfileView.swift in Sources */,
 				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
 				ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */,
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
@@ -780,7 +808,7 @@
 				EC334F932BCD788900A97EAB /* PasswordViewController.swift in Sources */,
 				ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
-				EC0F3F852BD6824E00D864EC /* MypageView.swift in Sources */,
+				EC0F3F852BD6824E00D864EC /* ProfileView.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
 				ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,
