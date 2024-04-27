@@ -12,7 +12,7 @@ import RxCocoa
 final class ProfileViewController: BaseViewController {
     
     private let mypageView = ProfileView()
-    private let viewModel = ProfileViewModel()
+    let viewModel = ProfileViewModel()
     
     override func loadView() {
         super.loadView()
@@ -76,7 +76,7 @@ final class ProfileViewController: BaseViewController {
             .bind(with: self) { owner, profile in
                 let vc = FollowViewController()
                 vc.viewModel.people = profile.followers
-                vc.viewModel.myFollwings = profile.following
+                vc.viewModel.myFollwings = owner.viewModel.myFollowingList.value
                 vc.viewModel.followState = .follower
                 vc.viewModel.dismiss = {
                     self.viewModel.viewWillAppearTrigger.accept(())
@@ -96,7 +96,7 @@ final class ProfileViewController: BaseViewController {
             .bind(with: self) { owner, profile in
                 let vc = FollowViewController()
                 vc.viewModel.people = profile.following
-                vc.viewModel.myFollwings = profile.following
+                vc.viewModel.myFollwings = owner.viewModel.myFollowingList.value
                 vc.viewModel.followState = .following
                 vc.viewModel.dismiss = {
                     self.viewModel.viewWillAppearTrigger.accept(())
@@ -121,6 +121,8 @@ final class ProfileViewController: BaseViewController {
         }
         mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
         navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 

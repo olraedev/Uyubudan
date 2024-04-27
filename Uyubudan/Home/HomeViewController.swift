@@ -25,6 +25,8 @@ final class HomeViewController: BaseViewController {
         
         viewModel.viewWillAppearTrigger.accept(())
         homeView.profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func bind() {
@@ -89,6 +91,20 @@ final class HomeViewController: BaseViewController {
                             owner.viewModel.followButtonClicked.accept(element)
                         }
                         .disposed(by: cell.disposeBag)
+                    
+                    cell.tapGesture.rx.event
+                        .bind(with: self) { owner, _ in
+                            if element.creator.userID == UserDefaultsManager.shared.userID {
+                                owner.tabBarController?.selectedIndex = 2
+                            } else {
+                                let vc = ProfileViewController()
+                                vc.viewModel.profileState = .other
+                                vc.viewModel.userID = element.creator.userID
+                                
+                                owner.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                        .disposed(by: cell.disposeBag)
                 }
                 .disposed(by: disposeBag)
         
@@ -105,8 +121,6 @@ final class HomeViewController: BaseViewController {
     override func configureNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: homeView.profileImageView)
         navigationItem.title = "우유부단🐮"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 

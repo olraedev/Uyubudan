@@ -14,7 +14,7 @@ final class FollowViewModel: ViewModelType {
     var disposeBag: DisposeBag = DisposeBag()
     
     var people: [FollowInfo] = []
-    var myFollwings: [FollowInfo] = []
+    var myFollwings: [String] = []
     var followState: FollowState = .follower
     var dismiss: (() -> Void)?
     
@@ -43,9 +43,11 @@ final class FollowViewModel: ViewModelType {
                     owner.people.forEach { info in
                         followList.updateValue(false, forKey: info.userID)
                     }
+                    
                     owner.myFollwings.forEach { info in
-                        followingList.append(info.userID)
+                        followingList.append(info)
                     }
+                    
                     // 맞팔 체크
                     for (key, _) in followList {
                         if followingList.contains(key) {
@@ -60,7 +62,6 @@ final class FollowViewModel: ViewModelType {
                 
                 owner.peopleList.accept(owner.people)
                 owner.followList.accept(followList)
-                owner.myFollowingList.accept(followingList)
                 owner.temp.accept(followList)
             }
             .disposed(by: disposeBag)

@@ -192,7 +192,14 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    let profileView = CustomProfileView()
+    let tapGesture = UITapGestureRecognizer()
+    
+    lazy var profileView = {
+        let view = CustomProfileView()
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }()
     
     override func prepareForReuse() {
         super.prepareForReuse()

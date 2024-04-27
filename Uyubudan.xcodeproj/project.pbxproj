@@ -34,6 +34,7 @@
 		EC0F3FCB2BDA6EBA00D864EC /* FollowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCA2BDA6EBA00D864EC /* FollowCollectionViewCell.swift */; };
 		EC0F3FCD2BDA70CE00D864EC /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */; };
 		EC0F3FCF2BDA758200D864EC /* FollowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCE2BDA758200D864EC /* FollowState.swift */; };
+		EC0F3FDB2BDCC49700D864EC /* ProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FDA2BDCC49700D864EC /* ProfileState.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -144,6 +145,7 @@
 		EC0F3FCA2BDA6EBA00D864EC /* FollowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
 		EC0F3FCE2BDA758200D864EC /* FollowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowState.swift; sourceTree = "<group>"; };
+		EC0F3FDA2BDCC49700D864EC /* ProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileState.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		EC0F3F832BD6823C00D864EC /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EC0F3FDA2BDCC49700D864EC /* ProfileState.swift */,
 				EC0F3F842BD6824E00D864EC /* ProfileView.swift */,
 				EC0F3F862BD6825700D864EC /* ProfileViewController.swift */,
 				EC0F3F8F2BD6B0F500D864EC /* ProfileViewModel.swift */,
@@ -768,6 +771,7 @@
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334FC02BCE5F9400A97EAB /* HTTPHeader.swift in Sources */,
 				EC334F972BCD7D8400A97EAB /* NicknameViewController.swift in Sources */,
+				EC0F3FDB2BDCC49700D864EC /* ProfileState.swift in Sources */,
 				EC334FCB2BCE658C00A97EAB /* NetworkManager.swift in Sources */,
 				EC334F8D2BCD76AD00A97EAB /* EmailView.swift in Sources */,
 				EC0F3FCD2BDA70CE00D864EC /* FollowViewModel.swift in Sources */,
@@ -963,6 +967,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G88QGSLX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Uyubudan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -995,6 +1000,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G88QGSLX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Uyubudan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -18,6 +18,13 @@ final class CategoryCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        button.setTitleColor(.black, for: .normal)
+        button.configuration?.baseBackgroundColor = .systemGray5
+    }
+    
     override func configureHierarchy() {
         contentView.addSubview(button)
     }

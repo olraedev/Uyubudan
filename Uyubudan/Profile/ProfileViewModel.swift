@@ -13,9 +13,12 @@ final class ProfileViewModel: ViewModelType {
     
     var disposeBag: DisposeBag = DisposeBag()
     
+    var profileState: ProfileState = .mine
+    var userID = ""
     let viewWillAppearTrigger = PublishRelay<Void>()
     let profileInfo = PublishRelay<ProfileModel>()
     let withdrawButtonTapped = PublishRelay<Void>()
+    let myFollowingList = BehaviorRelay<[String]>(value: [])
     
     struct Input {
         let segmentChanged: ControlProperty<Int>
@@ -33,12 +36,41 @@ final class ProfileViewModel: ViewModelType {
         let successWithdraw = PublishRelay<Bool>()
         
         viewWillAppearTrigger
+            .filter { self.profileState == .mine }
             .flatMap { NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.read) }
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
                     owner.profileInfo.accept(model)
+                    owner.myFollowingList.accept(model.following.map { $0.userID })
                     myPosts.accept(true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewWillAppearTrigger
+            .filter { self.profileState == .other }
+            .flatMap { NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.readSpecific(userID: self.userID)) }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model):
+                    owner.profileInfo.accept(model)
+                    myPosts.accept(true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewWillAppearTrigger
+            .filter { self.profileState == .other }
+            .flatMap { _ in NetworkManager.fetchToServer(model: ProfileModel.self, router: ProfileRouter.read) }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model):
+                    owner.myFollowingList.accept(model.following.map { $0.userID })
                 case .failure(let error):
                     print(error)
                 }
@@ -54,7 +86,7 @@ final class ProfileViewModel: ViewModelType {
         myPosts
             .withLatestFrom(profileInfo)
             .flatMap {
-                NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readSpecificUser(userID:$0.userID ))
+                NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readSpecificUser(userID:$0.userID))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

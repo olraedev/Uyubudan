@@ -49,5 +49,24 @@ final class FollowViewController: BaseViewController {
                     .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        Observable.zip(followView.collectionView.rx.itemSelected, followView.collectionView.rx.modelSelected(FollowInfo.self))
+            .bind(with: self) { owner, result in
+                let vc = ProfileViewController()
+                
+                if result.1.userID == UserDefaultsManager.shared.userID {
+                    vc.viewModel.profileState = .mine
+                } else {
+                    vc.viewModel.profileState = .other
+                    vc.viewModel.userID = result.1.userID
+                }
+                
+                guard let pvc = self.presentingViewController else { return }
+                
+                owner.dismiss(animated: true) {
+                    pvc.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
