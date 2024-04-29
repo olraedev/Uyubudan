@@ -14,6 +14,7 @@ struct WriteQuery: Encodable {
     let content2: String
     let content3: String
     let productID: String
+    let files: [String]?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -22,5 +23,6 @@ struct WriteQuery: Encodable {
         case content2
         case content3
         case productID = "product_id"
+        case files
     }
 }

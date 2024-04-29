@@ -101,7 +101,11 @@ final class HomeViewController: BaseViewController {
                                 vc.viewModel.profileState = .other
                                 vc.viewModel.userID = element.creator.userID
                                 
-                                owner.navigationController?.pushViewController(vc, animated: true)
+                                let nav = UINavigationController(rootViewController: vc)
+                                nav.modalTransitionStyle = .coverVertical
+                                nav.modalPresentationStyle = .fullScreen
+                                
+                                owner.present(nav, animated:true)
                             }
                         }
                         .disposed(by: cell.disposeBag)

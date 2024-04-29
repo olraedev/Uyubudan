@@ -110,17 +110,27 @@ final class ProfileViewController: BaseViewController {
                 owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        mypageView.dismissButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {
-        let logout = UIAction(title: "로그아웃") { [weak self] _ in
-            self?.logoutButtonClicked()
+        if viewModel.profileState == .mine {
+            let logout = UIAction(title: "로그아웃") { [weak self] _ in
+                self?.logoutButtonClicked()
+            }
+            let withdraw = UIAction(title: "회원탈퇴", attributes: .destructive) { [weak self] _ in
+                self?.withdrawButtonClicked()
+            }
+            mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
+            navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
         }
-        let withdraw = UIAction(title: "회원탈퇴", attributes: .destructive) { [weak self] _ in
-            self?.withdrawButtonClicked()
-        }
-        mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
-        navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
+        
+        navigationItem.leftBarButtonItem = mypageView.dismissButton
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
     }

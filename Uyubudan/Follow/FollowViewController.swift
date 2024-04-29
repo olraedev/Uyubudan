@@ -64,7 +64,11 @@ final class FollowViewController: BaseViewController {
                 guard let pvc = self.presentingViewController else { return }
                 
                 owner.dismiss(animated: true) {
-                    pvc.navigationController?.pushViewController(vc, animated: true)
+                    // pvc.navigationController?.pushViewController(vc, animated: true)
+                    let nav = UINavigationController(rootViewController: vc)
+                    nav.modalTransitionStyle = .coverVertical
+                    nav.modalPresentationStyle = .fullScreen
+                    pvc.present(nav, animated:true)
                 }
             }
             .disposed(by: disposeBag)

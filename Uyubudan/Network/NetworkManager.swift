@@ -45,7 +45,43 @@ final class NetworkManager {
         }
     }
     
-    static func uploadImageToServer<M: Decodable, T: TargetType>(model: M.Type, router: T, nick: String, data: Data) -> Single<Result<M, HTTPError>> {
+    static func uploadImageToServer(datas: [Data]) -> Single<Result<UploadImageModel, HTTPError>> {
+        return Single<Result<UploadImageModel, HTTPError>>.create { single in
+            do {
+                let urlRequest = try PostRouter.uploadImage.asURLRequest()
+                
+                AF.upload(multipartFormData: { multipartFormData in
+                    for data in datas {
+                        multipartFormData.append(data, withName: "files", fileName: "uyubudan.png", mimeType: "image/png")
+                    }
+                }, with: urlRequest, interceptor: NetworkInterceptor())
+                .responseDecodable(of: UploadImageModel.self) { response in
+                    switch response.result {
+                    case .success(let model):
+                        print("success")
+                        single(.success(.success(model)))
+                    case .failure(let error):
+                        print("failure: \(error)")
+                        guard let statusCode = response.response?.statusCode else {
+                            single(.success(.failure(.serverError)))
+                            return
+                        }
+                        
+                        print(statusCode)
+                        if let code = HTTPError(rawValue: statusCode) {
+                            single(.success(.failure(code)))
+                        }
+                    }
+                }
+            } catch {
+                single(.success(.failure(.serverError)))
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func editProfileWithImage<M: Decodable, T: TargetType>(model: M.Type, router: T, nick: String, data: Data) -> Single<Result<M, HTTPError>> {
         return Single<Result<M, HTTPError>>.create { single in
             do {
                 let urlRequest = try router.asURLRequest()

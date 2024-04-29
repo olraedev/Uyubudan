@@ -23,6 +23,7 @@ struct PostData: Decodable {
     let creator: Creator
     var likes: [String]
     var likes2: [String]
+    let files: [String]
     let hashTags: [String]
     let comments: [Comment]
     
@@ -38,6 +39,7 @@ struct PostData: Decodable {
         case creator
         case likes
         case likes2
+        case files
         case hashTags
         case comments
     }

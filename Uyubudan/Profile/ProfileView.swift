@@ -89,6 +89,12 @@ final class ProfileView: BaseView {
         return item
     }()
     
+    let dismissButton = {
+        let item = UIBarButtonItem(image: UIImage(systemName: "xmark"))
+        item.tintColor = .black
+        return item
+    }()
+    
     override func configureHierarchy() {
         addSubViews(
             [profileImageView, nicknamelabel, 

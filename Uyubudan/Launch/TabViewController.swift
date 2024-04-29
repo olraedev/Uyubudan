@@ -43,6 +43,7 @@ extension TabViewController: UITabBarControllerDelegate {
             if nav.viewControllers.first is ProfileViewController {
                 let vc = nav.viewControllers.first as! ProfileViewController
                 vc.viewModel.profileState = .mine
+                vc.navigationItem.leftBarButtonItem?.isHidden = true
                 print(vc.viewModel.profileState)
             }
         }

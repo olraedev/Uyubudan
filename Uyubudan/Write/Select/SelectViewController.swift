@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PhotosUI
 
 final class SelectViewController: WriteViewController {
     
@@ -60,5 +61,57 @@ final class SelectViewController: WriteViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        selectView.uploadButton.rx.tap
+            .bind(with: self) { owner, _ in
+                var configuration = PHPickerConfiguration()
+                configuration.selectionLimit = 2
+                configuration.selection = .ordered
+                configuration.filter =  .images
+                let picker = PHPickerViewController(configuration: configuration)
+                picker.delegate = self
+                
+                owner.present(picker, animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension SelectViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        var dict: [Int: Data] = [:]
+        var images: [Data] = []
+        let group = DispatchGroup()
+        let imageViews = [selectView.leftImageView, selectView.rightImageView]
+        
+        for idx in 0..<results.count {
+            group.enter()
+            let result = results[idx].itemProvider
+            if result.canLoadObject(ofClass: UIImage.self) {
+                result.loadObject(ofClass: UIImage.self) { image, error in
+                    defer { group.leave() }
+                    
+                    DispatchQueue.main.async {
+                        imageViews[idx].image = image as? UIImage
+                        
+                        guard let imageViewsImage = imageViews[idx].image?.resizeWithWidth(width: 700)?.pngData() else {
+                            return
+                        }
+                        dict.updateValue(imageViewsImage, forKey: idx)
+                        // images.append(imageViewsImage)
+                    }
+                }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            dict.sorted { $0.0 < $1.0 }.forEach { result in
+                images.append(result.value)
+            }
+            
+            self.viewModel.selectedImage.accept(images)
+        }
     }
 }

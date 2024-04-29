@@ -19,4 +19,5 @@ final class WriteManager {
     var content2 = ""
     var content3 = ""
     var productID = "uyubudan"
+    var files: [String] = []
 }

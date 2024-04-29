@@ -35,6 +35,9 @@
 		EC0F3FCD2BDA70CE00D864EC /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */; };
 		EC0F3FCF2BDA758200D864EC /* FollowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FCE2BDA758200D864EC /* FollowState.swift */; };
 		EC0F3FDB2BDCC49700D864EC /* ProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FDA2BDCC49700D864EC /* ProfileState.swift */; };
+		EC0F40482BDFAD5100D864EC /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40472BDFAD5100D864EC /* Extension+UIImage.swift */; };
+		EC0F404A2BDFB37700D864EC /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40492BDFB37700D864EC /* Extension+UIButton.swift */; };
+		EC0F404E2BDFC54700D864EC /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F404D2BDFC54700D864EC /* Extension+UIImageView.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -146,6 +149,9 @@
 		EC0F3FCC2BDA70CE00D864EC /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
 		EC0F3FCE2BDA758200D864EC /* FollowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowState.swift; sourceTree = "<group>"; };
 		EC0F3FDA2BDCC49700D864EC /* ProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileState.swift; sourceTree = "<group>"; };
+		EC0F40472BDFAD5100D864EC /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		EC0F40492BDFB37700D864EC /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		EC0F404D2BDFC54700D864EC /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -413,6 +419,9 @@
 				EC334F982BCD7F6500A97EAB /* Extension+UIViewController.swift */,
 				EC0CE6D02BD139ED0073276A /* Extension+String.swift */,
 				EC0F3FAD2BD80C0000D864EC /* Extension+Bool.swift */,
+				EC0F40472BDFAD5100D864EC /* Extension+UIImage.swift */,
+				EC0F40492BDFB37700D864EC /* Extension+UIButton.swift */,
+				EC0F404D2BDFC54700D864EC /* Extension+UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -755,6 +764,7 @@
 				EC0F3FCB2BDA6EBA00D864EC /* FollowCollectionViewCell.swift in Sources */,
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
+				EC0F404A2BDFB37700D864EC /* Extension+UIButton.swift in Sources */,
 				EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
@@ -802,8 +812,10 @@
 				EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */,
 				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
 				EC334F742BCD10E600A97EAB /* JoinView.swift in Sources */,
+				EC0F404E2BDFC54700D864EC /* Extension+UIImageView.swift in Sources */,
 				EC0CE6D32BD176AB0073276A /* CustomProfileView.swift in Sources */,
 				ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */,
+				EC0F40482BDFAD5100D864EC /* Extension+UIImage.swift in Sources */,
 				ECC824FF2BD4DFB1006C28F5 /* SelectViewModel.swift in Sources */,
 				EC334FD22BCE8CA900A97EAB /* HTTPError.swift in Sources */,
 				EC0CE6C62BD1075C0073276A /* WriteQuery.swift in Sources */,

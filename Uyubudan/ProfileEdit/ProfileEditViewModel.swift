@@ -30,11 +30,6 @@ final class ProfileEditViewModel: ViewModelType {
         let nicknameValidation = BehaviorRelay(value: true)
         let editSuccess = PublishRelay<Bool>()
         
-        profileImage.bind(with: self) { owner, data in
-            print("이미지 변경!!! \(data)")
-        }
-        .disposed(by: disposeBag)
-        
         input.nickname.orEmpty.changed
             .map { 2 <= $0.count && $0.count < 10 }
             .bind(to: nicknameValidation)
@@ -44,7 +39,7 @@ final class ProfileEditViewModel: ViewModelType {
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(Observable.combineLatest(input.nickname.orEmpty, profileImage))
             .flatMap {
-                NetworkManager.uploadImageToServer(model: ProfileModel.self, router: ProfileRouter.update, nick: $0.0, data: $0.1)
+                NetworkManager.editProfileWithImage(model: ProfileModel.self, router: ProfileRouter.update, nick: $0.0, data: $0.1)
             }
             .subscribe(with: self) { owner, result in
                 switch result {

@@ -82,12 +82,24 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return textView
     }()
     
+    private let imageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = nil
+        view.isHidden = true
+        view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor.systemGray6.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
     let leftButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
         button.backgroundColor = .customSecondary
         button.layer.opacity = 0.5
+        button.clipsToBounds = true
         return button
     }()
     
@@ -105,10 +117,33 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         button.layer.cornerRadius = 10
         button.backgroundColor = .customTertiary
         button.layer.opacity = 0.5
+        button.clipsToBounds = true
         return button
     }()
     
+    private let leftLabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let rightLabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+    
     let buttonsView = UIView()
+    
+    let labelsView = {
+        let view = UIView()
+        view.isHidden = true
+        return view
+    }()
     
     let voteInfoView = {
         let view = UIView()
@@ -117,7 +152,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     }()
     
     lazy var verticalStackView = {
-        let view = UIStackView(arrangedSubviews: [buttonsView, voteInfoView, lineView, profileView])
+        let view = UIStackView(arrangedSubviews: [imageView, buttonsView, labelsView, voteInfoView, lineView, profileView])
         view.axis = .vertical
         view.spacing = 8
         view.backgroundColor = .white
@@ -205,8 +240,15 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         super.prepareForReuse()
         
         disposeBag = DisposeBag()
+        imageView.isHidden = true
+        labelsView.isHidden = true
         voteInfoView.isHidden = true
+        deleteButton.isHidden = true
         profileView.followButton.isHidden = false
+        leftButton.setBackgroundImage(nil, for: .normal)
+        rightButton.setBackgroundImage(nil, for: .normal)
+        leftButton.setImage(nil, for: .normal)
+        rightButton.setImage(nil, for: .normal)
     }
     
     func configureCell(_ item: PostData, myFollowingList: [String]) {
@@ -219,8 +261,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         voteCountButton.setTitle("\(item.likes.count + item.likes2.count)", for: .normal)
         commentsCountButton.setTitle("\(item.comments.count)", for: .normal)
         contentTextView.text = item.content
-        leftButton.setTitle(item.content1, for: .normal)
-        rightButton.setTitle(item.content2, for: .normal)
         leftVoteCountLabel.text = "\(item.likes.count)표"
         diffCountLabel.text = "\(abs(item.likes.count - item.likes2.count))표"
         rightVoteCountLabel.text = "\(item.likes2.count)표"
@@ -243,8 +283,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
                 profileView.followButton.backgroundColor = .customTertiary
             }
         }
-        
-        
         
         if item.likes.count + item.likes2.count != 0 {
             leftVoteRateLabel.snp.remakeConstraints { make in
@@ -286,6 +324,30 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
                 self.voteInfoView.isHidden = true
             })
         }
+        
+        if item.files.count == 0 {
+            imageView.isHidden = true
+            labelsView.isHidden = true
+            leftButton.setTitle(item.content1, for: .normal)
+            rightButton.setTitle(item.content2, for: .normal)
+            leftButton.setBackgroundImage(nil, for: .normal)
+            rightButton.setBackgroundImage(nil, for: .normal)
+        } else if item.files.count == 1 {
+            imageView.isHidden = false
+            labelsView.isHidden = true
+            imageView.setImage(url: item.files[0])
+            leftButton.setTitle(item.content1, for: .normal)
+            rightButton.setTitle(item.content2, for: .normal)
+            leftButton.setBackgroundImage(nil, for: .normal)
+            rightButton.setBackgroundImage(nil, for: .normal)
+        } else if item.files.count == 2 {
+            imageView.isHidden = true
+            labelsView.isHidden = false
+            leftButton.setImageWithURL(item.files[0])
+            rightButton.setImageWithURL(item.files[1])
+            leftLabel.text = item.content1
+            rightLabel.text = item.content2
+        }
     }
     
     override func configureHierarchy() {
@@ -297,6 +359,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         )
         
         buttonsView.addSubViews([leftButton, vsLabel, rightButton])
+        
+        labelsView.addSubViews([leftLabel, rightLabel])
         
         voteInfoView.addSubViews(
             [leftVoteCountLabel, diffVoteLabel, diffCountLabel, rightVoteCountLabel, voteRateStackView, leftVoteRateLabel, rightVoteRateLabel]
@@ -357,8 +421,16 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             make.bottom.equalToSuperview().offset(-8)
         }
         
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(imageView.snp.width).multipliedBy(0.5)
+        }
+        
         buttonsView.snp.makeConstraints { make in
             make.height.equalTo(100)
+        }
+        
+        labelsView.snp.makeConstraints { make in
+            make.height.equalTo(30)
         }
         
         voteInfoView.snp.makeConstraints { make in
@@ -366,9 +438,10 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         leftButton.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview()
+            make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(40)
-            make.width.equalTo(100)
+            make.size.equalTo(100)
+            make.bottom.equalToSuperview().offset(-8)
         }
         
         vsLabel.snp.makeConstraints { make in
@@ -377,19 +450,32 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         rightButton.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview()
+            make.top.equalToSuperview()
             make.trailing.equalToSuperview().offset(-40)
-            make.width.equalTo(100)
+            make.size.equalTo(100)
+            make.bottom.equalToSuperview().offset(-8)
+        }
+        
+        leftLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.horizontalEdges.equalTo(leftButton)
+            make.height.equalTo(20)
+        }
+        
+        rightLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.horizontalEdges.equalTo(rightButton)
+            make.height.equalTo(20)
         }
         
         leftVoteCountLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(16)
             make.horizontalEdges.equalTo(leftButton)
             make.bottom.equalTo(voteRateStackView.snp.top).offset(-16)
         }
         
         diffVoteLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
         }
         
@@ -400,7 +486,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         rightVoteCountLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(16)
             make.horizontalEdges.equalTo(rightButton)
             make.bottom.equalTo(voteRateStackView.snp.top).offset(-16)
         }
