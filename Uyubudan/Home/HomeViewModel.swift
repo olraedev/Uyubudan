@@ -20,7 +20,9 @@ final class HomeViewModel {
     let categoryClicked = BehaviorRelay(value: "전체")
     let deleteButtonClicked = PublishRelay<PostData>()
     let followButtonClicked = PublishRelay<PostData>()
+    let appendPostData = PublishRelay<Void>()
     
+    let recentPost = BehaviorRelay<ReadAllModel>(value: ReadAllModel(data: [], nextCursor: ""))
     let allPostList = BehaviorRelay<[PostData]>(value: [])
     let categoryPostList = BehaviorRelay<[PostData]>(value: [])
     let myFollowingList = BehaviorRelay<[String]>(value: [])
@@ -28,12 +30,13 @@ final class HomeViewModel {
     init() {
         viewWillAppearTrigger
             .flatMap { _ in
-                return NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readAll)
+                return NetworkManager.fetchPostToServer(nextCursor: "")
             }
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
                     print("전체 데이터 가져오기 성공!")
+                    owner.recentPost.accept(model)
                     owner.allPostList.accept(model.data)
                     owner.categoryClicked.accept(owner.categoryClicked.value)
                 case .failure(_): break
@@ -91,7 +94,6 @@ final class HomeViewModel {
                 self.checkVote(state: .left, data: self.categoryPostList.value[$0])
             }
             .flatMap {
-                print($0.1)
                 return NetworkManager.fetchToServer(
                     model: LikeModel.self,
                     router: LikeRouter.like(postID: $0.0, LikeQuery: $0.1)
@@ -166,6 +168,27 @@ final class HomeViewModel {
                 case .success(_):
                     owner.viewWillAppearTrigger.accept(())
                 case .failure(_): break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        appendPostData
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .withLatestFrom(recentPost)
+            .filter { $0.nextCursor != "0" }
+            .flatMap {
+                return NetworkManager.fetchPostToServer(nextCursor: $0.nextCursor)
+            }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model):
+                    var value = owner.allPostList.value
+                    value.append(contentsOf: model.data)
+                    owner.recentPost.accept(model)
+                    owner.allPostList.accept(value)
+                    owner.categoryPostList.accept(value)
+                case .failure(let error):
+                    print(error)
                 }
             }
             .disposed(by: disposeBag)

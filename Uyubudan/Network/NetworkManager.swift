@@ -45,6 +45,40 @@ final class NetworkManager {
         }
     }
     
+    static func fetchPostToServer(nextCursor: String) -> Single<Result<ReadAllModel, HTTPError>> {
+        return Single<Result<ReadAllModel, HTTPError>>.create { single in
+            do {
+                var urlRequest = try PostRouter.readAll.asURLRequest()
+                urlRequest.url?.append(queryItems: [URLQueryItem(name: "next", value: nextCursor)])
+                
+                AF.request(urlRequest, interceptor: NetworkInterceptor())
+                    .validate(statusCode: 200..<300)
+                    .responseDecodable(of: ReadAllModel.self) { response in
+                        switch response.result {
+                        case .success(let model):
+                            print("success")
+                            single(.success(.success(model)))
+                        case .failure(let error):
+                            print("failure: \(error)")
+                            guard let statusCode = response.response?.statusCode else {
+                                single(.success(.failure(.serverError)))
+                                return
+                            }
+                            
+                            print(statusCode)
+                            if let code = HTTPError(rawValue: statusCode) {
+                                single(.success(.failure(code)))
+                            }
+                        }
+                    }
+            } catch {
+                single(.success(.failure(.serverError)))
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
     static func uploadImageToServer(datas: [Data]) -> Single<Result<UploadImageModel, HTTPError>> {
         return Single<Result<UploadImageModel, HTTPError>>.create { single in
             do {

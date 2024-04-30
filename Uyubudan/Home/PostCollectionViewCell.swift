@@ -369,7 +369,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     override func configureConstraints() {
         categoryLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalTo(contentView.snp.top).offset(16)
             make.leading.equalToSuperview().offset(24)
             make.height.equalTo(16)
         }
@@ -387,7 +387,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(emptyView)
+            make.verticalEdges.equalTo(emptyView.snp.verticalEdges)
             make.leading.equalTo(emptyView.snp.trailing).offset(8)
             make.trailing.equalToSuperview().offset(-24)
         }
@@ -438,10 +438,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         leftButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().offset(40)
             make.size.equalTo(100)
-            make.bottom.equalToSuperview().offset(-8)
+            make.leading.equalToSuperview().offset(40)
         }
         
         vsLabel.snp.makeConstraints { make in
@@ -450,10 +448,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         }
         
         rightButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
             make.trailing.equalToSuperview().offset(-40)
             make.size.equalTo(100)
-            make.bottom.equalToSuperview().offset(-8)
         }
         
         leftLabel.snp.makeConstraints { make in

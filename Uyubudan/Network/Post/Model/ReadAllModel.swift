@@ -9,6 +9,12 @@ import Foundation
 
 struct ReadAllModel: Decodable {
     let data: [PostData]
+    let nextCursor: String
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+        case nextCursor = "next_cursor"
+    }
 }
 
 struct PostData: Decodable {

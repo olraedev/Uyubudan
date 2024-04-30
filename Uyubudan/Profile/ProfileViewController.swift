@@ -119,6 +119,10 @@ final class ProfileViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
+        navigationItem.leftBarButtonItem = mypageView.dismissButton
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         if viewModel.profileState == .mine {
             let logout = UIAction(title: "로그아웃") { [weak self] _ in
                 self?.logoutButtonClicked()
@@ -129,10 +133,6 @@ final class ProfileViewController: BaseViewController {
             mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
             navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
         }
-        
-        navigationItem.leftBarButtonItem = mypageView.dismissButton
-        navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 

@@ -120,6 +120,24 @@ final class HomeViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        homeView.collectionView.rx.didScroll.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            let offSetY = self.homeView.collectionView.contentOffset.y
+            let contentHeight = self.homeView.collectionView.contentSize.height
+            
+            if offSetY > (contentHeight - self.homeView.collectionView.frame.size.height - 100) {
+                homeView.activityIndicator.isHidden = false
+                homeView.activityIndicator.startAnimating()
+                viewModel.appendPostData.accept(())
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.homeView.activityIndicator.isHidden = true
+                    self.homeView.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

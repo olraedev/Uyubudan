@@ -32,7 +32,6 @@ extension TargetType {
         urlRequest.allHTTPHeaderFields = header
         urlRequest.httpBody = body
         
-        print(urlRequest)
         return urlRequest
     }
 }

@@ -42,9 +42,17 @@ final class HomeView: BaseView {
         return control
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.center = self.center
+        activityIndicator.style = .large
+        activityIndicator.isHidden = true
+        activityIndicator.color = .customPrimary
+        return activityIndicator
+    }()
+    
     override func configureHierarchy() {
-        addSubview(categoryCollectionView)
-        addSubview(collectionView)
+        addSubViews([categoryCollectionView, collectionView, activityIndicator])
     }
     
     override func configureConstraints() {
@@ -58,6 +66,10 @@ final class HomeView: BaseView {
             make.top.equalTo(categoryCollectionView.snp.bottom)
             make.bottom.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(24)
+        }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     

@@ -56,10 +56,8 @@ final class SelectViewModel: ViewModelType {
         
         input.completeButtonTapped
             .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
+            .filter { !self.selectedImage.value.isEmpty }
             .flatMap {
-                for value in self.selectedImage.value {
-                    print(value)
-                }
                 return NetworkManager.uploadImageToServer(datas: self.selectedImage.value)
             }
             .subscribe(with: self) { owner, result in
@@ -71,6 +69,23 @@ final class SelectViewModel: ViewModelType {
                     print(error)
                 }
             }
+            .disposed(by: disposeBag)
+        
+        input.completeButtonTapped
+            .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
+            .filter { self.selectedImage.value.isEmpty }
+            .map { result in
+                let manager = WriteManager.shared
+                return WriteQuery(
+                    title: manager.title, content: manager.content,
+                    content1: manager.content1, content2: manager.content2,
+                    content3: manager.content3, productID: manager.productID, files: nil
+                )
+            }
+            .flatMap {
+                NetworkManager.fetchToServer(model: PostData.self, router: PostRouter.write(WriteQuery: $0))
+            }
+            .bind(to: result)
             .disposed(by: disposeBag)
         
         uploadImage

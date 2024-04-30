@@ -70,12 +70,9 @@ final class FollowViewModel: ViewModelType {
             .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
             .bind(with: self) { owner, userID in
                 var list = owner.temp.value
-                
-                print("before: \(list[userID]!)")
                 if let state = list[userID] {
                     list[userID] = !state
                 }
-                print("after: \(list[userID]!)")
                 
                 owner.temp.accept(list)
                 owner.peopleList.accept(owner.peopleList.value)
