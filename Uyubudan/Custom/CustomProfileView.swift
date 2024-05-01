@@ -70,4 +70,6 @@ final class CustomProfileView: BaseView {
             make.height.equalTo(30)
         }
     }
+    
 }
+

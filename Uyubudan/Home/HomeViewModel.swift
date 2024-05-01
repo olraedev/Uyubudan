@@ -173,7 +173,7 @@ final class HomeViewModel {
             .disposed(by: disposeBag)
         
         appendPostData
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
             .withLatestFrom(recentPost)
             .filter { $0.nextCursor != "0" }
             .flatMap {

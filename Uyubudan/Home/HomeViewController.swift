@@ -131,7 +131,7 @@ final class HomeViewController: BaseViewController {
                 homeView.activityIndicator.startAnimating()
                 viewModel.appendPostData.accept(())
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.homeView.activityIndicator.isHidden = true
                     self.homeView.activityIndicator.stopAnimating()
                 }

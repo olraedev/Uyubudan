@@ -28,4 +28,8 @@ final class LaunchViewController: BaseViewController {
         sceneDelegate?.window?.rootViewController = nav
         sceneDelegate?.window?.makeKeyAndVisible()
     }
+    
+    override func bind() {
+        super.bind()
+    }
 }

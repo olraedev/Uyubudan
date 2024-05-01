@@ -38,6 +38,8 @@
 		EC0F40482BDFAD5100D864EC /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40472BDFAD5100D864EC /* Extension+UIImage.swift */; };
 		EC0F404A2BDFB37700D864EC /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40492BDFB37700D864EC /* Extension+UIButton.swift */; };
 		EC0F404E2BDFC54700D864EC /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F404D2BDFC54700D864EC /* Extension+UIImageView.swift */; };
+		EC0F40612BE0E23500D864EC /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40602BE0E23400D864EC /* NetworkMonitoringManager.swift */; };
+		EC0F40632BE0E79800D864EC /* NetworkConnectionFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F40622BE0E79800D864EC /* NetworkConnectionFailViewController.swift */; };
 		EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */; };
 		EC334F0E2BC90CBB00A97EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */; };
 		EC334F152BC90CBC00A97EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F142BC90CBC00A97EAB /* Assets.xcassets */; };
@@ -152,6 +154,8 @@
 		EC0F40472BDFAD5100D864EC /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		EC0F40492BDFB37700D864EC /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		EC0F404D2BDFC54700D864EC /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		EC0F40602BE0E23400D864EC /* NetworkMonitoringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringManager.swift; sourceTree = "<group>"; };
+		EC0F40622BE0E79800D864EC /* NetworkConnectionFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionFailViewController.swift; sourceTree = "<group>"; };
 		EC334F082BC90CBB00A97EAB /* Uyubudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uyubudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 				EC334FD12BCE8CA900A97EAB /* HTTPError.swift */,
 				ECC824D42BD3E197006C28F5 /* NetworkInterceptor.swift */,
 				EC334FCA2BCE658C00A97EAB /* NetworkManager.swift */,
+				EC0F40602BE0E23400D864EC /* NetworkMonitoringManager.swift */,
 				EC334FBC2BCE5D1C00A97EAB /* User */,
 				EC0CE6BF2BD0FD570073276A /* Post */,
 				ECC824CA2BD3A01C006C28F5 /* Like */,
@@ -581,6 +586,7 @@
 			children = (
 				ECC824D22BD3C989006C28F5 /* LaunchViewController.swift */,
 				ECC824E42BD41EB0006C28F5 /* TabViewController.swift */,
+				EC0F40622BE0E79800D864EC /* NetworkConnectionFailViewController.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -743,12 +749,14 @@
 				EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */,
 				EC334FD02BCE713E00A97EAB /* JoinModel.swift in Sources */,
 				ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */,
+				EC0F40632BE0E79800D864EC /* NetworkConnectionFailViewController.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC0F3F8C2BD6855600D864EC /* ProfileUpdateQuery.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
 				ECC824FD2BD43C69006C28F5 /* SelectViewController.swift in Sources */,
+				EC0F40612BE0E23500D864EC /* NetworkMonitoringManager.swift in Sources */,
 				EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,

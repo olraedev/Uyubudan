@@ -132,6 +132,7 @@ final class ProfileViewController: BaseViewController {
             }
             mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
             navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
+            navigationItem.leftBarButtonItem?.isHidden = true
         }
     }
 }
