@@ -11,11 +11,11 @@ import Alamofire
 enum PostRouter {
     case uploadImage
     case write(WriteQuery: Encodable)
-    case readAll
-    case readSpecific(id: String)
-    case update(id: String, UpdateQuery: Encodable)
-    case delete(id: String)
-    case readSpecificUser(userID: String)
+    case readAll(nextCursor: String)
+    case readSpecific(postID: String)
+    case update(postID: String, UpdateQuery: Encodable)
+    case delete(postID: String)
+    case readSpecificUser(userID: String, nextCursor: String)
 }
 
 extension PostRouter: TargetType {
@@ -40,11 +40,9 @@ extension PostRouter: TargetType {
         switch self {
         case .uploadImage: "/posts/files"
         case .write, .readAll: "/posts"
-        case .update(let id, _):
-            "/posts/\(id)"
-        case .readSpecific(let id), .delete(let id):
-            "/posts/\(id)"
-        case .readSpecificUser(let userID):
+        case .update(let postID, _), .readSpecific(let postID), .delete(let postID):
+            "/posts/\(postID)"
+        case .readSpecificUser(let userID, _):
             "/posts/users/\(userID)"
         }
     }
@@ -62,8 +60,9 @@ extension PostRouter: TargetType {
     
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .readAll, .readSpecificUser:
-            return [URLQueryItem(name: "product_id", value: "uyubudan")]
+        case .readAll(let nextCursor), .readSpecificUser(_, let nextCursor):
+            return [URLQueryItem(name: "product_id", value: "uyubudan"),
+            URLQueryItem(name: "next", value: nextCursor)]
         default: return nil
         }
     }

@@ -34,7 +34,7 @@ final class CommentsViewModel: ViewModelType {
         viewWillAppearTrigger
             .map { _ in self.postID }
             .flatMap {
-                NetworkManager.fetchToServer(model: PostData.self, router: PostRouter.readSpecific(id: $0))
+                NetworkManager.fetchToServer(model: PostData.self, router: PostRouter.readSpecific(postID: $0))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

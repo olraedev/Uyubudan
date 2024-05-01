@@ -58,7 +58,7 @@ final class SelectViewModel: ViewModelType {
             .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
             .filter { !self.selectedImage.value.isEmpty }
             .flatMap {
-                return NetworkManager.uploadImageToServer(datas: self.selectedImage.value)
+                return NetworkManager.multipartToServer(model: UploadImageModel.self, router: PostRouter.uploadImage, datas: ["files": self.selectedImage.value], body: [:])
             }
             .subscribe(with: self) { owner, result in
                 switch result {

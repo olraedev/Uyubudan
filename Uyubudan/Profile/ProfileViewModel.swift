@@ -86,7 +86,7 @@ final class ProfileViewModel: ViewModelType {
         myPosts
             .withLatestFrom(profileInfo)
             .flatMap {
-                NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readSpecificUser(userID:$0.userID))
+                NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readSpecificUser(userID:$0.userID, nextCursor: ""))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

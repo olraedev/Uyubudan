@@ -39,7 +39,7 @@ final class ProfileEditViewModel: ViewModelType {
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(Observable.combineLatest(input.nickname.orEmpty, profileImage))
             .flatMap {
-                NetworkManager.editProfileWithImage(model: ProfileModel.self, router: ProfileRouter.update, nick: $0.0, data: $0.1)
+                NetworkManager.multipartToServer(model: ProfileModel.self, router: ProfileRouter.update, datas: ["profile": [$0.1]], body: ["nick": $0.0])
             }
             .subscribe(with: self) { owner, result in
                 switch result {

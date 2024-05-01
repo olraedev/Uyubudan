@@ -30,7 +30,7 @@ final class HomeViewModel {
     init() {
         viewWillAppearTrigger
             .flatMap { _ in
-                return NetworkManager.fetchPostToServer(nextCursor: "")
+                return NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readAll(nextCursor: ""))
             }
             .subscribe(with: self) { owner, result in
                 switch result {
@@ -149,7 +149,10 @@ final class HomeViewModel {
         
         deleteButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .flatMap { NetworkManager.fetchToServerNoModel(router: PostRouter.delete(id: $0.postID)) }
+            .flatMap {
+                NetworkManager.fetchToServer(model: MessageModel.self, router: PostRouter.delete(postID: $0.postID))
+                // NetworkManager.fetchToServerNoModel(router: PostRouter.delete(postID: $0.postID))
+            }
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(_):
@@ -177,7 +180,7 @@ final class HomeViewModel {
             .withLatestFrom(recentPost)
             .filter { $0.nextCursor != "0" }
             .flatMap {
-                return NetworkManager.fetchPostToServer(nextCursor: $0.nextCursor)
+                return NetworkManager.fetchToServer(model: ReadAllModel.self, router: PostRouter.readAll(nextCursor: $0.nextCursor))
             }
             .subscribe(with: self) { owner, result in
                 switch result {
