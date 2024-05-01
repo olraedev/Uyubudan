@@ -44,13 +44,13 @@ final class SelectViewModel: ViewModelType {
         
         input.leftText.orEmpty.changed
             .bind(with: self) { owner, text in
-                WriteManager.shared.content1 = text
+                TempDataRepoManager.shared.content1 = text
             }
             .disposed(by: disposeBag)
         
         input.rightText.orEmpty.changed
             .bind(with: self) { owner, text in
-                WriteManager.shared.content2 = text
+                TempDataRepoManager.shared.content2 = text
             }
             .disposed(by: disposeBag)
         
@@ -75,7 +75,7 @@ final class SelectViewModel: ViewModelType {
             .throttle(.milliseconds(500), latest: false, scheduler: MainScheduler.instance)
             .filter { self.selectedImage.value.isEmpty }
             .map { result in
-                let manager = WriteManager.shared
+                let manager = TempDataRepoManager.shared
                 return WriteQuery(
                     title: manager.title, content: manager.content,
                     content1: manager.content1, content2: manager.content2,
@@ -90,7 +90,7 @@ final class SelectViewModel: ViewModelType {
         
         uploadImage
             .map { result in
-                let manager = WriteManager.shared
+                let manager = TempDataRepoManager.shared
                 return WriteQuery(
                     title: manager.title, content: manager.content,
                     content1: manager.content1, content2: manager.content2,

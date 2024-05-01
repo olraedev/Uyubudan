@@ -1,27 +1,32 @@
 //
-//  Extension+String.swift
+//  ISODateFormatManager.swift
 //  Uyubudan
 //
-//  Created by SangRae Kim on 4/18/24.
+//  Created by SangRae Kim on 5/1/24.
 //
 
 import Foundation
 
-extension String {
-    var timeIntervalSinceNow: String {
-        let dateFormatter = ISO8601DateFormatter()
+final class ISODateFormatManager {
+    
+    static let shared = ISODateFormatManager()
+    private let dateFormatter: ISO8601DateFormatter
+    private let components: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
+    
+    private init() { 
+        dateFormatter = ISO8601DateFormatter()
         dateFormatter.timeZone = .current
         dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        
-        let targetDate = dateFormatter.date(from: self) ?? .now
-        let components: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
-
+    }
+    
+    func ISODateFormatToString(_ date: String) -> String {
+        let targetDate = dateFormatter.date(from: date) ?? .now
         let diff = Calendar.current.dateComponents(components, from: targetDate, to: .now)
         
         // 오늘 날짜와 다르면
         if !Calendar.current.isDateInToday(targetDate) {
             let date = Calendar.current.dateComponents(components, from: targetDate)
-            return "\(date.year!)-\(date.month!)-\(date.day!)"
+            return "\(date.year!)년\(date.month!)월\(date.day!)일"
         }
 
         if let hour = diff.hour, hour > 0 {

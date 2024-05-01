@@ -257,7 +257,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         categoryLabel.text = item.content3
         deleteButton.isHidden = userID == item.creator.userID ? false : true
         titleLabel.text = item.title
-        createdDateLable.text = item.createdAt.timeIntervalSinceNow
+        createdDateLable.text = ISODateFormatManager.shared.ISODateFormatToString(item.createdAt)
         voteCountButton.setTitle("\(item.likes.count + item.likes2.count)", for: .normal)
         commentsCountButton.setTitle("\(item.comments.count)", for: .normal)
         contentTextView.text = item.content

@@ -67,7 +67,7 @@ final class EmailViewController: JoinViewController {
         completeButtonTapped
             .withLatestFrom(email.orEmpty)
             .bind(with: self) { owner, text in
-                JoinManager.shared.email = text
+                TempDataRepoManager.shared.email = text
                 owner.navigationController?.pushViewController(PasswordViewController(), animated: true)
             }
             .disposed(by: disposeBag)

@@ -1,18 +1,20 @@
 //
-//  WriteManager.swift
+//  TempDataRepoManager.swift
 //  Uyubudan
 //
-//  Created by SangRae Kim on 4/21/24.
+//  Created by SangRae Kim on 5/1/24.
 //
 
 import Foundation
 
-final class WriteManager {
+final class TempDataRepoManager {
     
-    static let shared = WriteManager()
-    
+    static let shared = TempDataRepoManager()
     private init() { }
     
+    var email = ""
+    var password = ""
+    var nickname = ""
     var title = ""
     var content = ""
     var content1 = ""

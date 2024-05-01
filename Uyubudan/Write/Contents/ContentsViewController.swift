@@ -46,8 +46,8 @@ final class ContentsViewController: WriteViewController {
         
         completeButtonTapped
             .bind(with: self) { owner, _ in
-                WriteManager.shared.title = owner.contentsView.titleTextField.text!
-                WriteManager.shared.content = owner.contentsView.contentTextView.text!
+                TempDataRepoManager.shared.title = owner.contentsView.titleTextField.text!
+                TempDataRepoManager.shared.content = owner.contentsView.contentTextView.text!
                 
                 let vc = SelectViewController()
                 

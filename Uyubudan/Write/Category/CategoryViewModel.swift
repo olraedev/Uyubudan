@@ -29,7 +29,7 @@ final class CategoryViewModel: ViewModelType {
         input.categorySelected
             .map { $0[0] }
             .bind(with: self) { owner, item in
-                WriteManager.shared.content3 = item
+                TempDataRepoManager.shared.content3 = item
                 selected.accept(true)
             }
             .disposed(by: disposeBag)

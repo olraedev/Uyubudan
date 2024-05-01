@@ -44,7 +44,7 @@ final class PasswordViewController: JoinViewController {
         completeButtonTapped
             .withLatestFrom(password.orEmpty)
             .bind(with: self) { owner, password in
-                JoinManager.shared.password = password
+                TempDataRepoManager.shared.password = password
                 owner.navigationController?.pushViewController(NicknameViewController(), animated: true)
             }
             .disposed(by: disposeBag)
