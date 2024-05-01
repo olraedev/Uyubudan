@@ -41,10 +41,7 @@ class LoginViewModel: ViewModelType {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
-                    UserDefaultsManager.shared.userID = model.userID
-                    UserDefaultsManager.shared.accessToken = model.accessToken
-                    UserDefaultsManager.shared.refreshToken = model.refreshToken
-                    UserDefaultsManager.shared.profileImage = model.profileImage
+                    owner.configureUserDefaults(model)
                     success.accept(model.nickName)
                 case .failure(let error):
                     errorInfo.accept(error)
@@ -56,5 +53,14 @@ class LoginViewModel: ViewModelType {
             success: success.asDriver(onErrorJustReturn: ""),
             errorInfo: errorInfo.asDriver(onErrorJustReturn: .serverError)
         )
+    }
+}
+
+extension LoginViewModel {
+    private func configureUserDefaults(_ model: LoginModel) {
+        UserDefaultsManager.userID = model.userID
+        UserDefaultsManager.accessToken = model.accessToken
+        UserDefaultsManager.refreshToken = model.refreshToken
+        UserDefaultsManager.profileImage = model.profileImage
     }
 }

@@ -7,44 +7,46 @@
 
 import Foundation
 
-final class UserDefaultsManager {
+@propertyWrapper
+struct UserDefault<T> {
+    let key: String
+    let defaultValue: T
     
-    static let shared = UserDefaultsManager()
-    private let ud = UserDefaults.standard
+    var wrappedValue: T {
+        get {
+            UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: key)
+        }
+    }
+}
+
+enum UserDefaultsManager {
     
-    private init() { }
-    
-    private enum Key {
-        static let userID = "userID"
-        static let accessToken = "accessToken"
-        static let refreshToken = "refreshToken"
-        static let profileImage = "profileImage"
+    enum Key: String {
+        case userID
+        case accessToken
+        case refreshToken
+        case profileImage
     }
     
-    var userID: String {
-        get { ud.string(forKey: Key.userID) ?? "" }
-        set { ud.setValue(newValue, forKey: Key.userID) }
-    }
+    @UserDefault(key: Key.userID.rawValue, defaultValue: "")
+    static var userID
     
-    var accessToken: String {
-        get { ud.string(forKey: Key.accessToken) ?? "" }
-        set { ud.setValue(newValue, forKey: Key.accessToken) }
-    }
+    @UserDefault(key: Key.accessToken.rawValue, defaultValue: "")
+    static var accessToken
     
-    var refreshToken: String {
-        get { ud.string(forKey: Key.refreshToken) ?? "" }
-        set { ud.setValue(newValue, forKey: Key.refreshToken) }
-    }
+    @UserDefault(key: Key.refreshToken.rawValue, defaultValue: "")
+    static var refreshToken
     
-    var profileImage: String {
-        get { ud.string(forKey: Key.profileImage) ?? Environment.defaultImage}
-        set { ud.setValue(newValue, forKey: Key.profileImage)}
-    }
+    @UserDefault(key: Key.profileImage.rawValue, defaultValue: Environment.defaultImage)
+    static var profileImage
     
-    func removeAll() {
-        ud.removeObject(forKey: Key.userID)
-        ud.removeObject(forKey: Key.accessToken)
-        ud.removeObject(forKey: Key.refreshToken)
-        ud.removeObject(forKey: Key.profileImage)
+    static func removeAll() {
+        UserDefaults.standard.removeObject(forKey: Key.userID.rawValue)
+        UserDefaults.standard.removeObject(forKey: Key.accessToken.rawValue)
+        UserDefaults.standard.removeObject(forKey: Key.refreshToken.rawValue)
+        UserDefaults.standard.removeObject(forKey: Key.profileImage.rawValue)
     }
 }

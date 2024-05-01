@@ -24,7 +24,7 @@ final class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         viewModel.viewWillAppearTrigger.accept(())
-        homeView.profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
+        homeView.profileImageView.setImage(url: UserDefaultsManager.profileImage)
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -94,7 +94,7 @@ final class HomeViewController: BaseViewController {
                     
                     cell.tapGesture.rx.event
                         .bind(with: self) { owner, _ in
-                            if element.creator.userID == UserDefaultsManager.shared.userID {
+                            if element.creator.userID == UserDefaultsManager.userID {
                                 owner.tabBarController?.selectedIndex = 2
                             } else {
                                 let vc = ProfileViewController()

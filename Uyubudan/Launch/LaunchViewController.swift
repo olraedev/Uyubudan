@@ -17,7 +17,7 @@ final class LaunchViewController: BaseViewController {
         var nav: UIViewController
         
         // 현재 저장된 accessToken이 없는 경우 -> 로그인
-        if UserDefaultsManager.shared.accessToken == "" {
+        if UserDefaultsManager.accessToken == "" {
             nav = LoginViewController()
         }
         // 아니면 홈 화면으로

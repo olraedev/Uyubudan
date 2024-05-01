@@ -13,7 +13,7 @@ class NetworkInterceptor: RequestInterceptor {
         
         var urlRequest = urlRequest
         
-        urlRequest.setValue(UserDefaultsManager.shared.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
+        urlRequest.setValue(UserDefaultsManager.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
         completion(.success(urlRequest))
     }
     
@@ -30,7 +30,7 @@ class NetworkInterceptor: RequestInterceptor {
             switch result {
             case .success(let success):
                 print("retry success")
-                UserDefaultsManager.shared.accessToken = success.accessToken
+                UserDefaultsManager.accessToken = success.accessToken
                 completion(.retry)
             case .failure(let error):
                 print("retry failed \(error)")

@@ -14,7 +14,7 @@ extension UIButton {
         let imageDownloadRequest = AnyModifier { request in
             var request = request
             request.setValue(Environment.secretKey, forHTTPHeaderField: HTTPHeader.sesacKey.rawValue)
-            request.setValue(UserDefaultsManager.shared.accessToken,  forHTTPHeaderField: HTTPHeader.authorization.rawValue)
+            request.setValue(UserDefaultsManager.accessToken,  forHTTPHeaderField: HTTPHeader.authorization.rawValue)
             return request
         }
         

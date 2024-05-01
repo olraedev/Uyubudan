@@ -252,7 +252,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(_ item: PostData, myFollowingList: [String]) {
-        let userID = UserDefaultsManager.shared.userID
+        let userID = UserDefaultsManager.userID
         
         categoryLabel.text = item.content3
         deleteButton.isHidden = userID == item.creator.userID ? false : true
@@ -298,7 +298,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             }
         }
         
-        if item.likes.contains(UserDefaultsManager.shared.userID) {
+        if item.likes.contains(UserDefaultsManager.userID) {
             leftButton.layer.opacity = 1.0
             rightButton.layer.opacity = 0.5
             
@@ -306,7 +306,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             UIView.animate(withDuration: 0.3, animations: {
                 self.voteInfoView.alpha = 1
             }, completion:  nil)
-        } else if item.likes2.contains(UserDefaultsManager.shared.userID) {
+        } else if item.likes2.contains(UserDefaultsManager.userID) {
             leftButton.layer.opacity = 0.5
             rightButton.layer.opacity = 1.0
             

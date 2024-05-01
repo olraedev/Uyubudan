@@ -48,7 +48,7 @@ final class CreatorCollectionViewCell: BaseCollectionViewCell {
         profileImageView.setImage(url: item.creator.profileImage)
         nicknameLabel.text = item.creator.nick
         contentLabel.text = item.content
-        if item.creator.userID == UserDefaultsManager.shared.userID {
+        if item.creator.userID == UserDefaultsManager.userID {
             deleteButton.isHidden = false
         }
     }

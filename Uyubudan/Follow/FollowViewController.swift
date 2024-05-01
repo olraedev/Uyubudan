@@ -54,7 +54,7 @@ final class FollowViewController: BaseViewController {
             .bind(with: self) { owner, result in
                 let vc = ProfileViewController()
                 
-                if result.1.userID == UserDefaultsManager.shared.userID {
+                if result.1.userID == UserDefaultsManager.userID {
                     vc.viewModel.profileState = .mine
                 } else {
                     vc.viewModel.profileState = .other
@@ -64,7 +64,6 @@ final class FollowViewController: BaseViewController {
                 guard let pvc = self.presentingViewController else { return }
                 
                 owner.dismiss(animated: true) {
-                    // pvc.navigationController?.pushViewController(vc, animated: true)
                     let nav = UINavigationController(rootViewController: vc)
                     nav.modalTransitionStyle = .coverVertical
                     nav.modalPresentationStyle = .fullScreen

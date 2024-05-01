@@ -206,7 +206,7 @@ final class HomeViewModel {
     }
     
     private func checkVote(state: LikeState, data: PostData) -> (String, LikeQuery) {
-        let userID = UserDefaultsManager.shared.userID
+        let userID = UserDefaultsManager.userID
         let mine = state == .left ? data.likes : data.likes2
         
         if mine.contains(userID) {
@@ -218,7 +218,7 @@ final class HomeViewModel {
     }
     
     private func configureOptimisticUI(state: LikeState, row: Int) -> [PostData] {
-        let userID = UserDefaultsManager.shared.userID
+        let userID = UserDefaultsManager.userID
         var post = categoryPostList.value[row]
         let left = post.likes
         let right = post.likes2

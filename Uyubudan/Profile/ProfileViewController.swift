@@ -139,7 +139,7 @@ final class ProfileViewController: BaseViewController {
 
 extension ProfileViewController {
     @objc func logoutButtonClicked() {
-        UserDefaultsManager.shared.removeAll()
+        UserDefaultsManager.removeAll()
         
         navigationController?.pushViewController(LaunchViewController(), animated: true)
     }

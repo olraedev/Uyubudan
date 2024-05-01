@@ -28,7 +28,7 @@ final class FollowCollectionViewCell: BaseCollectionViewCell {
     func configureCell(_ item: FollowInfo, followingList: [String: Bool]) {        
         profileImageView.setImage(url: item.profileImage)
         nicknameLabel.text = item.nickname
-        followButton.isHidden = item.userID == UserDefaultsManager.shared.userID ? true : false
+        followButton.isHidden = item.userID == UserDefaultsManager.userID ? true : false
         
         guard let state = followingList[item.userID] else { return }
         

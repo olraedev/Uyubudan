@@ -44,7 +44,7 @@ final class ProfileEditViewModel: ViewModelType {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
-                    UserDefaultsManager.shared.profileImage = model.profileImage
+                    UserDefaultsManager.profileImage = model.profileImage
                     editSuccess.accept(true)
                 case .failure(let error):
                     print(error)

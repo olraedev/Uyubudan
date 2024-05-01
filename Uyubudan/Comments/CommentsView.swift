@@ -21,7 +21,11 @@ final class CommentsView: BaseView {
         return view
     }()
     
-    private let profileImageView = ProfileImageView(frame: .zero)
+    private let profileImageView = {
+        let view = ProfileImageView(frame: .zero)
+        view.setImage(url: UserDefaultsManager.profileImage)
+        return view
+    }()
     
     let writeTextField = {
         let tf = CustomTextField()
@@ -72,10 +76,6 @@ final class CommentsView: BaseView {
             make.centerY.equalToSuperview()
             make.size.equalTo(30)
         }
-    }
-    
-    override func configureViews() {
-        profileImageView.setImage(url: UserDefaultsManager.shared.profileImage)
     }
     
     private func createLayout() -> UICollectionViewLayout {
