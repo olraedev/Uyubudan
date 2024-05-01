@@ -118,7 +118,7 @@ extension ProfileEditViewController: PHPickerViewControllerDelegate {
                 DispatchQueue.main.async {
                     self?.profileEditView.profileImageView.image = image as? UIImage
                     
-                    guard let profileImage = self?.profileEditView.profileImageView.image?.pngData() else {
+                    guard let profileImage = self?.profileEditView.profileImageView.image?.resizeWithWidth(width: 700)?.pngData() else {
                         return
                     }
                     self?.viewModel.profileImage.accept(profileImage)
