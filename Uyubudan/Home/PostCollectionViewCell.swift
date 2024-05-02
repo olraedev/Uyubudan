@@ -24,6 +24,13 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     let commentsCountButton = CustomImageButton(image: "message.fill")
     
+    let supportButton = {
+        let button = CustomImageButton(image: "dollarsign.circle.fill")
+        button.configuration?.baseForegroundColor = .customPrimary
+        button.setTitle("후원", for: .normal)
+        return button
+    }()
+    
     private let contentTextView = {
         let textView = UITextView()
         textView.isEditable = false
@@ -67,7 +74,11 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    let customVoteInfoView = CustomVoteInfoView()
+    let customVoteInfoView = {
+        let view = CustomVoteInfoView()
+        view.isHidden = true
+        return view
+    }()
     
     let customVoteRateView = CustomVoteRateView()
     
@@ -106,7 +117,6 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         customVoteInfoView.isHidden = true
         postHeaderView.deleteButton.isHidden = true
         profileView.followButton.isHidden = true
-        verticalStackView = UIStackView()
         customVoteButtonsView.leftButton.setBackgroundImage(nil, for: .normal)
         customVoteButtonsView.rightButton.setBackgroundImage(nil, for: .normal)
         customVoteButtonsView.leftButton.setImage(nil, for: .normal)
@@ -175,8 +185,8 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         contentView.addSubViews(
-            [postHeaderView,
-             createdDateLable, voteCountButton, commentsCountButton,
+            [postHeaderView, createdDateLable, voteCountButton,
+             commentsCountButton, supportButton,
              contentTextView,
              verticalStackView]
         )
@@ -204,7 +214,13 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         
         commentsCountButton.snp.makeConstraints { make in
             make.centerY.equalTo(createdDateLable)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(voteCountButton.snp.trailing).offset(8)
+            make.height.equalTo(16)
+        }
+        
+        supportButton.snp.makeConstraints { make in
+            make.centerY.equalTo(createdDateLable)
+            make.trailing.equalToSuperview().offset(-8)
             make.height.equalTo(16)
         }
         

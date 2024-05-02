@@ -26,6 +26,7 @@ final class HomeViewModel {
     let allPostList = BehaviorRelay<[PostData]>(value: [])
     let categoryPostList = BehaviorRelay<[PostData]>(value: [])
     let myFollowingList = BehaviorRelay<[String]>(value: [])
+    let myProfileData = BehaviorRelay<ProfileModel?>(value: nil)
     
     init() {
         viewWillAppearTrigger
@@ -49,6 +50,7 @@ final class HomeViewModel {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let model):
+                    owner.myProfileData.accept(model)
                     owner.myFollowingList.accept(model.following.map { $0.userID })
                 case .failure(let error):
                     print(error)

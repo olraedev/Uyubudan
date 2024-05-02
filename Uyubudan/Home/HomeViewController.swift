@@ -57,6 +57,16 @@ final class HomeViewController: BaseViewController {
                         }
                         .disposed(by: cell.disposeBag)
                     
+                    cell.supportButton.rx.tap
+                        .bind(with: self) { owner, _ in
+                            let vc = PaymentViewController()
+                            vc.viewModel.postData = element
+                            vc.viewModel.userData = owner.viewModel.myProfileData.value
+                            
+                            owner.pushNavigation(vc)
+                        }
+                        .disposed(by: cell.disposeBag)
+                    
                     cell.customVoteButtonsView.leftButton.rx.tap
                         .bind(with: self, onNext: { owner, _ in
                             owner.viewModel.leftButtonClicked.accept(row)

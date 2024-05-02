@@ -95,6 +95,14 @@
 		EC9E6EF72BE367C50041304C /* CustomVoteButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF62BE367C50041304C /* CustomVoteButtonsView.swift */; };
 		EC9E6EF92BE36F370041304C /* CustomVoteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF82BE36F370041304C /* CustomVoteInfoView.swift */; };
 		EC9E6EFB2BE37AC20041304C /* CustomVoteRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EFA2BE37AC20041304C /* CustomVoteRateView.swift */; };
+		EC9E6EFE2BE3A10B0041304C /* iamport-ios in Frameworks */ = {isa = PBXBuildFile; productRef = EC9E6EFD2BE3A10B0041304C /* iamport-ios */; };
+		EC9E6F012BE3ABE70041304C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F002BE3ABE70041304C /* PaymentViewController.swift */; };
+		EC9E6F032BE3ADC70041304C /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F022BE3ADC70041304C /* PaymentView.swift */; };
+		EC9E6F052BE3AE9B0041304C /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F042BE3AE9B0041304C /* PaymentViewModel.swift */; };
+		EC9E6F082BE3B1800041304C /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F072BE3B1800041304C /* PaymentRouter.swift */; };
+		EC9E6F0C2BE3B25F0041304C /* PaymentValidationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F0B2BE3B25F0041304C /* PaymentValidationQuery.swift */; };
+		EC9E6F0E2BE3B33F0041304C /* PaymentValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F0D2BE3B33F0041304C /* PaymentValidationModel.swift */; };
+		EC9E6F102BE3B4250041304C /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6F0F2BE3B4250041304C /* HistoryModel.swift */; };
 		ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824C82BD39DD4006C28F5 /* LikeState.swift */; };
 		ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */; };
 		ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */; };
@@ -211,6 +219,13 @@
 		EC9E6EF62BE367C50041304C /* CustomVoteButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteButtonsView.swift; sourceTree = "<group>"; };
 		EC9E6EF82BE36F370041304C /* CustomVoteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteInfoView.swift; sourceTree = "<group>"; };
 		EC9E6EFA2BE37AC20041304C /* CustomVoteRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteRateView.swift; sourceTree = "<group>"; };
+		EC9E6F002BE3ABE70041304C /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		EC9E6F022BE3ADC70041304C /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		EC9E6F042BE3AE9B0041304C /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		EC9E6F072BE3B1800041304C /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
+		EC9E6F0B2BE3B25F0041304C /* PaymentValidationQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentValidationQuery.swift; sourceTree = "<group>"; };
+		EC9E6F0D2BE3B33F0041304C /* PaymentValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentValidationModel.swift; sourceTree = "<group>"; };
+		EC9E6F0F2BE3B4250041304C /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		ECC824C82BD39DD4006C28F5 /* LikeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeState.swift; sourceTree = "<group>"; };
 		ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRouter.swift; sourceTree = "<group>"; };
 		ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuery.swift; sourceTree = "<group>"; };
@@ -253,6 +268,7 @@
 				EC334F852BCD6C5E00A97EAB /* IQKeyboardManagerSwift in Frameworks */,
 				EC334F352BCA7F0200A97EAB /* RxCocoa in Frameworks */,
 				EC334F302BCA7E6600A97EAB /* SnapKit in Frameworks */,
+				EC9E6EFE2BE3A10B0041304C /* iamport-ios in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +408,7 @@
 				EC0F3F832BD6823C00D864EC /* Profile */,
 				EC0F3FA62BD7D69200D864EC /* ProfileEdit */,
 				EC0F3FC52BDA6DF300D864EC /* Follow */,
+				EC9E6EFF2BE3ABD50041304C /* Payment */,
 				EC334F0B2BC90CBB00A97EAB /* AppDelegate.swift */,
 				EC334F0D2BC90CBB00A97EAB /* SceneDelegate.swift */,
 				EC334F142BC90CBC00A97EAB /* Assets.xcassets */,
@@ -538,6 +555,7 @@
 				ECC825102BD57960006C28F5 /* Comments */,
 				EC0F3F882BD6831800D864EC /* Profile */,
 				EC0F3FC02BDA0B1500D864EC /* Follow */,
+				EC9E6F062BE3B1640041304C /* Payment */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -581,6 +599,43 @@
 				ECD48DAC2BE263BC00D4F9EE /* ISODateFormatManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		EC9E6EFF2BE3ABD50041304C /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E6F022BE3ADC70041304C /* PaymentView.swift */,
+				EC9E6F002BE3ABE70041304C /* PaymentViewController.swift */,
+				EC9E6F042BE3AE9B0041304C /* PaymentViewModel.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		EC9E6F062BE3B1640041304C /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E6F072BE3B1800041304C /* PaymentRouter.swift */,
+				EC9E6F092BE3B2280041304C /* Query */,
+				EC9E6F0A2BE3B2300041304C /* Model */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		EC9E6F092BE3B2280041304C /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E6F0B2BE3B25F0041304C /* PaymentValidationQuery.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		EC9E6F0A2BE3B2300041304C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E6F0D2BE3B33F0041304C /* PaymentValidationModel.swift */,
+				EC9E6F0F2BE3B4250041304C /* HistoryModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ECC824CA2BD3A01C006C28F5 /* Like */ = {
@@ -689,6 +744,7 @@
 				EC334FBA2BCE5AF900A97EAB /* Alamofire */,
 				EC334FDB2BCE9A2800A97EAB /* Toast */,
 				ECC824D92BD3EC8E006C28F5 /* Kingfisher */,
+				EC9E6EFD2BE3A10B0041304C /* iamport-ios */,
 			);
 			productName = Uyubudan;
 			productReference = EC334F082BC90CBB00A97EAB /* Uyubudan.app */;
@@ -725,6 +781,7 @@
 				EC334FB92BCE5AF900A97EAB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EC9E6EFC2BE3A10B0041304C /* XCRemoteSwiftPackageReference "iamport-ios" */,
 			);
 			productRefGroup = EC334F092BC90CBB00A97EAB /* Products */;
 			projectDirPath = "";
@@ -774,6 +831,7 @@
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
 				EC9E6EF32BE360370041304C /* PostHeaderView.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
+				EC9E6F052BE3AE9B0041304C /* PaymentViewModel.swift in Sources */,
 				EC9E6EF52BE362780041304C /* CustomImageButton.swift in Sources */,
 				EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
@@ -789,16 +847,20 @@
 				EC334F952BCD78B600A97EAB /* NicknameView.swift in Sources */,
 				EC334FC72BCE63D100A97EAB /* EmailValidationQuery.swift in Sources */,
 				EC0F404A2BDFB37700D864EC /* Extension+UIButton.swift in Sources */,
+				EC9E6F082BE3B1800041304C /* PaymentRouter.swift in Sources */,
 				EC0F3F8A2BD6832E00D864EC /* ProfileRouter.swift in Sources */,
 				EC7E0F602BCFC32A00F15199 /* EmailViewModel.swift in Sources */,
 				ECC824F82BD43799006C28F5 /* ContentsViewModel.swift in Sources */,
 				ECC8250D2BD53B85006C28F5 /* CreatorCollectionViewCell.swift in Sources */,
 				ECC825062BD534E7006C28F5 /* CommentsView.swift in Sources */,
+				EC9E6F032BE3ADC70041304C /* PaymentView.swift in Sources */,
 				EC334F3F2BCBA4B000A97EAB /* Extension+UIView.swift in Sources */,
 				EC334F992BCD7F6500A97EAB /* Extension+UIViewController.swift in Sources */,
+				EC9E6F012BE3ABE70041304C /* PaymentViewController.swift in Sources */,
 				EC0CE6CA2BD111540073276A /* HomeViewModel.swift in Sources */,
 				ECC824E82BD4258A006C28F5 /* CategoryView.swift in Sources */,
 				EC334F0C2BC90CBB00A97EAB /* AppDelegate.swift in Sources */,
+				EC9E6F102BE3B4250041304C /* HistoryModel.swift in Sources */,
 				ECC825082BD534F0006C28F5 /* CommentsViewController.swift in Sources */,
 				EC334F3A2BCA7F3C00A97EAB /* HomeView.swift in Sources */,
 				EC334FC02BCE5F9400A97EAB /* HTTPHeader.swift in Sources */,
@@ -811,6 +873,7 @@
 				EC0CE6CD2BD112180073276A /* ReadAllModel.swift in Sources */,
 				ECC825122BD5797A006C28F5 /* CommentsRouter.swift in Sources */,
 				EC334FC52BCE636E00A97EAB /* Version.swift in Sources */,
+				EC9E6F0E2BE3B33F0041304C /* PaymentValidationModel.swift in Sources */,
 				EC0F3FCF2BDA758200D864EC /* FollowState.swift in Sources */,
 				ECC824E32BD409FE006C28F5 /* WriteView.swift in Sources */,
 				EC334F462BCC009A00A97EAB /* ProfileImageView.swift in Sources */,
@@ -830,6 +893,7 @@
 				EC0F3F872BD6825700D864EC /* ProfileViewController.swift in Sources */,
 				EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */,
 				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
+				EC9E6F0C2BE3B25F0041304C /* PaymentValidationQuery.swift in Sources */,
 				EC9E6EF72BE367C50041304C /* CustomVoteButtonsView.swift in Sources */,
 				EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */,
 				ECD48DAD2BE263BC00D4F9EE /* ISODateFormatManager.swift in Sources */,
@@ -1011,6 +1075,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1044,6 +1109,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1126,6 +1192,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		EC9E6EFC2BE3A10B0041304C /* XCRemoteSwiftPackageReference "iamport-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iamport/iamport-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 		ECC824D82BD3EC8E006C28F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1166,6 +1240,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC334FDA2BCE9A2800A97EAB /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		EC9E6EFD2BE3A10B0041304C /* iamport-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC9E6EFC2BE3A10B0041304C /* XCRemoteSwiftPackageReference "iamport-ios" */;
+			productName = "iamport-ios";
 		};
 		ECC824D92BD3EC8E006C28F5 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

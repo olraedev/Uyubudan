@@ -18,8 +18,7 @@ class NetworkInterceptor: RequestInterceptor {
     }
     
     func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping (RetryResult) -> Void) {
-        guard let response = request.task?.response as? HTTPURLResponse,
-              response.statusCode == 419 else {
+        guard request.retryCount < 1, let response = request.task?.response as? HTTPURLResponse, response.statusCode == 419 else {
             completion(.doNotRetry)
             return
         }
