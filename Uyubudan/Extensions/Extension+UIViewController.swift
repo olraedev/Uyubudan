@@ -31,6 +31,27 @@ extension UIViewController {
         
         present(alert, animated: true)
     }
+    
+    func presentBottomSheet(_ viewController: UIViewController) {
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 30
+        }
+        present(viewController, animated: true)
+    }
+    
+    func presentFullScreen(_ viewController: UIViewController) {
+        let vc = UINavigationController(rootViewController: viewController)
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated:true)
+    }
+    
+    func pushNavigation(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension Reactive where Base: UIViewController {

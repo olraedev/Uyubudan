@@ -49,7 +49,7 @@ final class HomeViewController: BaseViewController {
                     guard let self else { return }
                     cell.configureCell(element, myFollowingList: self.viewModel.myFollowingList.value)
                     
-                    cell.deleteButton.rx.tap
+                    cell.postHeaderView.deleteButton.rx.tap
                         .bind(with: self) { owner, _ in
                             owner.showAlert(title: nil, message: "정말 삭제하시겠습니까?") {
                                 owner.viewModel.deleteButtonClicked.accept(element)
@@ -57,13 +57,13 @@ final class HomeViewController: BaseViewController {
                         }
                         .disposed(by: cell.disposeBag)
                     
-                    cell.leftButton.rx.tap
+                    cell.customVoteButtonsView.leftButton.rx.tap
                         .bind(with: self, onNext: { owner, _ in
                             owner.viewModel.leftButtonClicked.accept(row)
                         })
                         .disposed(by: cell.disposeBag)
                     
-                    cell.rightButton.rx.tap
+                    cell.customVoteButtonsView.rightButton.rx.tap
                         .bind(with: self) { owner, _ in
                             owner.viewModel.rightButtonClicked.accept(row)
                         }
@@ -76,13 +76,7 @@ final class HomeViewController: BaseViewController {
                             vc.viewModel.dismiss = {
                                 self.viewModel.viewWillAppearTrigger.accept(())
                             }
-                            if let sheet = vc.sheetPresentationController {
-                                sheet.detents = [.medium(), .large()]
-                                sheet.prefersScrollingExpandsWhenScrolledToEdge = true
-                                sheet.prefersGrabberVisible = true
-                                sheet.preferredCornerRadius = 30
-                            }
-                            owner.present(vc, animated: true)
+                            owner.presentBottomSheet(vc)
                         }
                         .disposed(by: cell.disposeBag)
                     
@@ -100,12 +94,7 @@ final class HomeViewController: BaseViewController {
                                 let vc = ProfileViewController()
                                 vc.viewModel.profileState = .other
                                 vc.viewModel.userID = element.creator.userID
-                                
-                                let nav = UINavigationController(rootViewController: vc)
-                                nav.modalTransitionStyle = .coverVertical
-                                nav.modalPresentationStyle = .fullScreen
-                                
-                                owner.present(nav, animated:true)
+                                owner.presentFullScreen(vc)
                             }
                         }
                         .disposed(by: cell.disposeBag)
@@ -114,7 +103,7 @@ final class HomeViewController: BaseViewController {
         
         homeView.refreshControl.rx.controlEvent(.valueChanged)
             .bind(with: self) { owner, _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     owner.viewModel.viewWillAppearTrigger.accept(())
                     owner.homeView.refreshControl.endRefreshing()
                 }

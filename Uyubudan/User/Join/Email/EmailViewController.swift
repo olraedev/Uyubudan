@@ -40,23 +40,14 @@ final class EmailViewController: JoinViewController {
         // 이메일 형식이 맞는지? -> Bool
         output.emailRegex
             .drive(with: self) { owner, state in
-                let text = state ? "중복확인을 해주세요." : "이메일 주소를 정확하게 입력해주세요."
-                
-                owner.emailView.validationButton.isEnabled = state
-                owner.emailView.validationButton.backgroundColor = state.buttonColor
-                
-                owner.emailView.validationLabel.textColor = state.textColor
-                owner.emailView.validationLabel.text = text
+                owner.emailView.designViewWithEmailRegex(state: state)
             }
             .disposed(by: disposeBag)
         
         // 중복 확인 -> Bool
         output.validation
             .drive(with: self) { owner, state in
-                owner.emailView.completeButton.isEnabled = state
-                owner.emailView.completeButton.backgroundColor = state.buttonColor
-                
-                owner.emailView.validationLabel.textColor = state.textColor
+                owner.emailView.designViewWithEmailValidation(state: state)
             }
             .disposed(by: disposeBag)
         
@@ -68,7 +59,7 @@ final class EmailViewController: JoinViewController {
             .withLatestFrom(email.orEmpty)
             .bind(with: self) { owner, text in
                 TempDataRepoManager.shared.email = text
-                owner.navigationController?.pushViewController(PasswordViewController(), animated: true)
+                owner.pushNavigation(PasswordViewController())
             }
             .disposed(by: disposeBag)
     }

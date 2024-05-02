@@ -150,8 +150,7 @@ final class HomeViewModel {
         deleteButtonClicked
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .flatMap {
-                NetworkManager.fetchToServer(model: MessageModel.self, router: PostRouter.delete(postID: $0.postID))
-                // NetworkManager.fetchToServerNoModel(router: PostRouter.delete(postID: $0.postID))
+                NetworkManager.fetchToServerNoModel(router: PostRouter.delete(postID: $0.postID))
             }
             .subscribe(with: self) { owner, result in
                 switch result {

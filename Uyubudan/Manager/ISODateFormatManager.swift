@@ -26,7 +26,7 @@ final class ISODateFormatManager {
         // 오늘 날짜와 다르면
         if !Calendar.current.isDateInToday(targetDate) {
             let date = Calendar.current.dateComponents(components, from: targetDate)
-            return "\(date.year!)년\(date.month!)월\(date.day!)일"
+            return "\(date.year!)년 \(date.month!)월 \(date.day!)일"
         }
 
         if let hour = diff.hour, hour > 0 {

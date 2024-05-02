@@ -18,12 +18,21 @@ final class PasswordView: JoinView {
     }()
     
     let passwordTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "비밀번호를 입력해주세요"
+        let tf = CustomTextField(placeHolder: "비밀번호를 입력해주세요")
         tf.isSecureTextEntry = true
         tf.textContentType = .oneTimeCode
         return tf
     }()
+    
+    func designViewWithPasswordValidation(state: Bool) {
+        let validationText = state ? "사용 가능한 비밀번호입니다." : "4글자 이상 15글자 미만으로 입력해주세요."
+        
+        validationLabel.text = validationText
+        validationLabel.textColor = state.textColor
+        
+        completeButton.isEnabled = state
+        completeButton.backgroundColor = state.buttonColor
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()

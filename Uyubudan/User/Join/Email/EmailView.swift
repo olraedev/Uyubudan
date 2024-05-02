@@ -18,8 +18,7 @@ final class EmailView: JoinView {
     }()
     
     let emailTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "uyubudan@example.com"
+        let tf = CustomTextField(placeHolder: "uyubudan@example.com")
         return tf
     }()
     
@@ -30,6 +29,23 @@ final class EmailView: JoinView {
         button.isEnabled = false
         return button
     }()
+    
+    func designViewWithEmailRegex(state: Bool) {
+        let text = state ? "중복확인을 해주세요." : "이메일 주소를 정확하게 입력해주세요."
+        
+        validationButton.isEnabled = state
+        validationButton.backgroundColor = state.buttonColor
+        
+        validationLabel.textColor = state.textColor
+        validationLabel.text = text
+    }
+    
+    func designViewWithEmailValidation(state: Bool) {
+        completeButton.isEnabled = state
+        completeButton.backgroundColor = state.buttonColor
+        
+        validationLabel.textColor = state.textColor
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()

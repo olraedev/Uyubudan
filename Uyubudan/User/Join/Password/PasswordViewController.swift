@@ -31,13 +31,7 @@ final class PasswordViewController: JoinViewController {
         
         output.passwordValidation
             .drive(with: self) { owner, state in
-                let validationText = state ? "사용 가능한 비밀번호입니다." : "4글자 이상 15글자 미만으로 입력해주세요."
-                
-                owner.passwordView.validationLabel.text = validationText
-                owner.passwordView.validationLabel.textColor = state.textColor
-                
-                owner.passwordView.completeButton.isEnabled = state
-                owner.passwordView.completeButton.backgroundColor = state.buttonColor
+                owner.passwordView.designViewWithPasswordValidation(state: state)
             }
             .disposed(by: disposeBag)
         
@@ -45,7 +39,7 @@ final class PasswordViewController: JoinViewController {
             .withLatestFrom(password.orEmpty)
             .bind(with: self) { owner, password in
                 TempDataRepoManager.shared.password = password
-                owner.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                owner.pushNavigation(NicknameViewController())
             }
             .disposed(by: disposeBag)
     }

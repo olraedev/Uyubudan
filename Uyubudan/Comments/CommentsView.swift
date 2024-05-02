@@ -28,8 +28,7 @@ final class CommentsView: BaseView {
     }()
     
     let writeTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "댓글을 작성해주세요"
+        let tf = CustomTextField(placeHolder: "댓글을 작성해주세요")
         return tf
     }()
     

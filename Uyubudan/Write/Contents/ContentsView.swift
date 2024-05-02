@@ -17,8 +17,7 @@ final class ContentsView: WriteView {
     }()
     
     let titleTextField = {
-        let view = CustomTextField()
-        view.placeholder = "오랜만에 여행가는데 어디가 좋을까요?"
+        let view = CustomTextField(placeHolder: "오랜만에 여행가는데 어디가 좋을까요?")
         return view
     }()
     

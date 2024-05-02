@@ -34,8 +34,7 @@ final class ProfileEditView: BaseView {
     }()
     
     let nickTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "닉네임을 입력해주세요"
+        let tf = CustomTextField(placeHolder: "닉네임을 입력해주세요")
         return tf
     }()
     

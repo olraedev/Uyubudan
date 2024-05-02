@@ -9,9 +9,13 @@ import UIKit
 
 final class CustomTextField: UITextField {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    let placeHolder: String?
+    
+    init(placeHolder: String) {
+        self.placeHolder = placeHolder
+        super.init(frame: .zero)
         
+        placeholder = placeHolder
         borderStyle = .roundedRect
         autocapitalizationType = .none
     }

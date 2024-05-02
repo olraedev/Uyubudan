@@ -63,10 +63,8 @@ final class LoginViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         loginView.joinButton.rx.tap.bind(with: self) { owner, _ in
-            let vc = UINavigationController(rootViewController: EmailViewController())
-            
-            vc.modalPresentationStyle = .fullScreen
-            owner.present(vc, animated: true)
+            let vc = EmailViewController()
+            owner.presentFullScreen(vc)
         }
         .disposed(by: disposeBag)
     }

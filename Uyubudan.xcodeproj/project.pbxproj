@@ -90,6 +90,11 @@
 		EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F612BCFC9C500F15199 /* MessageModel.swift */; };
 		EC7E0F642BCFEC8400F15199 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */; };
 		EC7E0F662BCFFD8800F15199 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E0F652BCFFD8800F15199 /* NicknameViewModel.swift */; };
+		EC9E6EF32BE360370041304C /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF22BE360370041304C /* PostHeaderView.swift */; };
+		EC9E6EF52BE362780041304C /* CustomImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF42BE362780041304C /* CustomImageButton.swift */; };
+		EC9E6EF72BE367C50041304C /* CustomVoteButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF62BE367C50041304C /* CustomVoteButtonsView.swift */; };
+		EC9E6EF92BE36F370041304C /* CustomVoteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EF82BE36F370041304C /* CustomVoteInfoView.swift */; };
+		EC9E6EFB2BE37AC20041304C /* CustomVoteRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E6EFA2BE37AC20041304C /* CustomVoteRateView.swift */; };
 		ECC824C92BD39DD4006C28F5 /* LikeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824C82BD39DD4006C28F5 /* LikeState.swift */; };
 		ECC824CC2BD3A033006C28F5 /* LikeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */; };
 		ECC824CE2BD3A221006C28F5 /* LikeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */; };
@@ -201,6 +206,11 @@
 		EC7E0F612BCFC9C500F15199 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		EC7E0F632BCFEC8400F15199 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		EC7E0F652BCFFD8800F15199 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		EC9E6EF22BE360370041304C /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
+		EC9E6EF42BE362780041304C /* CustomImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageButton.swift; sourceTree = "<group>"; };
+		EC9E6EF62BE367C50041304C /* CustomVoteButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteButtonsView.swift; sourceTree = "<group>"; };
+		EC9E6EF82BE36F370041304C /* CustomVoteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteInfoView.swift; sourceTree = "<group>"; };
+		EC9E6EFA2BE37AC20041304C /* CustomVoteRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVoteRateView.swift; sourceTree = "<group>"; };
 		ECC824C82BD39DD4006C28F5 /* LikeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeState.swift; sourceTree = "<group>"; };
 		ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRouter.swift; sourceTree = "<group>"; };
 		ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuery.swift; sourceTree = "<group>"; };
@@ -434,6 +444,11 @@
 				EC334F772BCD38C300A97EAB /* PrimaryColorButton.swift */,
 				EC334F8E2BCD776900A97EAB /* CustomTextField.swift */,
 				EC0CE6D22BD176AB0073276A /* CustomProfileView.swift */,
+				EC9E6EF22BE360370041304C /* PostHeaderView.swift */,
+				EC9E6EF42BE362780041304C /* CustomImageButton.swift */,
+				EC9E6EF62BE367C50041304C /* CustomVoteButtonsView.swift */,
+				EC9E6EF82BE36F370041304C /* CustomVoteInfoView.swift */,
+				EC9E6EFA2BE37AC20041304C /* CustomVoteRateView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -749,6 +764,7 @@
 				EC0F40632BE0E79800D864EC /* NetworkConnectionFailViewController.swift in Sources */,
 				EC334F912BCD788000A97EAB /* PasswordView.swift in Sources */,
 				EC0F3F8C2BD6855600D864EC /* ProfileUpdateQuery.swift in Sources */,
+				EC9E6EF92BE36F370041304C /* CustomVoteInfoView.swift in Sources */,
 				EC334FB82BCE5AE700A97EAB /* TargetType.swift in Sources */,
 				EC7E0F622BCFC9C500F15199 /* MessageModel.swift in Sources */,
 				EC334F322BCA7EC500A97EAB /* BaseViewController.swift in Sources */,
@@ -756,7 +772,9 @@
 				EC0F40612BE0E23500D864EC /* NetworkMonitoringManager.swift in Sources */,
 				EC0F3F8E2BD6AFB600D864EC /* CardCollectionViewCell.swift in Sources */,
 				EC334F782BCD38C300A97EAB /* PrimaryColorButton.swift in Sources */,
+				EC9E6EF32BE360370041304C /* PostHeaderView.swift in Sources */,
 				ECC824D72BD3E358006C28F5 /* AuthRefreshModel.swift in Sources */,
+				EC9E6EF52BE362780041304C /* CustomImageButton.swift in Sources */,
 				EC0F3FAC2BD7DA9600D864EC /* ProfileEditViewModel.swift in Sources */,
 				EC334F7D2BCD3E5B00A97EAB /* Protocols.swift in Sources */,
 				ECD48DAB2BE25FE800D4F9EE /* TempDataRepoManager.swift in Sources */,
@@ -812,6 +830,7 @@
 				EC0F3F872BD6825700D864EC /* ProfileViewController.swift in Sources */,
 				EC0F3F922BD6B27B00D864EC /* ProfileModel.swift in Sources */,
 				ECC824F62BD42FD5006C28F5 /* ContentsViewController.swift in Sources */,
+				EC9E6EF72BE367C50041304C /* CustomVoteButtonsView.swift in Sources */,
 				EC0F3FAE2BD80C0000D864EC /* Extension+Bool.swift in Sources */,
 				ECD48DAD2BE263BC00D4F9EE /* ISODateFormatManager.swift in Sources */,
 				ECC824FB2BD43C60006C28F5 /* SelectView.swift in Sources */,
@@ -829,6 +848,7 @@
 				ECC824F42BD42FBD006C28F5 /* ContentsView.swift in Sources */,
 				EC334FC92BCE644400A97EAB /* LoginQuery.swift in Sources */,
 				EC0F3F852BD6824E00D864EC /* ProfileView.swift in Sources */,
+				EC9E6EFB2BE37AC20041304C /* CustomVoteRateView.swift in Sources */,
 				EC334FBE2BCE5D2700A97EAB /* UserRouter.swift in Sources */,
 				ECC825142BD57AC5006C28F5 /* CommentsWriteQuery.swift in Sources */,
 				EC334FD62BCE93F900A97EAB /* LoginModel.swift in Sources */,

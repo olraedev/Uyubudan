@@ -18,8 +18,7 @@ final class SelectView: WriteView {
     }()
     
     let leftTextField = {
-        let view = CustomTextField()
-        view.placeholder = "국내"
+        let view = CustomTextField(placeHolder: "국내")
         return view
     }()
     
@@ -32,8 +31,7 @@ final class SelectView: WriteView {
     }()
     
     let rightTextField = {
-        let view = CustomTextField()
-        view.placeholder = "해외"
+        let view = CustomTextField(placeHolder: "해외")
         return view
     }()
     

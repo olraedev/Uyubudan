@@ -18,10 +18,19 @@ final class NicknameView: JoinView {
     }()
     
     let nickTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "결정마스터"
+        let tf = CustomTextField(placeHolder: "결정마스터")
         return tf
     }()
+    
+    func designViewWithNicknameValidation(state: Bool) {
+        let text = state ? "사용 가능한 닉네임입니다." : "2글자 이상 10글자 미만으로 입력해주세요."
+        
+        validationLabel.text = text
+        validationLabel.textColor = state.textColor
+        
+        completeButton.isEnabled = state
+        completeButton.backgroundColor = state.buttonColor
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()

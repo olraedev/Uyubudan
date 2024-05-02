@@ -42,7 +42,7 @@ final class HomeView: BaseView {
         return control
     }()
     
-    lazy var activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.center = self.center
         activityIndicator.style = .large

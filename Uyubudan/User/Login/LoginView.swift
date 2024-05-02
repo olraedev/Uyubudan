@@ -32,8 +32,7 @@ final class LoginView: BaseView {
     }()
     
     let emailTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "이메일을 입력해주세요"
+        let tf = CustomTextField(placeHolder: "이메일을 입력해주세요")
         return tf
     }()
     
@@ -46,8 +45,7 @@ final class LoginView: BaseView {
     }()
     
     let passwordTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "비밀번호를 입력해주세요"
+        let tf = CustomTextField(placeHolder: "비밀번호를 입력해주세요")
         tf.isSecureTextEntry = true
         tf.textContentType = .oneTimeCode
         return tf
