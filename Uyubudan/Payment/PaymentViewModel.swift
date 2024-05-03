@@ -29,6 +29,8 @@ final class PaymentViewModel {
     
     let paymentResponse = PublishRelay<String>()
     
+    let paymentResult = PublishRelay<String>()
+    
     init() {
         paymentResponse
             .map {
@@ -40,9 +42,9 @@ final class PaymentViewModel {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let code):
-                    print("success \(code)")
+                    owner.paymentResult.accept("후원에 성공하였습니다")
                 case .failure(let error):
-                    print(error)
+                    owner.paymentResult.accept("후원에 실패하였습니다")
                 }
             }
             .disposed(by: disposeBag)

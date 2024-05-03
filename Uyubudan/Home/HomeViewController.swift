@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController {
                             vc.viewModel.postData = element
                             vc.viewModel.userData = owner.viewModel.myProfileData.value
                             
-                            owner.pushNavigation(vc)
+                            owner.presentFullScreen(vc)
                         }
                         .disposed(by: cell.disposeBag)
                     

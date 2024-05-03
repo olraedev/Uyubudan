@@ -25,5 +25,18 @@ final class PaymentViewController: BaseViewController {
             
             self?.viewModel.paymentResponse.accept(impUID)
         }
+        
+        viewModel.paymentResult
+            .asDriver(onErrorJustReturn: "")
+            .drive(with: self) { owner, message in
+                owner.showConfirmAlert(title: nil, message: message) {
+                    owner.dismiss(animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    override func configureNavigationItem() {
+        navigationController?.isNavigationBarHidden = true
     }
 }
