@@ -41,9 +41,9 @@ final class PaymentViewModel {
             }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(let code):
+                case .success(_):
                     owner.paymentResult.accept("후원에 성공하였습니다")
-                case .failure(let error):
+                case .failure(_):
                     owner.paymentResult.accept("후원에 실패하였습니다")
                 }
             }

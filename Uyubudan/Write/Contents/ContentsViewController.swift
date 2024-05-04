@@ -49,9 +49,7 @@ final class ContentsViewController: WriteViewController {
                 TempDataRepoManager.shared.title = owner.contentsView.titleTextField.text!
                 TempDataRepoManager.shared.content = owner.contentsView.contentTextView.text!
                 
-                let vc = SelectViewController()
-                
-                owner.navigationController?.pushViewController(vc, animated: true)
+                owner.pushNavigation(SelectViewController())
             }
             .disposed(by: disposeBag)
         

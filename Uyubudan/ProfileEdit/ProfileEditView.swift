@@ -61,6 +61,16 @@ final class ProfileEditView: BaseView {
         return item
     }()
     
+    func designViewWithNicknameValidation(state: Bool) {
+        let text = state ? "사용 가능한 닉네임입니다." : "2글자 이상 10글자 미만으로 입력해주세요."
+        
+        validationLabel.text = text
+        validationLabel.textColor = state.textColor
+        
+        completeButton.isEnabled = state
+        completeButton.backgroundColor = state.buttonColor
+    }
+    
     override func configureHierarchy() {
         addSubViews([
             profileImageView, imageEditButton, nickLabel, nickTextField,

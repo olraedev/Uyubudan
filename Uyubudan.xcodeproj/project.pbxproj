@@ -356,7 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0F3FC12BDA0B2800D864EC /* FollowRouter.swift */,
-				EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */,
+				EC9E6F1F2BE6128E0041304C /* FollowModel */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -638,12 +638,44 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EC9E6F1C2BE612570041304C /* LikeModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824CF2BD3A305006C28F5 /* LikeModel.swift */,
+			);
+			path = LikeModel;
+			sourceTree = "<group>";
+		};
+		EC9E6F1D2BE612640041304C /* LikeQuery */ = {
+			isa = PBXGroup;
+			children = (
+				ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */,
+			);
+			path = LikeQuery;
+			sourceTree = "<group>";
+		};
+		EC9E6F1E2BE612790041304C /* CommentsQuery */ = {
+			isa = PBXGroup;
+			children = (
+				ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */,
+			);
+			path = CommentsQuery;
+			sourceTree = "<group>";
+		};
+		EC9E6F1F2BE6128E0041304C /* FollowModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F3FC32BDA0C2200D864EC /* FollowModel.swift */,
+			);
+			path = FollowModel;
+			sourceTree = "<group>";
+		};
 		ECC824CA2BD3A01C006C28F5 /* Like */ = {
 			isa = PBXGroup;
 			children = (
 				ECC824CB2BD3A033006C28F5 /* LikeRouter.swift */,
-				ECC824CD2BD3A221006C28F5 /* LikeQuery.swift */,
-				ECC824CF2BD3A305006C28F5 /* LikeModel.swift */,
+				EC9E6F1D2BE612640041304C /* LikeQuery */,
+				EC9E6F1C2BE612570041304C /* LikeModel */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -715,7 +747,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC825112BD5797A006C28F5 /* CommentsRouter.swift */,
-				ECC825132BD57AC5006C28F5 /* CommentsWriteQuery.swift */,
+				EC9E6F1E2BE612790041304C /* CommentsQuery */,
 			);
 			path = Comments;
 			sourceTree = "<group>";

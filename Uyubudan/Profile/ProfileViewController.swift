@@ -11,13 +11,13 @@ import RxCocoa
 
 final class ProfileViewController: BaseViewController {
     
-    private let mypageView = ProfileView()
+    private let profileView = ProfileView()
     let viewModel = ProfileViewModel()
     
     override func loadView() {
         super.loadView()
         
-        view = mypageView
+        view = profileView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +27,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     override func bind() {
-        let segmentChanged = mypageView.segment.rx.selectedSegmentIndex
+        let segmentChanged = profileView.segment.rx.selectedSegmentIndex
         let input = ProfileViewModel.Input(
             segmentChanged: segmentChanged
         )
@@ -35,29 +35,29 @@ final class ProfileViewController: BaseViewController {
         
         viewModel.profileInfo
             .bind(with: self) { owner, result in
-                owner.mypageView.configureViews(result)
+                owner.profileView.configureViews(result)
             }
             .disposed(by: disposeBag)
         
         output.posts
-            .drive(mypageView.collectionView.rx
+            .drive(profileView.collectionView.rx
                 .items(cellIdentifier: CardCollectionViewCell.identifier, cellType: CardCollectionViewCell.self)) { row, element, cell in
                     cell.configureCell(element)
                 }
                 .disposed(by: disposeBag)
         
-        mypageView.segment.rx.selectedSegmentIndex
+        profileView.segment.rx.selectedSegmentIndex
             .bind(with: self) { owner, _ in
-                owner.mypageView.changeUnderLineView()
+                owner.profileView.changeUnderLineView()
             }
             .disposed(by: disposeBag)
         
-        mypageView.editBarButtonItem.rx.tap
+        profileView.editBarButtonItem.rx.tap
             .withLatestFrom(viewModel.profileInfo)
             .bind(with: self) { owner, model in
                 let vc = ProfileEditViewController()
                 vc.viewModel.profileInfo.accept(model)
-                owner.navigationController?.pushViewController(vc, animated: true)
+                owner.pushNavigation(vc)
             }
             .disposed(by: disposeBag)
         
@@ -71,7 +71,7 @@ final class ProfileViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        mypageView.followersButton.rx.tap
+        profileView.followersButton.rx.tap
             .withLatestFrom(self.viewModel.profileInfo)
             .bind(with: self) { owner, profile in
                 let vc = FollowViewController()
@@ -81,17 +81,11 @@ final class ProfileViewController: BaseViewController {
                 vc.viewModel.dismiss = {
                     self.viewModel.viewWillAppearTrigger.accept(())
                 }
-                if let sheet = vc.sheetPresentationController {
-                    sheet.detents = [.medium(), .large()]
-                    sheet.prefersScrollingExpandsWhenScrolledToEdge = true
-                    sheet.prefersGrabberVisible = true
-                    sheet.preferredCornerRadius = 30
-                }
-                owner.present(vc, animated: true)
+                owner.presentBottomSheet(vc)
             }
             .disposed(by: disposeBag)
         
-        mypageView.followingButton.rx.tap
+        profileView.followingButton.rx.tap
             .withLatestFrom(self.viewModel.profileInfo)
             .bind(with: self) { owner, profile in
                 let vc = FollowViewController()
@@ -101,17 +95,11 @@ final class ProfileViewController: BaseViewController {
                 vc.viewModel.dismiss = {
                     self.viewModel.viewWillAppearTrigger.accept(())
                 }
-                if let sheet = vc.sheetPresentationController {
-                    sheet.detents = [.medium(), .large()]
-                    sheet.prefersScrollingExpandsWhenScrolledToEdge = true
-                    sheet.prefersGrabberVisible = true
-                    sheet.preferredCornerRadius = 30
-                }
-                owner.present(vc, animated: true)
+                owner.presentBottomSheet(vc)
             }
             .disposed(by: disposeBag)
         
-        mypageView.dismissButton.rx.tap
+        profileView.dismissButton.rx.tap
             .bind(with: self) { owner, _ in
                 owner.dismiss(animated: true)
             }
@@ -119,7 +107,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        navigationItem.leftBarButtonItem = mypageView.dismissButton
+        navigationItem.leftBarButtonItem = profileView.dismissButton
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -130,8 +118,8 @@ final class ProfileViewController: BaseViewController {
             let withdraw = UIAction(title: "회원탈퇴", attributes: .destructive) { [weak self] _ in
                 self?.withdrawButtonClicked()
             }
-            mypageView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
-            navigationItem.rightBarButtonItems = [mypageView.settingBarButtonItem, mypageView.editBarButtonItem]
+            profileView.settingBarButtonItem.menu = UIMenu(children: [logout, withdraw])
+            navigationItem.rightBarButtonItems = [profileView.settingBarButtonItem, profileView.editBarButtonItem]
             navigationItem.leftBarButtonItem?.isHidden = true
         }
     }

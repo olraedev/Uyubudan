@@ -100,7 +100,6 @@ extension SelectViewController: PHPickerViewControllerDelegate {
                             return
                         }
                         dict.updateValue(imageViewsImage, forKey: idx)
-                        // images.append(imageViewsImage)
                     }
                 }
             }

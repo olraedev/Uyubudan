@@ -48,43 +48,14 @@ final class ProfileEditViewController: BaseViewController {
         
         profileEditView.imageEditButton.rx.tap
             .bind(with: self) { owner, _ in
-                let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let delete = UIAlertAction(title: "삭제하기", style: .destructive) { _ in
-                    owner.profileEditView.profileImageView.setImage(url: Environment.defaultImage)
-                    
-                    guard let profileImage = owner.profileEditView.profileImageView.image?.pngData() else {
-                        return
-                    }
-                    owner.viewModel.profileImage.accept(profileImage)
-                }
-                let loadImage = UIAlertAction(title: "불러오기", style: .default) { _ in
-                    var configuration = PHPickerConfiguration()
-                    configuration.selectionLimit = 1
-                    configuration.filter =  .images
-                    let picker = PHPickerViewController(configuration: configuration)
-                    picker.delegate = self
-                    
-                    owner.present(picker, animated: true)
-                }
-                let cancel = UIAlertAction(title: "취소", style: .cancel)
-                
-                sheet.addAction(delete)
-                sheet.addAction(loadImage)
-                sheet.addAction(cancel)
-                
+                let sheet = owner.configureActioinSheet()
                 owner.present(sheet, animated: true)
             }
             .disposed(by: disposeBag)
         
         output.nicknameValidation
             .drive(with: self) { owner, state in
-                let text = state ? "사용 가능한 닉네임입니다." : "2글자 이상 10글자 미만으로 입력해주세요."
-                
-                owner.profileEditView.validationLabel.text = text
-                owner.profileEditView.validationLabel.textColor = state.textColor
-                
-                owner.profileEditView.completeButton.isEnabled = state
-                owner.profileEditView.completeButton.backgroundColor = state.buttonColor
+                owner.profileEditView.designViewWithNicknameValidation(state: state)
             }
             .disposed(by: disposeBag)
         
@@ -105,6 +76,42 @@ final class ProfileEditViewController: BaseViewController {
     
     override func configureNavigationItem() {
         navigationItem.leftBarButtonItem = profileEditView.popButtonItem
+    }
+}
+
+extension ProfileEditViewController {
+    private func configureActioinSheet() -> UIAlertController {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
+            self?.deleteActionClicked()
+        }
+        let loadImage = UIAlertAction(title: "불러오기", style: .default) { [weak self] _ in
+            self?.loadActionClicked()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        sheet.addAction(delete)
+        sheet.addAction(loadImage)
+        sheet.addAction(cancel)
+        
+        return sheet
+    }
+    
+    private func deleteActionClicked() {
+        profileEditView.profileImageView.setImage(url: Environment.defaultImage)
+        
+        guard let profileImage = profileEditView.profileImageView.image?.pngData() else { return }
+        viewModel.profileImage.accept(profileImage)
+    }
+    
+    private func loadActionClicked() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter =  .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        present(picker, animated: true)
     }
 }
 
