@@ -55,7 +55,7 @@ final class SelectViewController: WriteViewController {
                         owner.dismiss(animated: true)
                     }
                 case .failure(let error):
-                    owner.showAlert(title: nil, message: error.errorDescription)
+                    owner.showAlert(title: nil, message: error.localizedDescription)
                 }
             }
             .disposed(by: disposeBag)

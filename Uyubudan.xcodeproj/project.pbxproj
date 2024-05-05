@@ -1102,6 +1102,7 @@
 				DEVELOPMENT_TEAM = 9G88QGSLX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Uyubudan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김상래_LSLP_우유부단";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1136,6 +1137,7 @@
 				DEVELOPMENT_TEAM = 9G88QGSLX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Uyubudan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김상래_LSLP_우유부단";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

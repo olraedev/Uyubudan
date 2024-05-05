@@ -57,7 +57,7 @@ final class EmailViewController: JoinViewController {
         
         output.error
             .drive(with: self) { owner, error in
-                owner.showAlert(title: nil, message: error.errorDescription)
+                owner.showAlert(title: nil, message: error.localizedDescription)
             }
             .disposed(by: disposeBag)
         

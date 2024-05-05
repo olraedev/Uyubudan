@@ -42,12 +42,12 @@ final class LoginViewController: BaseViewController {
         
         output.success
             .drive(with: self) { owner, nickName in
-                owner.view.makeToast("\(nickName)님 환영합니다", duration: 1)
+                owner.view.makeToast("\(nickName)님 환영합니다", duration: 0.7)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 let nav = TabViewController()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                     sceneDelegate?.window?.rootViewController = nav
                     sceneDelegate?.window?.makeKeyAndVisible()
                 }
@@ -56,7 +56,8 @@ final class LoginViewController: BaseViewController {
         
         output.errorInfo
             .drive(with: self) { owner, error in
-                owner.showAlert(title: nil, message: error.errorDescription)
+                print(error)
+                owner.showAlert(title: nil, message: error.localizedDescription)
             }
             .disposed(by: disposeBag)
         

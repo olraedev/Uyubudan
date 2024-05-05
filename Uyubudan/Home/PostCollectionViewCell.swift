@@ -141,6 +141,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
             profileView.followButton.isHidden = true
         }
         else {
+            profileView.followButton.isHidden = false
             if myFollowingList.contains(item.creator.userID) {
                 profileView.followButton.setTitle("팔로잉", for: .normal)
                 profileView.followButton.setTitleColor(.darkGray, for: .normal)

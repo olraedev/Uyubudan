@@ -27,6 +27,7 @@ final class HomeViewModel {
     let categoryPostList = BehaviorRelay<[PostData]>(value: [])
     let myFollowingList = BehaviorRelay<[String]>(value: [])
     let myProfileData = BehaviorRelay<ProfileModel?>(value: nil)
+    let followState = PublishRelay<Bool>()
     let errorMessage = PublishRelay<HTTPError>()
     
     init() {
@@ -91,7 +92,7 @@ final class HomeViewModel {
             }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(let model): break
+                case .success(_): break
                 case .failure(let error):
                     owner.errorMessage.accept(error)
                 }
@@ -136,7 +137,7 @@ final class HomeViewModel {
             }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(let model): break
+                case .success(_): break
                 case .failure(let error):
                     owner.errorMessage.accept(error)
                 }
@@ -184,8 +185,9 @@ final class HomeViewModel {
             .flatMap { NetworkManager.fetchToServer(model: FollowModel.self, router: $0) }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(_):
+                case .success(let model):
                     owner.viewWillAppearTrigger.accept(())
+                    owner.followState.accept(model.status)
                 case .failure(let error):
                     owner.errorMessage.accept(error)
                 }

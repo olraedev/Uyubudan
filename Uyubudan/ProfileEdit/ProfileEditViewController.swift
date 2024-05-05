@@ -75,7 +75,7 @@ final class ProfileEditViewController: BaseViewController {
         
         output.errorMessage
             .drive(with: self) { owner, error in
-                owner.showAlert(title: nil, message: error.errorDescription)
+                owner.showAlert(title: nil, message: error.localizedDescription)
             }
             .disposed(by: disposeBag)
     }

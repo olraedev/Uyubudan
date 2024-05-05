@@ -13,6 +13,7 @@ class NetworkInterceptor: RequestInterceptor {
         
         var urlRequest = urlRequest
         
+        // Header에 AccessToken 추가
         urlRequest.setValue(UserDefaultsManager.accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
         completion(.success(urlRequest))
     }
@@ -23,7 +24,6 @@ class NetworkInterceptor: RequestInterceptor {
             return
         }
         
-        print("retry! \(response.statusCode)")
         // status 419 받는 경우
         NetworkManager.fetchRefreshTokenToServer() { result in
             switch result {

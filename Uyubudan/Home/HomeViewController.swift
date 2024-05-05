@@ -141,7 +141,14 @@ final class HomeViewController: BaseViewController {
         viewModel.errorMessage
             .asDriver(onErrorJustReturn: .serverError)
             .drive(with: self) { owner, error in
-                owner.showAlert(title: nil, message: error.errorDescription)
+                owner.showAlert(title: nil, message: error.localizedDescription)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.followState
+            .bind(with: self) { owner, state in
+                let text = state ? "팔로우 성공!" : "팔로우 취소!"
+                owner.view.makeToast(text, duration: 0.7)
             }
             .disposed(by: disposeBag)
     }

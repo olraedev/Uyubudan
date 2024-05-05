@@ -33,7 +33,7 @@ class LoginViewModel: ViewModelType {
             }
         
         input.loginButtonTapped
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(login)
             .flatMap {
                 NetworkManager.fetchToServer(model: LoginModel.self, router: UserRouter.login(LoginQuery: $0))

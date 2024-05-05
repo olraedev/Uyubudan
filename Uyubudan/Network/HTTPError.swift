@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPError: Int, Error, LocalizedError {
+enum HTTPError: Int, Error {
     case checkRequiredValue = 400
     case checkAccount = 401
     case forbidden = 403
@@ -18,8 +18,10 @@ enum HTTPError: Int, Error, LocalizedError {
     case overRequest = 429
     case invalidURL = 444
     case serverError = 500
-    
-    var errorDescription: String {
+}
+
+extension HTTPError {
+    var localizedDescription: String {
         switch self {
         case .checkRequiredValue: "필수값을 채워주세요"
         case .checkAccount: "계정을 확인해주세요"

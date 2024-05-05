@@ -38,6 +38,8 @@ final class CustomVoteButtonsView: BaseView {
     func configureButtonsOpacity(_ state: LikeState) {
         leftButton.layer.opacity = 0.5
         rightButton.layer.opacity = 0.5
+        leftButton.layer.borderWidth = 0
+        rightButton.layer.borderWidth = 0
         
         switch state {
         case .left:
@@ -48,9 +50,7 @@ final class CustomVoteButtonsView: BaseView {
             rightButton.layer.opacity = 1.0
             rightButton.layer.borderColor = UIColor.customTertiary.cgColor
             rightButton.layer.borderWidth = 3
-        case .none:
-            leftButton.layer.borderWidth = 0
-            rightButton.layer.borderWidth = 0
+        case .none: break
         }
     }
     
