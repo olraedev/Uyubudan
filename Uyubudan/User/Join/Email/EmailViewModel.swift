@@ -22,12 +22,14 @@ final class EmailViewModel: ViewModelType {
         let emailRegex: Driver<Bool>
         let validation: Driver<Bool>
         let validationMessage: Driver<String>
+        let error: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
         let emailRegex = PublishRelay<Bool>()
         let validation = PublishRelay<Bool>()
         let validationMessage = PublishRelay<String>()
+        let errorResult = PublishRelay<HTTPError>()
         
         input.email.orEmpty.changed
             .map { [weak self] email in
@@ -52,9 +54,10 @@ final class EmailViewModel: ViewModelType {
                 case .success(let model):
                     validationMessage.accept(model.message)
                     validation.accept(true)
-                case .failure(_):
+                case .failure(let error):
                     validationMessage.accept("사용이 불가한 이메일입니다.")
                     validation.accept(false)
+                    errorResult.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -62,7 +65,8 @@ final class EmailViewModel: ViewModelType {
         return Output(
             emailRegex: emailRegex.asDriver(onErrorJustReturn: false),
             validation: validation.asDriver(onErrorJustReturn: false),
-            validationMessage: validationMessage.asDriver(onErrorJustReturn: "")
+            validationMessage: validationMessage.asDriver(onErrorJustReturn: ""), 
+            error: errorResult.asDriver(onErrorJustReturn: .serverError)
         )
     }
     

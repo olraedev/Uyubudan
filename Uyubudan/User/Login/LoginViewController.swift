@@ -56,9 +56,7 @@ final class LoginViewController: BaseViewController {
         
         output.errorInfo
             .drive(with: self) { owner, error in
-                if error == .checkAccount {
-                    owner.showAlert(title: nil, message: "계정을 확인해주세요")
-                }
+                owner.showAlert(title: nil, message: error.errorDescription)
             }
             .disposed(by: disposeBag)
         

@@ -24,11 +24,13 @@ final class ProfileEditViewModel: ViewModelType {
     struct Output {
         let nicknameValidation: Driver<Bool>
         let editSuccess: Driver<Bool>
+        let errorMessage: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
         let nicknameValidation = BehaviorRelay(value: true)
         let editSuccess = PublishRelay<Bool>()
+        let errorMessage = PublishRelay<HTTPError>()
         
         input.nickname.orEmpty.changed
             .map { 2 <= $0.count && $0.count < 10 }
@@ -47,14 +49,15 @@ final class ProfileEditViewModel: ViewModelType {
                     UserDefaultsManager.profileImage = model.profileImage
                     editSuccess.accept(true)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
         
         return Output(
             nicknameValidation: nicknameValidation.asDriver(onErrorJustReturn: false), 
-            editSuccess: editSuccess.asDriver(onErrorJustReturn: false)
+            editSuccess: editSuccess.asDriver(onErrorJustReturn: false), 
+            errorMessage: errorMessage.asDriver(onErrorJustReturn: .serverError)
         )
     }
 }

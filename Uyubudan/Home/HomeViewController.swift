@@ -137,6 +137,13 @@ final class HomeViewController: BaseViewController {
             }
         }
         .disposed(by: disposeBag)
+        
+        viewModel.errorMessage
+            .asDriver(onErrorJustReturn: .serverError)
+            .drive(with: self) { owner, error in
+                owner.showAlert(title: nil, message: error.errorDescription)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

@@ -26,10 +26,12 @@ final class CommentsViewModel: ViewModelType {
     
     struct Output {
         let comments: Driver<[Comment]>
+        let errorMessage: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
         let comments = PublishRelay<[Comment]>()
+        let errorMessage = PublishRelay<HTTPError>()
         
         viewWillAppearTrigger
             .map { _ in self.postID }
@@ -41,7 +43,7 @@ final class CommentsViewModel: ViewModelType {
                 case .success(let data):
                     comments.accept(data.comments)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -60,7 +62,7 @@ final class CommentsViewModel: ViewModelType {
                 case .success(_):
                     owner.viewWillAppearTrigger.accept(())
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -75,13 +77,14 @@ final class CommentsViewModel: ViewModelType {
                 case .success(_):
                     owner.viewWillAppearTrigger.accept(())
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
         
         return Output(
-            comments: comments.asDriver(onErrorJustReturn: [])
+            comments: comments.asDriver(onErrorJustReturn: []), 
+            errorMessage: errorMessage.asDriver(onErrorJustReturn: .serverError)
         )
     }
 }

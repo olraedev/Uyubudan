@@ -27,6 +27,7 @@ final class ProfileViewModel: ViewModelType {
     struct Output {
         let posts: Driver<[PostData]>
         let successWithdraw: Driver<Bool>
+        let errorMessage: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
@@ -34,6 +35,7 @@ final class ProfileViewModel: ViewModelType {
         let myPosts = PublishRelay<Bool>()
         let likePosts = PublishRelay<Bool>()
         let successWithdraw = PublishRelay<Bool>()
+        let errorMessage = PublishRelay<HTTPError>()
         
         viewWillAppearTrigger
             .filter { self.profileState == .mine }
@@ -45,7 +47,7 @@ final class ProfileViewModel: ViewModelType {
                     owner.myFollowingList.accept(model.following.map { $0.userID })
                     myPosts.accept(true)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -59,7 +61,7 @@ final class ProfileViewModel: ViewModelType {
                     owner.profileInfo.accept(model)
                     myPosts.accept(true)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -72,7 +74,7 @@ final class ProfileViewModel: ViewModelType {
                 case .success(let model):
                     owner.myFollowingList.accept(model.following.map { $0.userID })
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -93,7 +95,7 @@ final class ProfileViewModel: ViewModelType {
                 case .success(let model):
                     posts.accept(model.data)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -109,14 +111,14 @@ final class ProfileViewModel: ViewModelType {
                 case .success(let model):
                     results.append(contentsOf: model.data)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
                 
                 switch result.1 {
                 case .success(let model):
                     results.append(contentsOf: model.data)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
                 
                 posts.accept(results)
@@ -130,14 +132,15 @@ final class ProfileViewModel: ViewModelType {
                 case .success(_):
                     successWithdraw.accept(true)
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
         
         return Output(
             posts: posts.asDriver(onErrorJustReturn: []), 
-            successWithdraw: successWithdraw.asDriver(onErrorJustReturn: false)
+            successWithdraw: successWithdraw.asDriver(onErrorJustReturn: false), 
+            errorMessage: errorMessage.asDriver(onErrorJustReturn: .serverError)
         )
     }
 }

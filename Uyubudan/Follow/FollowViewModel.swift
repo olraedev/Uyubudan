@@ -30,10 +30,12 @@ final class FollowViewModel: ViewModelType {
     }
     
     struct Output {
-        
+        let errorMessage: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
+        let errorMessage = PublishRelay<HTTPError>()
+        
         input.viewWillAppearTrigger
             .bind(with: self) { owner, _ in
                 var followList: [String: Bool] = [:]
@@ -90,12 +92,14 @@ final class FollowViewModel: ViewModelType {
                 case .success(_):
                     print("follow success")
                 case .failure(let error):
-                    print(error)
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
         
-        return Output()
+        return Output(
+            errorMessage: errorMessage.asDriver(onErrorJustReturn: .serverError)
+        )
     }
     
     private func checkDiffState() -> [FollowRouter] {

@@ -54,10 +54,8 @@ final class SelectViewController: WriteViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         owner.dismiss(animated: true)
                     }
-                case .failure(_):
-                    owner.showAlert(title: nil, message: "포스트 게시에 실패하였습니다.") {
-                        owner.dismiss(animated: true)
-                    }
+                case .failure(let error):
+                    owner.showAlert(title: nil, message: error.errorDescription)
                 }
             }
             .disposed(by: disposeBag)

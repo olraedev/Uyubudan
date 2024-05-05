@@ -56,5 +56,11 @@ final class CommentsViewController: BaseViewController {
                     .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        output.errorMessage
+            .drive(with: self) { owner, error in
+                owner.showAlert(title: nil, message: error.errorDescription)
+            }
+            .disposed(by: disposeBag)
     }
 }

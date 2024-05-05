@@ -27,6 +27,7 @@ final class HomeViewModel {
     let categoryPostList = BehaviorRelay<[PostData]>(value: [])
     let myFollowingList = BehaviorRelay<[String]>(value: [])
     let myProfileData = BehaviorRelay<ProfileModel?>(value: nil)
+    let errorMessage = PublishRelay<HTTPError>()
     
     init() {
         viewWillAppearTrigger
@@ -40,7 +41,8 @@ final class HomeViewModel {
                     owner.recentPost.accept(model)
                     owner.allPostList.accept(model.data)
                     owner.categoryClicked.accept(owner.categoryClicked.value)
-                case .failure(_): break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -53,7 +55,7 @@ final class HomeViewModel {
                     owner.myProfileData.accept(model)
                     owner.myFollowingList.accept(model.following.map { $0.userID })
                 case .failure(let error):
-                    print(error)
+                    owner.errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -87,7 +89,13 @@ final class HomeViewModel {
             .flatMap {
                 return NetworkManager.fetchToServer(model: LikeModel.self, router: LikeRouter.like2(postID: self.categoryPostList.value[$0].postID, LikeQuery: LikeQuery(status: false)))
             }
-            .subscribe(with: self) { owner, result in }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model): break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
+                }
+            }
             .disposed(by: disposeBag)
         
         leftButtonClicked
@@ -105,7 +113,8 @@ final class HomeViewModel {
                 switch result {
                 case .success(_):
                     break
-                case .failure(_): break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
                 }
             })
             .disposed(by: disposeBag)
@@ -125,7 +134,13 @@ final class HomeViewModel {
                     router: LikeRouter.like(postID: self.categoryPostList.value[$0].postID, LikeQuery: LikeQuery(status: false))
                 )
             }
-            .subscribe(with: self) { owner, result in }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let model): break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
+                }
+            }
             .disposed(by: disposeBag)
         
         rightButtonClicked
@@ -143,8 +158,8 @@ final class HomeViewModel {
                 switch result {
                 case .success(_):
                     break
-                case .failure(_):
-                    break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
                 }
             })
             .disposed(by: disposeBag)
@@ -159,7 +174,7 @@ final class HomeViewModel {
                 case .success(_):
                     owner.viewWillAppearTrigger.accept(())
                 case .failure(let error):
-                    print(error)
+                    owner.errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -171,7 +186,8 @@ final class HomeViewModel {
                 switch result {
                 case .success(_):
                     owner.viewWillAppearTrigger.accept(())
-                case .failure(_): break
+                case .failure(let error):
+                    owner.errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -192,7 +208,7 @@ final class HomeViewModel {
                     owner.allPostList.accept(value)
                     owner.categoryPostList.accept(value)
                 case .failure(let error):
-                    print(error)
+                    owner.errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)

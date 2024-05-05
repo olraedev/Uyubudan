@@ -48,8 +48,8 @@ final class NicknameViewController: JoinViewController {
             .disposed(by: disposeBag)
         
         output.error
-            .drive(with: self) { owner, text in
-                owner.showAlert(title: nil, message: text)
+            .drive(with: self) { owner, error in
+                owner.showAlert(title: nil, message: error.errorDescription)
             }
             .disposed(by: disposeBag)
     }

@@ -104,6 +104,12 @@ final class ProfileViewController: BaseViewController {
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+        
+        output.errorMessage
+            .drive(with: self) { owner, error in
+                owner.showAlert(title: nil, message: error.errorDescription)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationItem() {

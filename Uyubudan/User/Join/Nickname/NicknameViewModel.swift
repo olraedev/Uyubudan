@@ -21,13 +21,13 @@ class NicknameViewModel: ViewModelType {
     struct Output {
         let nicknameValidation: Driver<Bool>
         let complete: Driver<Void>
-        let error: Driver<String>
+        let error: Driver<HTTPError>
     }
     
     func transform(input: Input) -> Output {
         let nicknameValidation = PublishRelay<Bool>()
         let complete = PublishRelay<Void>()
-        let errorMessage = PublishRelay<String>()
+        let errorMessage = PublishRelay<HTTPError>()
         
         input.nickname.orEmpty.changed
             .map { 2 <= $0.count && $0.count < 10 }
@@ -49,11 +49,7 @@ class NicknameViewModel: ViewModelType {
                 case .success(_):
                     complete.accept(())
                 case .failure(let error):
-                    if error == .cantUseEmail {
-                        errorMessage.accept("이미 가입한 유저입니다.")
-                    } else {
-                        errorMessage.accept("잠시 후 다시 시도해주세요.")
-                    }
+                    errorMessage.accept(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -61,7 +57,7 @@ class NicknameViewModel: ViewModelType {
         return Output(
             nicknameValidation: nicknameValidation.asDriver(onErrorJustReturn: false), 
             complete: complete.asDriver(onErrorJustReturn: ()),
-            error: errorMessage.asDriver(onErrorJustReturn: "")
+            error: errorMessage.asDriver(onErrorJustReturn: .serverError)
         )
     }
 }

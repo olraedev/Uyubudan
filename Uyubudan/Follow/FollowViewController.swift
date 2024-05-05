@@ -34,7 +34,7 @@ final class FollowViewController: BaseViewController {
             viewWillAppearTrigger: viewWillAppearTrigger, 
             viewWillDisAppearTrigger: viewWillDisAppearTrigger
         )
-        let _ = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
         
         viewModel.peopleList
             .bind(to: followView.collectionView.rx.items(cellIdentifier: FollowCollectionViewCell.identifier, cellType: FollowCollectionViewCell.self)) { [weak self] row, element, cell in
@@ -69,6 +69,12 @@ final class FollowViewController: BaseViewController {
                     nav.modalPresentationStyle = .fullScreen
                     pvc.present(nav, animated:true)
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        output.errorMessage
+            .drive(with: self) { owner, error in
+                owner.showAlert(title: nil, message: error.errorDescription)
             }
             .disposed(by: disposeBag)
     }
