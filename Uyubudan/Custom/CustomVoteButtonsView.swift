@@ -15,6 +15,7 @@ final class CustomVoteButtonsView: BaseView {
         button.layer.cornerRadius = 10
         button.backgroundColor = .customSecondary
         button.clipsToBounds = true
+        button.contentMode = .scaleAspectFill
         return button
     }()
     
@@ -32,6 +33,7 @@ final class CustomVoteButtonsView: BaseView {
         button.layer.cornerRadius = 10
         button.backgroundColor = .customTertiary
         button.clipsToBounds = true
+        button.contentMode = .scaleAspectFill
         return button
     }()
     

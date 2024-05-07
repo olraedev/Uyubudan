@@ -47,6 +47,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         view.layer.cornerRadius = 10
         view.layer.borderColor = UIColor.systemGray6.cgColor
         view.layer.borderWidth = 1
+        view.isHidden = true
         return view
     }()
     
@@ -80,7 +81,11 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    let customVoteRateView = CustomVoteRateView()
+    let customVoteRateView = {
+        let view = CustomVoteRateView()
+        view.isHidden = true
+        return view
+    }()
     
     private let lineView = {
         let view = UIView()
@@ -114,6 +119,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         imageView.isHidden = true
         imageView.image = nil
         labelsView.isHidden = true
+        customVoteButtonsView.isHidden = true
         customVoteInfoView.isHidden = true
         postHeaderView.deleteButton.isHidden = true
         profileView.followButton.isHidden = true
@@ -126,6 +132,7 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
     func configureCell(_ item: PostData, myFollowingList: [String]) {
         let userID = UserDefaultsManager.userID
         
+        customVoteButtonsView.isHidden = false
         postHeaderView.configureViewWithPostData(item, userID: userID)
         createdDateLable.text = ISODateFormatManager.shared.ISODateFormatToString(item.createdAt)
         voteCountButton.setTitle("\(item.likes.count + item.likes2.count)", for: .normal)
