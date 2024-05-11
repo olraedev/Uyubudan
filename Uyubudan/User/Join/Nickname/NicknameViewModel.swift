@@ -38,8 +38,7 @@ class NicknameViewModel: ViewModelType {
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(input.nickname.orEmpty)
             .map {
-                let manager = TempDataRepoManager.shared
-                return JoinQuery(email: manager.email, password: manager.password, nick: $0)
+                return JoinQuery(email: TempDataRepoManager.shared.email, password: TempDataRepoManager.shared.password, nick: $0)
             }
             .flatMap {
                 NetworkManager.fetchToServer(model: JoinModel.self, router: UserRouter.join(JoinQuery: $0))

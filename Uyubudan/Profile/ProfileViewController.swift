@@ -129,6 +129,10 @@ final class ProfileViewController: BaseViewController {
             navigationItem.leftBarButtonItem?.isHidden = true
         }
     }
+    
+    deinit {
+        print("Profile Deinit")
+    }
 }
 
 extension ProfileViewController {

@@ -53,4 +53,8 @@ final class NicknameViewController: JoinViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("Nickname Deinit")
+    }
 }

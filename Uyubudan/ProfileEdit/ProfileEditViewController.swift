@@ -83,6 +83,10 @@ final class ProfileEditViewController: BaseViewController {
     override func configureNavigationItem() {
         navigationItem.leftBarButtonItem = profileEditView.popButtonItem
     }
+    
+    deinit {
+        print("profile edit Deinit")
+    }
 }
 
 extension ProfileEditViewController {

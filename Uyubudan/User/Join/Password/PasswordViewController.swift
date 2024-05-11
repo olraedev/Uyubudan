@@ -43,4 +43,8 @@ final class PasswordViewController: JoinViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("Password Deinit")
+    }
 }

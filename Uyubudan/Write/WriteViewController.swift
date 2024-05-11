@@ -22,7 +22,7 @@ class WriteViewController: BaseViewController {
     }
     
     deinit {
-        print("JoinViewController Deinit")
+        print("WriteViewController Deinit")
     }
 }
 

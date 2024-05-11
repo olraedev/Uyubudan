@@ -34,7 +34,10 @@ final class CommentsViewModel: ViewModelType {
         let errorMessage = PublishRelay<HTTPError>()
         
         viewWillAppearTrigger
-            .map { _ in self.postID }
+            .map { [weak self] _ in
+                guard let self else { return "" }
+                return self.postID
+            }
             .flatMap {
                 NetworkManager.fetchToServer(model: PostData.self, router: PostRouter.readSpecific(postID: $0))
             }

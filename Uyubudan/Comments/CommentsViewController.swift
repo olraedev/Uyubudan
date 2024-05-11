@@ -63,4 +63,8 @@ final class CommentsViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("Comments Deinit")
+    }
 }

@@ -39,4 +39,8 @@ final class PaymentViewController: BaseViewController {
     override func configureNavigationItem() {
         navigationController?.isNavigationBarHidden = true
     }
+    
+    deinit {
+        print("payment deinit")
+    }
 }

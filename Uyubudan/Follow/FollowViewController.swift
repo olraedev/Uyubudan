@@ -78,4 +78,8 @@ final class FollowViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("follow deinit")
+    }
 }

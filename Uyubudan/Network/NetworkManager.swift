@@ -19,7 +19,7 @@ final class NetworkManager {
                 
                 AF.request(urlRequest, interceptor: NetworkInterceptor())
                     .validate(statusCode: 200..<300)
-                    .responseDecodable(of: M.self) { response in
+                    .responseDecodable(of: model.self) { response in
                         switch response.result {
                         case .success(let model):
                             print("success")

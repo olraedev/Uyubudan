@@ -69,4 +69,8 @@ final class EmailViewController: JoinViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("Email Deinit")
+    }
 }
