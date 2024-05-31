@@ -69,7 +69,7 @@
 
 <br>
 
-## 💬 핵심 기능
+## ❗ 핵심 기능
 
 ### 1) Alamofire의 RequestInterceptor를 이용한 JWT 갱신
 
