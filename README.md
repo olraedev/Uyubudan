@@ -32,7 +32,7 @@
 
 ## 📚 기술 스택
 ### 1) User Interface
-- Code Base / SnapKit / Compositional Layout / FlowLayout / Toast
+- UIKit / Code Base / SnapKit / Compositional Layout / Flow Layout / Toast
 
 ### 2) Network
 - Alamofire / Codable / RequestInterceptor / NWPathMonitor / URLRequestConvertible
@@ -45,7 +45,31 @@
 
 <br>
 
-## 💬 상세 설명
+## 💬 기술 상세 설명
+### 1) User Interface
+- `SnapKit`을 활용해 다양한 디바이스에 맞는 Layout 설계
+
+### 2) Network
+- 코드의 간소화와 가독성 측면에서 `Alamofire` 사용
+- `Codable` 프로토콜을 사용해 JSON 데이터 파싱
+- `RequestInterceptor` 프로토콜을 사용한 JWT(JSON Web Token) 갱신 구현
+- 실시간 네트워크 감지를 위해 `NWPathMonitor` 사용
+- `URLRequestConvertible` 이용한 네트워크 추상화
+
+### 3) Design Pattern
+- `MVVM Pattern`으로 View와 비지니스 로직을 분리하여 유지보수성을 높임
+- 여러 스레드 간 데이터 공유 목적과 메모리 낭비를 방지하기 위해 `Singleton Pattern` 사용
+- `Router Pattern`으로 중복적인 네트워크 코드 제거
+- `Input-Output Pattern`으로 코드 가독성 증대
+
+### 4) ETC
+- `Property Wrapper`를 활용해 `UserDefaults`의 로직 분리
+- `RxSwift`를 사용한 비동기 및 이벤트 기반 처리
+- `Iamport` 결제 및 영수증 검증 로직 구현
+
+<br>
+
+## 💬 핵심 기능
 
 ### 1) Alamofire의 RequestInterceptor를 이용한 JWT 갱신
 
@@ -117,7 +141,7 @@ Optimistic UI란❓
 2. 서버에 좋아요 혹은 좋아요 취소 API 요청
 3. 사용자가 다른 탭에서 피드 탭으로 이동 시, 혹은 새로고침을 진행 할 때 최신 포스트 데이터를 불러옴
 
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/828332f8-615e-4d2e-b74f-a898068a05f1" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/4aa22a8f-a49f-4293-9287-4786322b6ab8" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/828332f8-615e-4d2e-b74f-a898068a05f1" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/4aa22a8f-a49f-4293-9287-4786322b6ab8" width="200" height="400"/> |
 |:----------:|:----------:|
 | Optimistic UI 적용 전 | Optimistic UI 적용 후 |
 
@@ -158,41 +182,41 @@ Optimistic UI란❓
 - 최상단 뷰가 어떤 뷰인지 확인 하는 로직이 필요가 없어짐
 - 모든 viewController에서 네트워크 모니터링이 가능
 
-   <img src="https://github.com/olraedev/Uyubudan/assets/109517070/e1319bea-c879-402b-9696-035061253045" width="200" height="300"/>
+   <img src="https://github.com/olraedev/Uyubudan/assets/109517070/e1319bea-c879-402b-9696-035061253045" width="200" height="400"/>
 
 <br>
 
 ## 🖥️ 화면별 동작
 
 ### 1) 회원 가입
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f97c86fb-f51c-4cb6-8b7c-99fd86e2dd2c" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/2ffb869f-6fa1-47f8-b970-5793675b966d" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/4466a360-0b0e-469e-a658-86f5c9d3ca98" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f97c86fb-f51c-4cb6-8b7c-99fd86e2dd2c" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/2ffb869f-6fa1-47f8-b970-5793675b966d" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/4466a360-0b0e-469e-a658-86f5c9d3ca98" width="200" height="400"/> |
 |:----------:|:----------:|:----------:|
 | 이메일 | 비밀번호 | 닉네임 |
 
 <br>
 
 ### 2) 포스트 작성
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/dd1413f8-84fa-40f2-8266-4a6aeef38304" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f344428f-c6ec-4f37-907d-266d2df169ae" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/999ddbdb-a938-47c7-b7b4-91899638ec6e" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/70d6bc72-8fdb-4945-9f13-74b3defe351d" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/dd1413f8-84fa-40f2-8266-4a6aeef38304" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f344428f-c6ec-4f37-907d-266d2df169ae" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/999ddbdb-a938-47c7-b7b4-91899638ec6e" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/70d6bc72-8fdb-4945-9f13-74b3defe351d" width="200" height="400"/> |
 |:----------:|:----------:|:----------:|:----------:|
 | 카테고리 | 제목 및 내용 | 이미지 업로드 | 고민 작성 |
 
 <br>
 
 ### 3) 피드
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/abaad550-abba-45b3-bfd0-ffaa64aa5e9e" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/234bc939-85cc-4eeb-888b-b636c6db557e" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/5b948dbc-351c-481b-bbc6-8ada553f7dfb" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/8d787e37-be76-4528-a63a-f926014bed81" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/abaad550-abba-45b3-bfd0-ffaa64aa5e9e" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/234bc939-85cc-4eeb-888b-b636c6db557e" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/5b948dbc-351c-481b-bbc6-8ada553f7dfb" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/8d787e37-be76-4528-a63a-f926014bed81" width="200" height="400"/> |
 |:----------:|:----------:|:----------:|:----------:|
 | 카테고리 | 투표 | 새로고침 | 팔로우 |
 
 <br>
 
 ### 4) 댓글
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/65c5a45f-fe1b-443b-ab8e-f7cd0f40f28a" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/8a34aac2-52a3-4ba7-8fca-09a6ee540043" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/65c5a45f-fe1b-443b-ab8e-f7cd0f40f28a" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/8a34aac2-52a3-4ba7-8fca-09a6ee540043" width="200" height="400"/> |
 |:----------:|:----------:|
 | 작성 | 삭제 |
 
 <br>
 
 ### 5) 프로필
-| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/93b3f920-d19b-4685-ae71-fc59a44c76b4" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/1732d1a2-b0d0-45c7-96c0-c8a8346b7b92" width="200" height="350"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f2f79280-2c0b-4593-970b-ada8743275d7" width="200" height="350"/> |
+| <img src="https://github.com/olraedev/Uyubudan/assets/109517070/93b3f920-d19b-4685-ae71-fc59a44c76b4" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/1732d1a2-b0d0-45c7-96c0-c8a8346b7b92" width="200" height="400"/> | <img src="https://github.com/olraedev/Uyubudan/assets/109517070/f2f79280-2c0b-4593-970b-ada8743275d7" width="200" height="400"/> |
 |:----------:|:----------:|:----------:|
 | 메인 | 수정 | 팔로우 |
